@@ -1,908 +1,1041 @@
 {
-  "fr-CA": {
+  "en-US": {
+    "language_name": "US English",
     "text": {
-      "about": "À propos de Job Connect",
-      "skip_to_content": "Passer au contenu principal",
-      "features": "Explorer les fonctionnalités",
-      "faq": "Foire aux questions",
-      "download_nav": "Télécharger",
-      "download_title": "Télécharger Job Connect pour Android",
-      "download_intro": "Obtenez l’application Android officielle Job Connect sur Google Play pour découvrir des possibilités d’emploi, consulter leur contexte et organiser vos favoris.",
-      "download_steps_title": "Installer en trois étapes simples",
-      "download_step_1": "Ouvrez la fiche officielle sur Google Play.",
-      "download_step_2": "Touchez Installer sur votre appareil Android.",
-      "download_step_3": "Ouvrez Job Connect et explorez les possibilités.",
-      "download_note": "Pour votre sécurité, installez l’application uniquement à partir de sa fiche officielle sur Google Play.",
-      "download_facts": "Renseignements sur l’application",
-      "platform": "Plateforme",
-      "developer": "Développeur",
-      "package": "Identifiant du package",
-      "home": "Découvrez votre prochaine possibilité",
-      "cta": "Voir sur Google Play",
-      "tag": "DÉCOUVERTE DE POSSIBILITÉS D’EMPLOI",
-      "gallery": "Un aperçu de l’application",
-      "gallery_intro": "Captures d’écran réelles de la fiche Google Play.",
-      "download": "Commencez avec Job Connect",
-      "privacy": "Politique de confidentialité",
-      "support": "Soutien",
-      "about_intro": "Découvrez comment Job Connect vous aide à repérer et à organiser des possibilités d’emploi.",
-      "features_intro": "Explorez les outils de découverte et d’organisation proposés par Job Connect.",
-      "faq_intro": "Réponses aux questions courantes sur Job Connect.",
-      "language": "Choisir la langue",
+      "about": "About Tetrixa",
+      "skip_to_content": "Skip to main content",
+      "features": "Explore the features",
+      "faq": "Frequently asked questions",
+      "download_nav": "Download",
+      "download_title": "Download Tetrixa for Android",
+      "download_intro": "Get Tetrixa from Google Play and enjoy a fast block-puzzle game with simple touch controls and offline play.",
+      "download_steps_title": "Install in three simple steps",
+      "download_step_1": "Open the official Tetrixa listing on Google Play.",
+      "download_step_2": "Tap Install on your Android device.",
+      "download_step_3": "Open Tetrixa, arrange the pieces and start playing.",
+      "download_note": "For your security, install the game only through its official Google Play listing.",
+      "download_facts": "Game information",
+      "platform": "Platform",
+      "developer": "Developer",
+      "package": "Package ID",
+      "home": "A fresh take on the classic block puzzle",
+      "cta": "Play Tetrixa on Google Play",
+      "tag": "BLOCK PUZZLE · ARCADE GAME",
+      "gallery": "See Tetrixa in action",
+      "gallery_intro": "Screenshots from the official Google Play listing.",
+      "download": "Ready for your next round?",
+      "privacy": "Privacy policy",
+      "support": "Support",
+      "about_intro": "Tetrixa brings quick block-puzzle rounds to your Android device. Place and rotate pieces, clear rows and keep improving your score.",
+      "features_intro": "Discover the gameplay, controls, scoring and offline play that make Tetrixa easy to pick up and challenging to master.",
+      "faq_intro": "Answers to common questions about Tetrixa gameplay, offline access and installation.",
+      "language": "Choose your language",
       "english": "English",
       "arabic": "العربية",
-      "home_intro": "Explorez les possibilités d’emploi, consultez les renseignements utiles et gardez à portée de main les postes qui vous intéressent."
+      "home_intro": "Move and rotate falling pieces, complete rows and chase a higher score. Play offline with simple touch controls whenever you have a moment."
     },
     "titles": {
-      "home": "Application de recherche d’emploi | Job Connect",
-      "about": "À propos de Job Connect | Offres d’emploi",
-      "features": "Fonctionnalités Job Connect | Recherche d’emploi",
-      "download": "Télécharger Job Connect pour Android | Google Play",
-      "faq": "FAQ Job Connect | Offres et recherche d’emploi"
+      "home": "Block Puzzle Game | Tetrixa",
+      "about": "About Tetrixa | Offline Block Puzzle Game",
+      "features": "Tetrixa Features | Block Puzzle Gameplay",
+      "download": "Download Tetrixa for Android | Google Play",
+      "faq": "Tetrixa FAQ | Block Puzzle Game"
     },
     "descriptions": {
-      "home": "Découvrez des possibilités d’emploi avec Job Connect, une application Android pour examiner les détails des postes et organiser les offres à suivre.",
-      "about": "Découvrez comment Job Connect aide à repérer des possibilités d’emploi, à examiner les renseignements sur les postes et à organiser les offres à suivre.",
-      "features": "Explorez les fonctions de découverte, les fiches de postes, les indicateurs de rémunération et de lieu, ainsi que les collections personnelles.",
-      "download": "Téléchargez Job Connect pour Android sur Google Play. Découvrez des possibilités d’emploi, examinez les détails des postes et organisez vos favoris.",
-      "faq": "Consultez les réponses sur la recherche d’emploi, les offres, les indicateurs, les collections personnelles et l’installation de Job Connect."
+      "home": "Play Tetrixa, an offline block puzzle game for Android. Move pieces, clear rows and aim for a higher score.",
+      "about": "Learn about Tetrixa, a mobile block puzzle game with simple touch controls and offline play.",
+      "features": "Explore Tetrixa gameplay, piece controls, line clearing, scoring and offline features.",
+      "download": "Download Tetrixa for Android on Google Play and enjoy a fast block puzzle game offline.",
+      "faq": "Find answers about Tetrixa gameplay, offline access, touch controls, ads and installation."
     },
-    "app_description": "Une expérience de découverte de possibilités d’emploi axée sur les nouveaux signaux, l’analyse des occasions et les collections personnelles. Explorez les postes, consultez les indications de rémunération et de lieu, comprenez pourquoi une possibilité est présentée et organisez celles à suivre.",
-    "tagline": "Découvrez les possibilités avant que la concurrence ne s’intensifie.",
+    "app_description": "Tetrixa is a fast-paced mobile block puzzle game. Move and rotate falling pieces, complete rows, earn points and take on a gradually increasing challenge. Play offline with simple touch controls.",
+    "tagline": "Drop the pieces. Clear the rows. Beat your best score.",
     "features": [
       [
-        "Repérez les nouveaux signaux d’emploi",
-        "Consultez un fil de découverte présentant les possibilités récemment repérées, leur fraîcheur et des indicateurs de correspondance."
+        "Classic block-puzzle gameplay",
+        "Move falling pieces into position, complete horizontal rows and keep the board from filling up."
       ],
       [
-        "Évaluez les possibilités en un coup d’œil",
-        "Comparez les postes, les organisations, les lieux et les indications de rémunération dans des fiches faciles à parcourir."
+        "Simple move and rotate controls",
+        "Use responsive touch controls to position and rotate pieces as you plan each move."
       ],
       [
-        "Comprenez pourquoi une possibilité ressort",
-        "Examinez les indications de rémunération, de lieu, de flexibilité à distance, de fraîcheur et les raisons mises de l’avant par l’application. Ces valeurs ne sont pas des garanties."
+        "Clear rows and build your score",
+        "Complete full rows to clear space, earn points and keep your game going."
       ],
       [
-        "Explorez les indicateurs d’analyse",
-        "Consultez les indicateurs de complétude des données, de fraîcheur, d’unicité et de concurrence, ainsi que les compétences et exigences détectées. Il s’agit d’estimations."
+        "Increasing challenge and scoring",
+        "Follow your score and level as the pace increases and every placement matters."
       ],
       [
-        "Organisez les possibilités en collections",
-        "Créez des collections personnelles comme Remote Hub, Elite Leap et Ma liste de suivi pour classer les possibilités et les retrouver."
+        "Play offline, whenever you like",
+        "Enjoy Tetrixa without an internet connection, whether you have a few minutes or more time to play."
       ]
     ],
     "faq": [
       [
-        "Qu’est-ce que Job Connect?",
-        "Une application de découverte de possibilités d’emploi axée sur les nouveaux signaux, le contexte des postes et les collections personnelles."
+        "What is Tetrixa?",
+        "Tetrixa is a mobile block-puzzle arcade game. Arrange falling pieces, complete rows and aim for a higher score."
       ],
       [
-        "Que signifie un indicateur de correspondance?",
-        "Il s’agit d’un indicateur affiché dans l’application, et non d’une promesse qu’un poste vous convient parfaitement ou que votre candidature sera retenue."
+        "Can I play Tetrixa offline?",
+        "Yes. The Google Play listing describes Tetrixa as a complete offline game, so you can play without an internet connection."
       ],
       [
-        "Que sont les indicateurs d’analyse?",
-        "L’application présente des indicateurs calculés, comme la complétude des données, la fraîcheur de l’annonce, l’unicité et la concurrence, ainsi que des compétences et exigences détectées. Ce sont des estimations."
+        "How do I play?",
+        "Move and rotate the falling pieces to fit them into the board. Complete horizontal rows to clear them and earn points."
       ],
       [
-        "Puis-je organiser les possibilités d’emploi?",
-        "Oui. Les collections comprennent des exemples comme Remote Hub, Elite Leap et Ma liste de suivi."
+        "Does the game get harder?",
+        "The store listing describes gradually increasing difficulty. As you progress, the pace becomes more challenging."
       ],
       [
-        "Où puis-je installer Job Connect?",
-        "Installez l’application Android à partir de sa fiche officielle sur Google Play."
+        "Does Tetrixa have touch controls?",
+        "Yes. Tetrixa includes simple touch controls designed for mobile play."
       ],
       [
-        "Job Connect contient-elle des publicités?",
-        "La fiche Google Play indique que l’application contient des publicités."
+        "Does Tetrixa contain ads?",
+        "Yes. Google Play identifies Tetrixa as an app that contains ads."
       ],
       [
-        "Job Connect postule-t-elle à ma place?",
-        "Non. Job Connect vous aide à découvrir et à examiner des possibilités. Suivez les instructions officielles de l’employeur pour présenter votre candidature."
+        "Is Tetrixa free to download?",
+        "The Google Play listing offers the game for installation. Check the current store page for any purchase or in-app item details."
       ],
       [
-        "Un indicateur garantit-il que ma candidature sera retenue?",
-        "Non. Les indicateurs de correspondance, de fraîcheur et d’analyse sont des estimations qui facilitent votre examen. Ils ne prédisent pas les décisions d’embauche et ne garantissent pas une entrevue."
-      ],
-      [
-        "Comment vérifier qu’une offre d’emploi est authentique?",
-        "Trouvez le site officiel de l’employeur de façon indépendante, comparez les détails du poste et le domaine utilisé pour postuler, et méfiez-vous des demandes d’argent, de mots de passe ou de codes de vérification."
-      ],
-      [
-        "Tous les emplois sont-ils à distance ou accessibles dans chaque pays?",
-        "Non. Le lieu de travail et l’admissibilité géographique dépendent de chaque employeur et de chaque offre. Consultez l’annonce originale pour connaître les restrictions et les modalités de télétravail."
-      ],
-      [
-        "Pourquoi une offre peut-elle ne pas indiquer le salaire?",
-        "Certains employeurs ne publient pas les détails de rémunération. Demandez des précisions à l’employeur avant de poursuivre."
-      ],
-      [
-        "Puis-je installer Job Connect ailleurs que sur Google Play?",
-        "Pour obtenir l’application officielle en toute sécurité, utilisez la fiche Job Connect sur Google Play accessible à partir de ce site."
+        "Where can I install Tetrixa?",
+        "Install the official Android version from the Tetrixa listing on Google Play."
       ]
     ],
     "screenshots": [
       [
-        "Écran Découvrir de Job Connect présentant de nouveaux signaux de possibilités d’emploi",
-        "Découvrez les nouveaux signaux d’emploi"
+        "A Tetrixa gameplay board with falling blocks and the next-piece preview",
+        "Play a round and plan your next move"
       ],
       [
-        "Liste de possibilités Job Connect avec le poste, le salaire et le lieu",
-        "Comparez les postes et les renseignements clés"
+        "Tetrixa gameplay showing blocks placed on the board",
+        "Place pieces and keep the board clear"
       ],
       [
-        "Détails d’une possibilité et raisons de sa mise en évidence dans Job Connect",
-        "Comprenez pourquoi une possibilité est présentée"
+        "Tetrixa game-over screen with the final board state",
+        "Try again and beat your score"
       ],
       [
-        "Indicateurs d’analyse des possibilités et de concurrence dans Job Connect",
-        "Examinez les indicateurs d’analyse"
+        "Tetrixa in-game shop with optional gameplay items",
+        "Explore the in-game shop"
       ],
       [
-        "Collections personnelles de possibilités d’emploi dans Job Connect",
-        "Organisez vos possibilités"
+        "Tetrixa shop screen with gameplay item descriptions",
+        "See available in-game items"
       ]
     ]
   },
-  "en-US": {
-    "titles": {
-      "home": "Job Search App to Discover Opportunities | Job Connect",
-      "about": "About Job Connect | Job Opportunity Discovery App",
-      "features": "Job Search App Features & Opportunity Insights | Job Connect",
-      "download": "Download Job Connect for Android | Google Play",
-      "faq": "Job Connect FAQ | Job Search App & Features"
-    },
-    "descriptions": {
-      "home": "Discover job opportunities with Job Connect, an Android app for reviewing role, pay and location signals and organizing opportunities to follow.",
-      "about": "Learn how Job Connect helps you discover job opportunities, review role details and organize opportunities to revisit. Available for Android.",
-      "features": "Explore Job Connect features for discovering opportunities, reviewing role details and indicators, and organizing opportunities in personal collections.",
-      "download": "Get Job Connect for Android on Google Play. Discover job opportunities, review role details and organize the opportunities you want to follow.",
-      "faq": "Answers about Job Connect, job opportunity discovery, role indicators, personal collections and installing the Android app."
-    }
-  },
   "en-CA": {
-    "titles": {
-      "home": "Job Search App Canada | Job Connect",
-      "about": "About Job Connect | Canada Job Search App",
-      "features": "Job Search App Features | Job Connect Canada",
-      "download": "Download Job Connect for Android in Canada",
-      "faq": "Job Connect FAQ | Job Postings & Opportunities"
-    },
-    "descriptions": {
-      "home": "Explore job opportunities with Job Connect, an Android job search app. Review role, pay and location signals, then organize roles to follow.",
-      "about": "Learn how Job Connect helps you discover job opportunities, review role details and organize job postings to revisit. Available for Android.",
-      "features": "Explore discovery tools, job details, compensation and location indicators, and personal collections in Job Connect for Android.",
-      "download": "Download Job Connect for Android on Google Play. Discover opportunities, review role details and organize the job postings you want to follow.",
-      "faq": "Answers about Job Connect, job postings, opportunity indicators, personal collections and installing the Android app."
-    }
-  },
-  "pt-PT": {
-    "language_name": "Português (Portugal)",
+    "language_name": "English (Canada)",
     "text": {
-      "about": "Sobre o Job Connect",
-      "skip_to_content": "Saltar para o conteúdo principal",
-      "features": "Explorar funcionalidades",
-      "faq": "Perguntas frequentes",
-      "download_nav": "Transferir",
-      "download_title": "Transferir o Job Connect para Android",
-      "download_intro": "Obtenha a aplicação oficial Job Connect para Android no Google Play para descobrir oportunidades de emprego e organizar as suas favoritas.",
-      "download_steps_title": "Instale em três passos simples",
-      "download_step_1": "Abra a página oficial no Google Play.",
-      "download_step_2": "Toque em Instalar no seu dispositivo Android.",
-      "download_step_3": "Abra o Job Connect e explore oportunidades.",
-      "download_note": "Por segurança, instale a aplicação apenas através da página oficial no Google Play.",
-      "download_facts": "Informações da aplicação",
-      "platform": "Plataforma",
-      "developer": "Programador",
-      "package": "ID do pacote",
-      "home": "Descubra a sua próxima oportunidade",
-      "cta": "Ver no Google Play",
-      "tag": "DESCOBERTA DE OPORTUNIDADES DE EMPREGO",
-      "gallery": "Conheça a aplicação",
-      "gallery_intro": "Capturas de ecrã reais da página do Google Play.",
-      "download": "Comece a utilizar o Job Connect",
-      "privacy": "Política de privacidade",
-      "support": "Apoio",
-      "about_intro": "Saiba como o Job Connect o ajuda a descobrir e organizar oportunidades.",
-      "features_intro": "Explore as funcionalidades de descoberta e organização do Job Connect.",
-      "faq_intro": "Respostas às perguntas mais frequentes sobre o Job Connect.",
-      "language": "Escolha o idioma",
+      "about": "About Tetrixa",
+      "skip_to_content": "Skip to main content",
+      "features": "Explore the features",
+      "faq": "Frequently asked questions",
+      "download_nav": "Download",
+      "download_title": "Download Tetrixa for Android",
+      "download_intro": "Get Tetrixa from Google Play and enjoy a fast block-puzzle game with simple touch controls and offline play.",
+      "download_steps_title": "Install in three simple steps",
+      "download_step_1": "Open the official Tetrixa listing on Google Play.",
+      "download_step_2": "Tap Install on your Android device.",
+      "download_step_3": "Open Tetrixa, arrange the pieces and start playing.",
+      "download_note": "For your security, install the game only through its official Google Play listing.",
+      "download_facts": "Game information",
+      "platform": "Platform",
+      "developer": "Developer",
+      "package": "Package ID",
+      "home": "A fresh take on the classic block puzzle",
+      "cta": "Play Tetrixa on Google Play",
+      "tag": "BLOCK PUZZLE · ARCADE GAME",
+      "gallery": "See Tetrixa in action",
+      "gallery_intro": "Screenshots from the official Google Play listing.",
+      "download": "Ready for your next round?",
+      "privacy": "Privacy policy",
+      "support": "Support",
+      "about_intro": "Tetrixa brings quick block-puzzle rounds to your Android device. Place and rotate pieces, clear rows and keep improving your score.",
+      "features_intro": "Discover the gameplay, controls, scoring and offline play that make Tetrixa easy to pick up and challenging to master.",
+      "faq_intro": "Answers to common questions about Tetrixa gameplay, offline access and installation.",
+      "language": "Choose your language",
       "english": "English",
       "arabic": "العربية",
-      "home_intro": "Explore oportunidades de emprego, consulte informação útil e acompanhe as funções que lhe interessam."
+      "home_intro": "Move and rotate falling pieces, complete rows and chase a higher score. Play offline with simple touch controls whenever you have a moment."
     },
     "titles": {
-      "home": "App para procurar emprego | Job Connect",
-      "about": "Sobre o Job Connect | Descoberta de oportunidades",
-      "features": "Funcionalidades do Job Connect | Descoberta de empregos",
-      "download": "Transferir o Job Connect para Android | Google Play",
-      "faq": "Perguntas frequentes do Job Connect | Procura de emprego"
+      "home": "Block Puzzle Game | Tetrixa",
+      "about": "About Tetrixa | Android Puzzle Game",
+      "features": "Tetrixa Features | Offline Block Puzzle",
+      "download": "Download Tetrixa for Android | Google Play",
+      "faq": "Tetrixa FAQ | Gameplay & Installation"
     },
     "descriptions": {
-      "home": "Descubra oportunidades de emprego com o Job Connect, uma aplicação Android para consultar detalhes das funções e organizar oportunidades a acompanhar.",
-      "about": "Saiba como o Job Connect ajuda a descobrir oportunidades, consultar detalhes das funções e organizar as que pretende acompanhar.",
-      "features": "Explore as funcionalidades do Job Connect para descobrir oportunidades, consultar detalhes e indicadores e organizar funções em coleções pessoais.",
-      "download": "Transfira o Job Connect para Android no Google Play. Descubra oportunidades, consulte detalhes das funções e organize as suas favoritas.",
-      "faq": "Respostas sobre o Job Connect, descoberta de oportunidades, indicadores das funções e coleções pessoais."
+      "home": "Play Tetrixa, an offline block puzzle game for Android. Move pieces, clear rows and aim for a higher score.",
+      "about": "Learn about Tetrixa, an Android block puzzle with simple touch controls and offline play.",
+      "features": "Explore Tetrixa gameplay, piece controls, line clearing, scoring and offline play.",
+      "download": "Download Tetrixa for Android on Google Play and enjoy a block puzzle game offline.",
+      "faq": "Answers about Tetrixa gameplay, offline access, touch controls, ads and installation."
     },
-    "app_description": "Uma aplicação para descobrir oportunidades de emprego, consultar o contexto das funções e organizar coleções pessoais. Os indicadores de remuneração, localização e atualidade são informações de apoio, não garantias.",
-    "tagline": "Descubra oportunidades e organize a sua procura.",
+    "app_description": "Tetrixa is a fast-paced mobile block puzzle game. Move and rotate falling pieces, complete rows, earn points and take on a gradually increasing challenge. Play offline with simple touch controls.",
+    "tagline": "Drop the pieces. Clear the rows. Beat your best score.",
     "features": [
       [
-        "Descubra novos sinais de oportunidades",
-        "Explore um feed com oportunidades recentes e indicadores de atualidade."
+        "Classic block-puzzle gameplay",
+        "Move falling pieces into position, complete horizontal rows and keep the board from filling up."
       ],
       [
-        "Consulte oportunidades rapidamente",
-        "Compare funções, organizações, localizações e indicadores de remuneração."
+        "Simple move and rotate controls",
+        "Use responsive touch controls to position and rotate pieces as you plan each move."
       ],
       [
-        "Perceba o que distingue uma oportunidade",
-        "Consulte indicadores de remuneração, localização e atualidade. Não são garantias."
+        "Clear rows and build your score",
+        "Complete full rows to clear space, earn points and keep your game going."
       ],
       [
-        "Explore métricas de análise",
-        "Consulte estimativas de completude dos dados, atualidade, singularidade e concorrência."
+        "Increasing challenge and scoring",
+        "Follow your score and level as the pace increases and every placement matters."
       ],
       [
-        "Organize oportunidades em coleções",
-        "Crie coleções pessoais como Remote Hub, Elite Leap e A minha lista."
+        "Play offline, whenever you like",
+        "Enjoy Tetrixa without an internet connection, whether you have a few minutes or more time to play."
       ]
     ],
     "faq": [
       [
-        "O que é o Job Connect?",
-        "Uma aplicação para descobrir oportunidades de emprego, consultar o contexto das funções e organizar coleções."
+        "What is Tetrixa?",
+        "Tetrixa is a mobile block-puzzle arcade game. Arrange falling pieces, complete rows and aim for a higher score."
       ],
       [
-        "O que significa um indicador de correspondência?",
-        "É um indicador da aplicação, não uma promessa de adequação ou sucesso."
+        "Can I play Tetrixa offline?",
+        "Yes. The Google Play listing describes Tetrixa as a complete offline game, so you can play without an internet connection."
       ],
       [
-        "O que são as métricas de análise?",
-        "Estimativas de completude dos dados, atualidade, singularidade e concorrência, além de competências detetadas."
+        "How do I play?",
+        "Move and rotate the falling pieces to fit them into the board. Complete horizontal rows to clear them and earn points."
       ],
       [
-        "Posso organizar oportunidades?",
-        "Sim. Pode criar coleções como Remote Hub, Elite Leap e A minha lista."
+        "Does the game get harder?",
+        "The store listing describes gradually increasing difficulty. As you progress, the pace becomes more challenging."
       ],
       [
-        "Onde posso instalar o Job Connect?",
-        "Instale a aplicação Android através da página oficial no Google Play."
+        "Does Tetrixa have touch controls?",
+        "Yes. Tetrixa includes simple touch controls designed for mobile play."
       ],
       [
-        "O Job Connect contém anúncios?",
-        "A página do Google Play indica que a aplicação contém anúncios."
+        "Does Tetrixa contain ads?",
+        "Yes. Google Play identifies Tetrixa as an app that contains ads."
       ],
       [
-        "O Job Connect candidata-se por mim?",
-        "Não. Ajuda a descobrir e analisar oportunidades. Siga as instruções oficiais da entidade empregadora."
+        "Is Tetrixa free to download?",
+        "The Google Play listing offers the game for installation. Check the current store page for any purchase or in-app item details."
       ],
       [
-        "Um indicador garante uma candidatura bem-sucedida?",
-        "Não. São estimativas e não garantem entrevistas nem decisões de contratação."
-      ],
-      [
-        "Como posso verificar se um anúncio é legítimo?",
-        "Procure o site oficial da entidade empregadora e tenha cuidado com pedidos de dinheiro, palavras-passe ou códigos."
-      ],
-      [
-        "Todos os empregos são remotos ou estão disponíveis em todos os países?",
-        "Não. A localização depende da entidade empregadora e do anúncio."
-      ],
-      [
-        "Porque pode faltar informação salarial?",
-        "Algumas entidades não publicam remunerações. Peça esclarecimentos diretamente."
-      ],
-      [
-        "Posso instalar o Job Connect fora do Google Play?",
-        "Utilize a página oficial do Job Connect no Google Play ligada a este site."
+        "Where can I install Tetrixa?",
+        "Install the official Android version from the Tetrixa listing on Google Play."
       ]
     ],
     "screenshots": [
       [
-        "Ecrã Descobrir com sinais recentes de oportunidades",
-        "Descubra oportunidades"
+        "A Tetrixa gameplay board with falling blocks and the next-piece preview",
+        "Play a round and plan your next move"
       ],
       [
-        "Lista de oportunidades com função, salário e localização",
-        "Compare funções e detalhes"
+        "Tetrixa gameplay showing blocks placed on the board",
+        "Place pieces and keep the board clear"
       ],
       [
-        "Detalhes e motivos para uma oportunidade surgir",
-        "Compreenda a oportunidade"
+        "Tetrixa game-over screen with the final board state",
+        "Try again and beat your score"
       ],
       [
-        "Métricas de análise e concorrência",
-        "Consulte métricas"
+        "Tetrixa in-game shop with optional gameplay items",
+        "Explore the in-game shop"
       ],
       [
-        "Coleções pessoais de oportunidades",
-        "Organize oportunidades"
+        "Tetrixa shop screen with gameplay item descriptions",
+        "See available in-game items"
+      ]
+    ]
+  },
+  "fr-CA": {
+    "language_name": "Français (Canada)",
+    "text": {
+      "about": "À propos de Tetrixa",
+      "skip_to_content": "Passer au contenu principal",
+      "features": "Découvrir les fonctionnalités",
+      "faq": "Questions fréquentes",
+      "download_nav": "Télécharger",
+      "download_title": "Télécharger Tetrixa pour Android",
+      "download_intro": "Téléchargez Tetrixa sur Google Play et profitez d’un jeu de blocs rapide, avec des commandes tactiles simples et un mode hors ligne.",
+      "download_steps_title": "Installer en trois étapes simples",
+      "download_step_1": "Ouvrez la fiche officielle de Tetrixa sur Google Play.",
+      "download_step_2": "Appuyez sur Installer sur votre appareil Android.",
+      "download_step_3": "Ouvrez Tetrixa, placez les pièces et commencez à jouer.",
+      "download_note": "Pour votre sécurité, installez le jeu uniquement depuis sa fiche officielle Google Play.",
+      "download_facts": "Informations sur le jeu",
+      "platform": "Plateforme",
+      "developer": "Développeur",
+      "package": "Identifiant du package",
+      "home": "Un nouveau défi autour des blocs classiques",
+      "cta": "Jouer à Tetrixa sur Google Play",
+      "tag": "PUZZLE DE BLOCS · ARCADE",
+      "gallery": "Tetrixa en images",
+      "gallery_intro": "Captures d’écran de la fiche officielle Google Play.",
+      "download": "Prêt pour une nouvelle partie ?",
+      "privacy": "Politique de confidentialité",
+      "support": "Assistance",
+      "about_intro": "Tetrixa propose des parties rapides de puzzle de blocs sur Android. Placez et faites pivoter les pièces, complétez les lignes et améliorez votre score.",
+      "features_intro": "Découvrez le gameplay, les commandes, le score et le mode hors ligne de Tetrixa.",
+      "faq_intro": "Réponses aux questions courantes sur Tetrixa, le jeu hors ligne et l’installation.",
+      "language": "Choisir la langue",
+      "english": "English",
+      "arabic": "العربية",
+      "home_intro": "Déplacez et faites pivoter les pièces, complétez les lignes et visez un meilleur score. Jouez hors ligne avec des commandes tactiles simples."
+    },
+    "titles": {
+      "home": "Jeu de blocs | Tetrixa",
+      "about": "À propos de Tetrixa | Puzzle hors ligne",
+      "features": "Fonctionnalités de Tetrixa | Jeu de blocs",
+      "download": "Télécharger Tetrixa pour Android | Google Play",
+      "faq": "FAQ Tetrixa | Jeu et installation"
+    },
+    "descriptions": {
+      "home": "Jouez à Tetrixa, un jeu de blocs hors ligne sur Android. Déplacez les pièces, complétez les lignes et visez un meilleur score.",
+      "about": "Découvrez Tetrixa, un jeu mobile de blocs avec commandes tactiles simples et mode hors ligne.",
+      "features": "Explorez le gameplay, les commandes, les lignes, le score et le mode hors ligne de Tetrixa.",
+      "download": "Téléchargez Tetrixa pour Android sur Google Play et jouez à un puzzle de blocs hors ligne.",
+      "faq": "Réponses sur le jeu Tetrixa, le mode hors ligne, les commandes et l’installation."
+    },
+    "app_description": "Déplacez et faites pivoter les pièces, complétez les lignes et visez un meilleur score. Jouez hors ligne avec des commandes tactiles simples.",
+    "tagline": "Un nouveau défi autour des blocs classiques",
+    "features": [
+      [
+        "Gameplay classique de puzzle de blocs",
+        "Déplacez les pièces qui tombent, complétez des lignes horizontales et évitez de remplir le plateau."
+      ],
+      [
+        "Commandes tactiles simples",
+        "Déplacez et faites pivoter les pièces avec des commandes tactiles réactives."
+      ],
+      [
+        "Compléter des lignes et marquer des points",
+        "Complétez des lignes pour libérer de l’espace et gagner des points."
+      ],
+      [
+        "Défi progressif et score",
+        "Suivez votre score et votre niveau tandis que le rythme s’accélère."
+      ],
+      [
+        "Jouer hors ligne",
+        "Profitez de Tetrixa sans connexion Internet, pour des parties courtes ou longues."
+      ]
+    ],
+    "faq": [
+      [
+        "Qu’est-ce que Tetrixa ?",
+        "Tetrixa est un jeu mobile d’arcade et de puzzle de blocs. Placez les pièces, complétez des lignes et visez un meilleur score."
+      ],
+      [
+        "Puis-je jouer hors ligne ?",
+        "Oui. La fiche Google Play présente Tetrixa comme un jeu entièrement hors ligne."
+      ],
+      [
+        "Comment jouer ?",
+        "Déplacez et faites pivoter les pièces pour les placer sur le plateau. Complétez des lignes horizontales pour gagner des points."
+      ],
+      [
+        "Le jeu devient-il plus difficile ?",
+        "La fiche indique une difficulté qui augmente progressivement."
+      ],
+      [
+        "Le jeu propose-t-il des commandes tactiles ?",
+        "Oui. Tetrixa comprend des commandes tactiles simples pour mobile."
+      ],
+      [
+        "Tetrixa contient-il des publicités ?",
+        "Oui. Google Play indique que Tetrixa contient des publicités."
+      ],
+      [
+        "Le téléchargement est-il gratuit ?",
+        "Consultez la fiche Google Play pour connaître les conditions actuelles et les éventuels achats intégrés."
+      ],
+      [
+        "Où installer Tetrixa ?",
+        "Installez la version Android officielle depuis la fiche Tetrixa sur Google Play."
+      ]
+    ],
+    "screenshots": [
+      [
+        "A Tetrixa gameplay board with falling blocks and the next-piece preview",
+        "Play a round and plan your next move"
+      ],
+      [
+        "Tetrixa gameplay showing blocks placed on the board",
+        "Place pieces and keep the board clear"
+      ],
+      [
+        "Tetrixa game-over screen with the final board state",
+        "Try again and beat your score"
+      ],
+      [
+        "Tetrixa in-game shop with optional gameplay items",
+        "Explore the in-game shop"
+      ],
+      [
+        "Tetrixa shop screen with gameplay item descriptions",
+        "See available in-game items"
+      ]
+    ]
+  },
+  "fr-FR": {
+    "language_name": "Français (France)",
+    "text": {
+      "about": "À propos de Tetrixa",
+      "skip_to_content": "Passer au contenu principal",
+      "features": "Découvrir les fonctionnalités",
+      "faq": "Questions fréquentes",
+      "download_nav": "Télécharger",
+      "download_title": "Télécharger Tetrixa pour Android",
+      "download_intro": "Téléchargez Tetrixa sur Google Play et profitez d’un jeu de blocs rapide, avec des commandes tactiles simples et un mode hors ligne.",
+      "download_steps_title": "Installer en trois étapes simples",
+      "download_step_1": "Ouvrez la fiche officielle de Tetrixa sur Google Play.",
+      "download_step_2": "Appuyez sur Installer sur votre appareil Android.",
+      "download_step_3": "Ouvrez Tetrixa, placez les pièces et commencez à jouer.",
+      "download_note": "Pour votre sécurité, installez le jeu uniquement depuis sa fiche officielle Google Play.",
+      "download_facts": "Informations sur le jeu",
+      "platform": "Plateforme",
+      "developer": "Développeur",
+      "package": "Identifiant du package",
+      "home": "Un nouveau défi autour des blocs classiques",
+      "cta": "Jouer à Tetrixa sur Google Play",
+      "tag": "PUZZLE DE BLOCS · ARCADE",
+      "gallery": "Tetrixa en images",
+      "gallery_intro": "Captures d’écran de la fiche officielle Google Play.",
+      "download": "Prêt pour une nouvelle partie ?",
+      "privacy": "Politique de confidentialité",
+      "support": "Assistance",
+      "about_intro": "Tetrixa propose des parties rapides de puzzle de blocs sur Android. Placez et faites pivoter les pièces, complétez les lignes et améliorez votre score.",
+      "features_intro": "Découvrez le gameplay, les commandes, le score et le mode hors ligne de Tetrixa.",
+      "faq_intro": "Réponses aux questions courantes sur Tetrixa, le jeu hors ligne et l’installation.",
+      "language": "Choisir la langue",
+      "english": "English",
+      "arabic": "العربية",
+      "home_intro": "Déplacez et faites pivoter les pièces, complétez les lignes et visez un meilleur score. Jouez hors ligne avec des commandes tactiles simples."
+    },
+    "titles": {
+      "home": "Jeu de puzzle de blocs | Tetrixa",
+      "about": "À propos de Tetrixa | Jeu Android",
+      "features": "Fonctionnalités de Tetrixa | Puzzle",
+      "download": "Télécharger Tetrixa pour Android | Google Play",
+      "faq": "FAQ Tetrixa | Gameplay et installation"
+    },
+    "descriptions": {
+      "home": "Jouez à Tetrixa, un jeu de puzzle de blocs hors ligne sur Android. Placez les pièces et complétez les lignes.",
+      "about": "Découvrez Tetrixa, un jeu Android de blocs avec commandes tactiles simples et mode hors ligne.",
+      "features": "Découvrez les commandes, les lignes, le score et le mode hors ligne de Tetrixa.",
+      "download": "Téléchargez Tetrixa pour Android sur Google Play et profitez du puzzle de blocs.",
+      "faq": "Réponses sur le gameplay de Tetrixa, le mode hors ligne et l’installation."
+    },
+    "app_description": "Déplacez et faites pivoter les pièces, complétez les lignes et visez un meilleur score. Jouez hors ligne avec des commandes tactiles simples.",
+    "tagline": "Un nouveau défi autour des blocs classiques",
+    "features": [
+      [
+        "Puzzle de blocs classique",
+        "Déplacez les pièces qui tombent, complétez des lignes et empêchez le plateau de se remplir."
+      ],
+      [
+        "Commandes tactiles simples",
+        "Déplacez et faites pivoter les pièces grâce aux commandes tactiles."
+      ],
+      [
+        "Compléter des lignes et marquer des points",
+        "Complétez des lignes pour libérer de l’espace et gagner des points."
+      ],
+      [
+        "Défi progressif et score",
+        "Suivez votre score et votre niveau à mesure que le rythme augmente."
+      ],
+      [
+        "Jouer hors ligne",
+        "Jouez à Tetrixa sans connexion Internet, quand vous le souhaitez."
+      ]
+    ],
+    "faq": [
+      [
+        "Qu’est-ce que Tetrixa ?",
+        "Tetrixa est un jeu mobile de puzzle de blocs. Placez les pièces, complétez des lignes et améliorez votre score."
+      ],
+      [
+        "Puis-je jouer hors ligne ?",
+        "Oui. La fiche Google Play décrit Tetrixa comme un jeu entièrement hors ligne."
+      ],
+      [
+        "Comment jouer ?",
+        "Déplacez et faites pivoter les pièces pour les placer sur le plateau. Complétez les lignes pour marquer des points."
+      ],
+      [
+        "Le jeu devient-il plus difficile ?",
+        "La difficulté augmente progressivement selon la fiche du jeu."
+      ],
+      [
+        "Y a-t-il des commandes tactiles ?",
+        "Oui. Le jeu propose des commandes tactiles simples."
+      ],
+      [
+        "Tetrixa contient-il des publicités ?",
+        "Oui. La fiche Google Play indique que le jeu contient des publicités."
+      ],
+      [
+        "Le jeu est-il gratuit ?",
+        "Consultez la fiche Google Play pour les conditions actuelles et les éventuels achats intégrés."
+      ],
+      [
+        "Où installer Tetrixa ?",
+        "Installez la version Android officielle depuis Google Play."
+      ]
+    ],
+    "screenshots": [
+      [
+        "A Tetrixa gameplay board with falling blocks and the next-piece preview",
+        "Play a round and plan your next move"
+      ],
+      [
+        "Tetrixa gameplay showing blocks placed on the board",
+        "Place pieces and keep the board clear"
+      ],
+      [
+        "Tetrixa game-over screen with the final board state",
+        "Try again and beat your score"
+      ],
+      [
+        "Tetrixa in-game shop with optional gameplay items",
+        "Explore the in-game shop"
+      ],
+      [
+        "Tetrixa shop screen with gameplay item descriptions",
+        "See available in-game items"
       ]
     ]
   },
   "de-DE": {
     "language_name": "Deutsch (Deutschland)",
     "text": {
-      "about": "Über Job Connect",
+      "about": "Über Tetrixa",
       "skip_to_content": "Zum Hauptinhalt springen",
       "features": "Funktionen entdecken",
       "faq": "Häufige Fragen",
       "download_nav": "Herunterladen",
-      "download_title": "Job Connect für Android herunterladen",
-      "download_intro": "Laden Sie die offizielle Job-Connect-App bei Google Play herunter, um Stellenangebote zu entdecken, Informationen zu prüfen und interessante Angebote zu organisieren.",
+      "download_title": "Tetrixa für Android herunterladen",
+      "download_intro": "Lade Tetrixa bei Google Play herunter und spiele ein schnelles Block-Puzzle mit einfacher Touch-Steuerung und Offline-Modus.",
       "download_steps_title": "In drei einfachen Schritten installieren",
-      "download_step_1": "Öffnen Sie den offiziellen Eintrag bei Google Play.",
-      "download_step_2": "Tippen Sie auf Ihrem Android-Gerät auf Installieren.",
-      "download_step_3": "Öffnen Sie Job Connect und entdecken Sie Stellenangebote.",
-      "download_note": "Installieren Sie die App ausschließlich über den offiziellen Google-Play-Eintrag.",
-      "download_facts": "App-Informationen",
+      "download_step_1": "Öffne den offiziellen Tetrixa-Eintrag bei Google Play.",
+      "download_step_2": "Tippe auf deinem Android-Gerät auf Installieren.",
+      "download_step_3": "Öffne Tetrixa, platziere die Teile und spiele los.",
+      "download_note": "Installiere das Spiel aus Sicherheitsgründen nur über den offiziellen Google-Play-Eintrag.",
+      "download_facts": "Spielinformationen",
       "platform": "Plattform",
       "developer": "Entwickler",
       "package": "Paket-ID",
-      "home": "Entdecken Sie Ihre nächste berufliche Chance",
-      "cta": "Bei Google Play ansehen",
-      "tag": "STELLENANGEBOTE ENTDECKEN",
-      "gallery": "Einblick in die App",
-      "gallery_intro": "Original-Screenshots aus dem Google-Play-Eintrag.",
-      "download": "Mit Job Connect starten",
+      "home": "Das klassische Block-Puzzle neu erleben",
+      "cta": "Tetrixa bei Google Play spielen",
+      "tag": "BLOCK-PUZZLE · ARCADE-SPIEL",
+      "gallery": "Tetrixa in Aktion",
+      "gallery_intro": "Screenshots aus dem offiziellen Google-Play-Eintrag.",
+      "download": "Bereit für die nächste Runde?",
       "privacy": "Datenschutzerklärung",
       "support": "Support",
-      "about_intro": "Erfahren Sie, wie Job Connect Sie beim Entdecken und Organisieren von Stellenangeboten unterstützt.",
-      "features_intro": "Entdecken Sie die Funktionen zum Finden und Organisieren von Stellenangeboten.",
-      "faq_intro": "Antworten auf häufige Fragen zu Job Connect.",
+      "about_intro": "Tetrixa bringt schnelle Block-Puzzle-Runden auf dein Android-Gerät. Platziere und drehe Teile, vervollständige Reihen und verbessere deinen Punktestand.",
+      "features_intro": "Entdecke Gameplay, Steuerung, Punktesystem und Offline-Spiel von Tetrixa.",
+      "faq_intro": "Antworten auf häufige Fragen zu Tetrixa, Offline-Spiel und Installation.",
       "language": "Sprache auswählen",
       "english": "English",
       "arabic": "العربية",
-      "home_intro": "Entdecken Sie Stellenangebote, prüfen Sie hilfreiche Informationen und behalten Sie interessante Positionen im Blick."
+      "home_intro": "Bewege und drehe fallende Teile, vervollständige Reihen und erreiche einen höheren Punktestand. Spiele jederzeit offline."
     },
     "titles": {
-      "home": "App für Jobsuche und Stellenangebote | Job Connect",
-      "about": "Über Job Connect | Stellenangebote entdecken",
-      "features": "Job-Connect-Funktionen für die Jobsuche",
-      "download": "Job Connect für Android herunterladen | Google Play",
-      "faq": "Job Connect FAQ | Jobsuche und App-Funktionen"
+      "home": "Block-Puzzle-Spiel | Tetrixa",
+      "about": "Über Tetrixa | Offline-Puzzle",
+      "features": "Tetrixa Funktionen | Block-Puzzle",
+      "download": "Tetrixa für Android herunterladen | Google Play",
+      "faq": "Tetrixa FAQ | Spiel und Installation"
     },
     "descriptions": {
-      "home": "Entdecken Sie Stellenangebote mit Job Connect, einer Android-App zum Prüfen von Stelleninformationen und Organisieren interessanter Möglichkeiten.",
-      "about": "Erfahren Sie, wie Job Connect Ihnen hilft, Stellenangebote zu entdecken, Details zu prüfen und interessante Positionen zu organisieren.",
-      "features": "Entdecken Sie Funktionen zum Finden von Stellenangeboten, Prüfen von Details und Organisieren persönlicher Sammlungen.",
-      "download": "Laden Sie Job Connect für Android bei Google Play herunter. Entdecken Sie Stellenangebote, prüfen Sie Details und organisieren Sie Favoriten.",
-      "faq": "Antworten zu Job Connect, Stellenangeboten, Stellenindikatoren und persönlichen Sammlungen."
+      "home": "Spiele Tetrixa, ein Offline-Block-Puzzle für Android. Bewege Teile, vervollständige Reihen und verbessere deinen Punktestand.",
+      "about": "Lerne Tetrixa kennen, ein Block-Puzzle mit einfacher Touch-Steuerung und Offline-Spiel.",
+      "features": "Entdecke Gameplay, Steuerung, Reihen, Punktesystem und Offline-Modus von Tetrixa.",
+      "download": "Lade Tetrixa für Android bei Google Play herunter und spiele das Block-Puzzle offline.",
+      "faq": "Antworten zu Tetrixa, Offline-Spiel, Touch-Steuerung und Installation."
     },
-    "app_description": "Eine App zum Entdecken von Stellenangeboten mit Fokus auf neue Hinweise, Stellenkontext und persönliche Sammlungen. Angaben zu Gehalt, Standort und Aktualität sind Orientierungshilfen, keine Garantien.",
-    "tagline": "Entdecken und organisieren Sie berufliche Möglichkeiten.",
+    "app_description": "Bewege und drehe fallende Teile, vervollständige Reihen und erreiche einen höheren Punktestand. Spiele jederzeit offline.",
+    "tagline": "Das klassische Block-Puzzle neu erleben",
     "features": [
       [
-        "Neue Hinweise auf Stellenangebote entdecken",
-        "Ein Feed zeigt neu erkannte Stellenangebote und Aktualitätshinweise."
+        "Klassisches Block-Puzzle",
+        "Bewege fallende Teile, vervollständige Reihen und verhindere, dass sich das Spielfeld füllt."
       ],
       [
-        "Stellenangebote auf einen Blick prüfen",
-        "Vergleichen Sie Positionen, Unternehmen, Standorte und Gehaltshinweise."
+        "Einfache Touch-Steuerung",
+        "Bewege und drehe Teile mit reaktionsschneller Touch-Steuerung."
       ],
       [
-        "Verstehen, warum ein Angebot hervorgehoben wird",
-        "Prüfen Sie Gehalts-, Standort- und Aktualitätshinweise. Keine Garantie."
+        "Reihen löschen und Punkte sammeln",
+        "Vervollständige Reihen, schaffe Platz und sammle Punkte."
       ],
       [
-        "Abgeleitete Analysewerte erkunden",
-        "Prüfen Sie Schätzwerte zu Datenvollständigkeit, Aktualität, Einzigartigkeit und Wettbewerb."
+        "Steigende Herausforderung",
+        "Verfolge Punktestand und Level, während das Tempo zunimmt."
       ],
       [
-        "Stellenangebote in Sammlungen organisieren",
-        "Erstellen Sie persönliche Sammlungen wie Remote Hub, Elite Leap und Merkliste."
+        "Offline spielen",
+        "Spiele Tetrixa ohne Internetverbindung, wann immer du möchtest."
       ]
     ],
     "faq": [
       [
-        "Was ist Job Connect?",
-        "Eine App zum Entdecken von Stellenangeboten, Prüfen des Stellenkontexts und Organisieren persönlicher Sammlungen."
+        "What is Tetrixa?",
+        "Tetrixa is a mobile block-puzzle arcade game. Arrange falling pieces, complete rows and aim for a higher score."
       ],
       [
-        "Was bedeutet ein Übereinstimmungsindikator?",
-        "Ein Hinweis in der App, keine Zusage für eine perfekte Passung oder erfolgreiche Bewerbung."
+        "Can I play Tetrixa offline?",
+        "Yes. The Google Play listing describes Tetrixa as a complete offline game, so you can play without an internet connection."
       ],
       [
-        "Was sind die Analysewerte?",
-        "Schätzwerte zu Datenvollständigkeit, Aktualität, Einzigartigkeit und Wettbewerb sowie erkannten Fähigkeiten."
+        "How do I play?",
+        "Move and rotate the falling pieces to fit them into the board. Complete horizontal rows to clear them and earn points."
       ],
       [
-        "Kann ich Stellenangebote organisieren?",
-        "Ja. Nutzen Sie Sammlungen wie Remote Hub, Elite Leap und Merkliste."
+        "Does the game get harder?",
+        "The store listing describes gradually increasing difficulty. As you progress, the pace becomes more challenging."
       ],
       [
-        "Wo kann ich Job Connect installieren?",
-        "Installieren Sie die Android-App über den offiziellen Eintrag bei Google Play."
+        "Does Tetrixa have touch controls?",
+        "Yes. Tetrixa includes simple touch controls designed for mobile play."
       ],
       [
-        "Enthält Job Connect Werbung?",
-        "Laut Google-Play-Eintrag enthält die App Werbung."
+        "Does Tetrixa contain ads?",
+        "Yes. Google Play identifies Tetrixa as an app that contains ads."
       ],
       [
-        "Bewirbt sich Job Connect für mich?",
-        "Nein. Die App hilft beim Entdecken und Prüfen. Folgen Sie den Anweisungen des Arbeitgebers."
+        "Is Tetrixa free to download?",
+        "The Google Play listing offers the game for installation. Check the current store page for any purchase or in-app item details."
       ],
       [
-        "Garantiert ein Indikator eine erfolgreiche Bewerbung?",
-        "Nein. Die Werte sind Schätzungen und garantieren weder eine Einstellung noch ein Gespräch."
-      ],
-      [
-        "Wie prüfe ich eine echte Stellenanzeige?",
-        "Suchen Sie die offizielle Website des Arbeitgebers und seien Sie vorsichtig bei Geld- oder Passwortforderungen."
-      ],
-      [
-        "Sind alle Stellen remote oder überall verfügbar?",
-        "Nein. Arbeitsort und Berechtigung hängen vom Arbeitgeber und der Anzeige ab."
-      ],
-      [
-        "Warum fehlt manchmal eine Gehaltsangabe?",
-        "Manche Arbeitgeber veröffentlichen keine Gehaltsinformationen. Fragen Sie direkt nach."
-      ],
-      [
-        "Kann ich Job Connect außerhalb von Google Play installieren?",
-        "Nutzen Sie den offiziellen, auf dieser Website verlinkten Google-Play-Eintrag."
+        "Where can I install Tetrixa?",
+        "Install the official Android version from the Tetrixa listing on Google Play."
       ]
     ],
     "screenshots": [
       [
-        "Entdecken-Bildschirm mit neuen Stellenhinweisen",
-        "Neue Stellenangebote entdecken"
+        "A Tetrixa gameplay board with falling blocks and the next-piece preview",
+        "Play a round and plan your next move"
       ],
       [
-        "Angebotsliste mit Position, Gehalt und Standort",
-        "Positionen vergleichen"
+        "Tetrixa gameplay showing blocks placed on the board",
+        "Place pieces and keep the board clear"
       ],
       [
-        "Details und Gründe für ein Angebot",
-        "Angebotskontext verstehen"
+        "Tetrixa game-over screen with the final board state",
+        "Try again and beat your score"
       ],
       [
-        "Analysewerte und Wettbewerbshinweise",
-        "Analyseindikatoren prüfen"
+        "Tetrixa in-game shop with optional gameplay items",
+        "Explore the in-game shop"
       ],
       [
-        "Persönliche Sammlungen",
-        "Stellenangebote organisieren"
+        "Tetrixa shop screen with gameplay item descriptions",
+        "See available in-game items"
       ]
     ]
   },
   "it-IT": {
     "language_name": "Italiano (Italia)",
     "text": {
-      "about": "Informazioni su Job Connect",
+      "about": "Informazioni su Tetrixa",
       "skip_to_content": "Vai al contenuto principale",
       "features": "Scopri le funzionalità",
       "faq": "Domande frequenti",
       "download_nav": "Scarica",
-      "download_title": "Scarica Job Connect per Android",
-      "download_intro": "Scarica l’app ufficiale Job Connect per Android da Google Play per scoprire opportunità di lavoro e organizzare quelle che ti interessano.",
+      "download_title": "Scarica Tetrixa per Android",
+      "download_intro": "Scarica Tetrixa da Google Play e divertiti con un puzzle di blocchi veloce, comandi touch semplici e gioco offline.",
       "download_steps_title": "Installa in tre semplici passaggi",
-      "download_step_1": "Apri la scheda ufficiale su Google Play.",
+      "download_step_1": "Apri la scheda ufficiale di Tetrixa su Google Play.",
       "download_step_2": "Tocca Installa sul tuo dispositivo Android.",
-      "download_step_3": "Apri Job Connect ed esplora le opportunità.",
-      "download_note": "Per sicurezza, installa l’app solo dalla scheda ufficiale su Google Play.",
-      "download_facts": "Informazioni sull’app",
+      "download_step_3": "Apri Tetrixa, posiziona i pezzi e inizia a giocare.",
+      "download_note": "Per sicurezza, installa il gioco solo dalla scheda ufficiale su Google Play.",
+      "download_facts": "Informazioni sul gioco",
       "platform": "Piattaforma",
       "developer": "Sviluppatore",
       "package": "ID pacchetto",
-      "home": "Scopri la tua prossima opportunità",
-      "cta": "Apri su Google Play",
-      "tag": "SCOPERTA DI OPPORTUNITÀ DI LAVORO",
-      "gallery": "Uno sguardo all’app",
-      "gallery_intro": "Screenshot reali dalla scheda Google Play.",
-      "download": "Inizia con Job Connect",
+      "home": "Una nuova sfida con i classici blocchi",
+      "cta": "Gioca a Tetrixa su Google Play",
+      "tag": "PUZZLE DI BLOCCHI · ARCADE",
+      "gallery": "Tetrixa in azione",
+      "gallery_intro": "Screenshot dalla scheda ufficiale di Google Play.",
+      "download": "Pronto per la prossima partita?",
       "privacy": "Informativa sulla privacy",
       "support": "Assistenza",
-      "about_intro": "Scopri come Job Connect ti aiuta a trovare e organizzare opportunità.",
-      "features_intro": "Esplora le funzionalità di scoperta e organizzazione di Job Connect.",
-      "faq_intro": "Risposte alle domande più comuni su Job Connect.",
+      "about_intro": "Tetrixa porta veloci partite puzzle sul tuo dispositivo Android. Posiziona e ruota i pezzi, completa le righe e migliora il tuo punteggio.",
+      "features_intro": "Scopri il gameplay, i comandi, il punteggio e la modalità offline di Tetrixa.",
+      "faq_intro": "Risposte alle domande più comuni su Tetrixa, gioco offline e installazione.",
       "language": "Scegli la lingua",
       "english": "English",
       "arabic": "العربية",
-      "home_intro": "Esplora le opportunità di lavoro, consulta informazioni utili e tieni a portata di mano le posizioni che vuoi seguire."
+      "home_intro": "Sposta e ruota i pezzi, completa le righe e punta a un punteggio più alto. Gioca offline con semplici comandi touch."
     },
     "titles": {
-      "home": "App per cercare lavoro e scoprire opportunità | Job Connect",
-      "about": "Informazioni su Job Connect | Scoperta di offerte",
-      "features": "Funzionalità Job Connect per scoprire e organizzare offerte",
-      "download": "Scarica Job Connect per Android | Google Play",
-      "faq": "FAQ Job Connect | Ricerca di lavoro e funzionalità"
+      "home": "Puzzle di blocchi | Tetrixa",
+      "about": "Informazioni su Tetrixa | Gioco offline",
+      "features": "Funzionalità Tetrixa | Puzzle di blocchi",
+      "download": "Scarica Tetrixa per Android | Google Play",
+      "faq": "FAQ Tetrixa | Gioco e installazione"
     },
     "descriptions": {
-      "home": "Scopri opportunità di lavoro con Job Connect, un’app Android per consultare i dettagli delle posizioni e organizzare quelle da seguire.",
-      "about": "Scopri come Job Connect ti aiuta a trovare opportunità, consultare i dettagli e organizzare le posizioni da rivedere.",
-      "features": "Esplora le funzionalità per scoprire opportunità, consultare dettagli e indicatori e organizzare raccolte personali.",
-      "download": "Scarica Job Connect per Android da Google Play. Scopri opportunità, consulta i dettagli e organizza i tuoi preferiti.",
-      "faq": "Risposte su Job Connect, scoperta di opportunità, indicatori delle posizioni e raccolte personali."
+      "home": "Gioca a Tetrixa, un puzzle di blocchi offline per Android. Sposta i pezzi, completa le righe e migliora il punteggio.",
+      "about": "Scopri Tetrixa, un puzzle mobile con semplici comandi touch e modalità offline.",
+      "features": "Esplora gameplay, comandi, righe, punteggio e modalità offline di Tetrixa.",
+      "download": "Scarica Tetrixa per Android da Google Play e gioca offline al puzzle di blocchi.",
+      "faq": "Risposte su Tetrixa, gioco offline, comandi touch e installazione."
     },
-    "app_description": "Un’app per scoprire opportunità di lavoro, con attenzione ai nuovi segnali, al contesto delle posizioni e alle raccolte personali. Gli indicatori su retribuzione, località e aggiornamento sono informazioni di supporto, non garanzie.",
-    "tagline": "Scopri opportunità e organizza la tua ricerca.",
+    "app_description": "Sposta e ruota i pezzi, completa le righe e punta a un punteggio più alto. Gioca offline con semplici comandi touch.",
+    "tagline": "Una nuova sfida con i classici blocchi",
     "features": [
       [
-        "Scopri nuovi segnali di lavoro",
-        "Esplora un feed con opportunità recenti e indicatori di aggiornamento."
+        "Gameplay classico a blocchi",
+        "Sposta i pezzi che cadono, completa le righe e impedisci che la griglia si riempia."
       ],
       [
-        "Valuta le opportunità a colpo d’occhio",
-        "Confronta ruoli, organizzazioni, località e indicazioni sulla retribuzione."
+        "Comandi touch semplici",
+        "Sposta e ruota i pezzi con comandi touch reattivi."
       ],
       [
-        "Scopri perché un’opportunità si distingue",
-        "Consulta indicazioni su retribuzione, località e aggiornamento. Non sono garanzie."
+        "Completa righe e ottieni punti",
+        "Completa le righe per liberare spazio e guadagnare punti."
       ],
       [
-        "Esplora le metriche di analisi",
-        "Consulta stime su completezza dei dati, aggiornamento, unicità e concorrenza."
+        "Sfida e punteggio progressivi",
+        "Segui punteggio e livello mentre il ritmo aumenta."
       ],
       [
-        "Organizza le opportunità in raccolte",
-        "Crea raccolte personali come Remote Hub, Elite Leap e La mia lista."
+        "Gioca offline",
+        "Divertiti con Tetrixa senza connessione Internet."
       ]
     ],
     "faq": [
       [
-        "Che cos’è Job Connect?",
-        "Un’app per scoprire opportunità di lavoro, consultare il contesto delle posizioni e organizzare raccolte personali."
+        "What is Tetrixa?",
+        "Tetrixa is a mobile block-puzzle arcade game. Arrange falling pieces, complete rows and aim for a higher score."
       ],
       [
-        "Che cosa indica un punteggio di corrispondenza?",
-        "È un indicatore dell’app, non una promessa di adeguatezza o successo."
+        "Can I play Tetrixa offline?",
+        "Yes. The Google Play listing describes Tetrixa as a complete offline game, so you can play without an internet connection."
       ],
       [
-        "Che cosa sono le metriche di analisi?",
-        "Stime su completezza dei dati, aggiornamento, unicità e concorrenza, oltre a competenze rilevate."
+        "How do I play?",
+        "Move and rotate the falling pieces to fit them into the board. Complete horizontal rows to clear them and earn points."
       ],
       [
-        "Posso organizzare le opportunità?",
-        "Sì. Puoi creare raccolte come Remote Hub, Elite Leap e La mia lista."
+        "Does the game get harder?",
+        "The store listing describes gradually increasing difficulty. As you progress, the pace becomes more challenging."
       ],
       [
-        "Dove posso installare Job Connect?",
-        "Installa l’app Android dalla scheda ufficiale su Google Play."
+        "Does Tetrixa have touch controls?",
+        "Yes. Tetrixa includes simple touch controls designed for mobile play."
       ],
       [
-        "Job Connect contiene annunci pubblicitari?",
-        "La scheda Google Play indica che l’app contiene annunci pubblicitari."
+        "Does Tetrixa contain ads?",
+        "Yes. Google Play identifies Tetrixa as an app that contains ads."
       ],
       [
-        "Job Connect invia candidature per me?",
-        "No. Job Connect aiuta a scoprire opportunità. Segui le istruzioni ufficiali del datore di lavoro."
+        "Is Tetrixa free to download?",
+        "The Google Play listing offers the game for installation. Check the current store page for any purchase or in-app item details."
       ],
       [
-        "Un indicatore garantisce il successo?",
-        "No. Gli indicatori sono stime e non garantiscono colloqui o assunzioni."
-      ],
-      [
-        "Come verifico un annuncio autentico?",
-        "Cerca il sito ufficiale del datore di lavoro e fai attenzione a richieste di denaro o codici."
-      ],
-      [
-        "Tutti i lavori sono da remoto o disponibili ovunque?",
-        "No. Sede e idoneità dipendono dal datore di lavoro e dall’annuncio."
-      ],
-      [
-        "Perché un annuncio potrebbe non indicare lo stipendio?",
-        "Alcuni datori di lavoro non pubblicano i dettagli retributivi. Chiedi chiarimenti."
-      ],
-      [
-        "Posso installare Job Connect fuori da Google Play?",
-        "Usa la scheda ufficiale Job Connect su Google Play collegata da questo sito."
+        "Where can I install Tetrixa?",
+        "Install the official Android version from the Tetrixa listing on Google Play."
       ]
     ],
     "screenshots": [
       [
-        "Schermata Scopri con nuovi segnali di opportunità",
-        "Scopri nuove opportunità"
+        "A Tetrixa gameplay board with falling blocks and the next-piece preview",
+        "Play a round and plan your next move"
       ],
       [
-        "Elenco con ruolo, stipendio e località",
-        "Confronta ruoli e dettagli"
+        "Tetrixa gameplay showing blocks placed on the board",
+        "Place pieces and keep the board clear"
       ],
       [
-        "Dettagli e motivi di un’opportunità",
-        "Comprendi il contesto"
+        "Tetrixa game-over screen with the final board state",
+        "Try again and beat your score"
       ],
       [
-        "Metriche di analisi e concorrenza",
-        "Consulta le metriche"
+        "Tetrixa in-game shop with optional gameplay items",
+        "Explore the in-game shop"
       ],
       [
-        "Raccolte personali",
-        "Organizza le opportunità"
+        "Tetrixa shop screen with gameplay item descriptions",
+        "See available in-game items"
       ]
     ]
-  },
-  "fr-FR": {
-    "text": {
-      "about": "À propos de Job Connect",
-      "skip_to_content": "Passer au contenu principal",
-      "features": "Explorer les fonctionnalités",
-      "faq": "Foire aux questions",
-      "download_nav": "Télécharger",
-      "download_title": "Télécharger Job Connect pour Android",
-      "download_intro": "Obtenez l’application Android officielle Job Connect sur Google Play pour découvrir des possibilités d’emploi, consulter leur contexte et organiser vos favoris.",
-      "download_steps_title": "Installer en trois étapes simples",
-      "download_step_1": "Ouvrez la fiche officielle sur Google Play.",
-      "download_step_2": "Touchez Installer sur votre appareil Android.",
-      "download_step_3": "Ouvrez Job Connect et explorez les possibilités.",
-      "download_note": "Pour votre sécurité, installez l’application uniquement à partir de sa fiche officielle sur Google Play.",
-      "download_facts": "Renseignements sur l’application",
-      "platform": "Plateforme",
-      "developer": "Développeur",
-      "package": "Identifiant du package",
-      "home": "Découvrez votre prochaine possibilité",
-      "cta": "Voir sur Google Play",
-      "tag": "DÉCOUVERTE DE POSSIBILITÉS D’EMPLOI",
-      "gallery": "Un aperçu de l’application",
-      "gallery_intro": "Captures d’écran réelles de la fiche Google Play.",
-      "download": "Commencez avec Job Connect",
-      "privacy": "Politique de confidentialité",
-      "support": "Soutien",
-      "about_intro": "Découvrez comment Job Connect vous aide à repérer et à organiser des possibilités d’emploi.",
-      "features_intro": "Explorez les outils de découverte et d’organisation proposés par Job Connect.",
-      "faq_intro": "Réponses aux questions courantes sur Job Connect.",
-      "language": "Choisir la langue",
-      "english": "English",
-      "arabic": "العربية",
-      "home_intro": "Explorez les possibilités d’emploi, consultez les renseignements utiles et gardez à portée de main les postes qui vous intéressent."
-    },
-    "titles": {
-      "home": "Application de recherche d’emploi | Job Connect",
-      "about": "À propos de Job Connect | Découverte d’offres d’emploi",
-      "features": "Fonctionnalités de Job Connect | Découverte d’emploi",
-      "download": "Télécharger Job Connect pour Android | Google Play",
-      "faq": "FAQ Job Connect | Recherche d’emploi et fonctionnalités"
-    },
-    "descriptions": {
-      "home": "Découvrez des opportunités professionnelles avec Job Connect, une application Android pour examiner les postes et organiser ceux à suivre.",
-      "about": "Découvrez comment Job Connect aide à repérer des opportunités, à examiner les informations sur les postes et à organiser les offres à retrouver.",
-      "features": "Explorez les fonctions de découverte, les fiches de postes, les indicateurs et les collections personnelles de Job Connect.",
-      "download": "Téléchargez Job Connect pour Android sur Google Play. Découvrez des opportunités, consultez les détails des postes et organisez vos favoris.",
-      "faq": "Réponses sur Job Connect, la découverte d’opportunités, les indicateurs des postes et les collections personnelles."
-    },
-    "app_description": "Une application de découverte d’opportunités professionnelles axée sur les nouveaux signaux, le contexte des postes et les collections personnelles. Les indicateurs de rémunération, de lieu et d’actualité sont des repères, pas des garanties.",
-    "tagline": "Découvrez des opportunités et organisez votre recherche.",
-    "features": [
-      [
-        "Repérez les nouveaux signaux d’emploi",
-        "Consultez un fil de découverte présentant les possibilités récemment repérées, leur fraîcheur et des indicateurs de correspondance."
-      ],
-      [
-        "Évaluez les possibilités en un coup d’œil",
-        "Comparez les postes, les organisations, les lieux et les indications de rémunération dans des fiches faciles à parcourir."
-      ],
-      [
-        "Comprenez pourquoi une possibilité ressort",
-        "Examinez les indications de rémunération, de lieu, de flexibilité à distance, de fraîcheur et les raisons mises de l’avant par l’application. Ces valeurs ne sont pas des garanties."
-      ],
-      [
-        "Explorez les indicateurs d’analyse",
-        "Consultez les indicateurs de complétude des données, de fraîcheur, d’unicité et de concurrence, ainsi que les compétences et exigences détectées. Il s’agit d’estimations."
-      ],
-      [
-        "Organisez les possibilités en collections",
-        "Créez des collections personnelles comme Remote Hub, Elite Leap et Ma liste de suivi pour classer les possibilités et les retrouver."
-      ]
-    ],
-    "faq": [
-      [
-        "Qu’est-ce que Job Connect?",
-        "Une application de découverte de possibilités d’emploi axée sur les nouveaux signaux, le contexte des postes et les collections personnelles."
-      ],
-      [
-        "Que signifie un indicateur de correspondance?",
-        "Il s’agit d’un indicateur affiché dans l’application, et non d’une promesse qu’un poste vous convient parfaitement ou que votre candidature sera retenue."
-      ],
-      [
-        "Que sont les indicateurs d’analyse?",
-        "L’application présente des indicateurs calculés, comme la complétude des données, la fraîcheur de l’annonce, l’unicité et la concurrence, ainsi que des compétences et exigences détectées. Ce sont des estimations."
-      ],
-      [
-        "Puis-je organiser les possibilités d’emploi?",
-        "Oui. Les collections comprennent des exemples comme Remote Hub, Elite Leap et Ma liste de suivi."
-      ],
-      [
-        "Où puis-je installer Job Connect?",
-        "Installez l’application Android à partir de sa fiche officielle sur Google Play."
-      ],
-      [
-        "Job Connect contient-elle des publicités?",
-        "La fiche Google Play indique que l’application contient des publicités."
-      ],
-      [
-        "Job Connect postule-t-elle à ma place?",
-        "Non. Job Connect vous aide à découvrir et à examiner des possibilités. Suivez les instructions officielles de l’employeur pour présenter votre candidature."
-      ],
-      [
-        "Un indicateur garantit-il que ma candidature sera retenue?",
-        "Non. Les indicateurs de correspondance, de fraîcheur et d’analyse sont des estimations qui facilitent votre examen. Ils ne prédisent pas les décisions d’embauche et ne garantissent pas une entrevue."
-      ],
-      [
-        "Comment vérifier qu’une offre d’emploi est authentique?",
-        "Trouvez le site officiel de l’employeur de façon indépendante, comparez les détails du poste et le domaine utilisé pour postuler, et méfiez-vous des demandes d’argent, de mots de passe ou de codes de vérification."
-      ],
-      [
-        "Tous les emplois sont-ils à distance ou accessibles dans chaque pays?",
-        "Non. Le lieu de travail et l’admissibilité géographique dépendent de chaque employeur et de chaque offre. Consultez l’annonce originale pour connaître les restrictions et les modalités de télétravail."
-      ],
-      [
-        "Pourquoi une offre peut-elle ne pas indiquer le salaire?",
-        "Certains employeurs ne publient pas les détails de rémunération. Demandez des précisions à l’employeur avant de poursuivre."
-      ],
-      [
-        "Puis-je installer Job Connect ailleurs que sur Google Play?",
-        "Pour obtenir l’application officielle en toute sécurité, utilisez la fiche Job Connect sur Google Play accessible à partir de ce site."
-      ]
-    ],
-    "screenshots": [
-      [
-        "Écran Découvrir de Job Connect présentant de nouveaux signaux de possibilités d’emploi",
-        "Découvrez les nouveaux signaux d’emploi"
-      ],
-      [
-        "Liste de possibilités Job Connect avec le poste, le salaire et le lieu",
-        "Comparez les postes et les renseignements clés"
-      ],
-      [
-        "Détails d’une possibilité et raisons de sa mise en évidence dans Job Connect",
-        "Comprenez pourquoi une possibilité est présentée"
-      ],
-      [
-        "Indicateurs d’analyse des possibilités et de concurrence dans Job Connect",
-        "Examinez les indicateurs d’analyse"
-      ],
-      [
-        "Collections personnelles de possibilités d’emploi dans Job Connect",
-        "Organisez vos possibilités"
-      ]
-    ],
-    "language_name": "Français (France)"
   },
   "es-ES": {
     "language_name": "Español (España)",
     "text": {
-      "about": "Acerca de Job Connect",
+      "about": "Acerca de Tetrixa",
       "skip_to_content": "Saltar al contenido principal",
       "features": "Explorar funciones",
       "faq": "Preguntas frecuentes",
       "download_nav": "Descargar",
-      "download_title": "Descargar Job Connect para Android",
-      "download_intro": "Descarga la aplicación oficial Job Connect para Android desde Google Play para descubrir oportunidades laborales y organizar tus favoritas.",
+      "download_title": "Descargar Tetrixa para Android",
+      "download_intro": "Descarga Tetrixa desde Google Play y disfruta de un rápido puzle de bloques con controles táctiles sencillos y modo sin conexión.",
       "download_steps_title": "Instala en tres sencillos pasos",
-      "download_step_1": "Abre la ficha oficial en Google Play.",
+      "download_step_1": "Abre la ficha oficial de Tetrixa en Google Play.",
       "download_step_2": "Pulsa Instalar en tu dispositivo Android.",
-      "download_step_3": "Abre Job Connect y explora oportunidades.",
-      "download_note": "Por seguridad, instala la aplicación únicamente desde su ficha oficial de Google Play.",
-      "download_facts": "Información de la aplicación",
+      "download_step_3": "Abre Tetrixa, coloca las piezas y empieza a jugar.",
+      "download_note": "Por seguridad, instala el juego únicamente desde su ficha oficial de Google Play.",
+      "download_facts": "Información del juego",
       "platform": "Plataforma",
       "developer": "Desarrollador",
       "package": "Identificador del paquete",
-      "home": "Descubre tu próxima oportunidad",
-      "cta": "Ver en Google Play",
-      "tag": "DESCUBRIMIENTO DE OPORTUNIDADES LABORALES",
-      "gallery": "Así es la aplicación",
-      "gallery_intro": "Capturas reales de la ficha de Google Play.",
-      "download": "Empieza con Job Connect",
+      "home": "Un nuevo reto con bloques clásicos",
+      "cta": "Jugar a Tetrixa en Google Play",
+      "tag": "PUZLE DE BLOQUES · ARCADE",
+      "gallery": "Tetrixa en acción",
+      "gallery_intro": "Capturas de la ficha oficial de Google Play.",
+      "download": "¿Listo para la próxima partida?",
       "privacy": "Política de privacidad",
       "support": "Ayuda",
-      "about_intro": "Descubre qué te ayuda a encontrar y organizar Job Connect.",
-      "features_intro": "Explora las funciones de descubrimiento y organización de Job Connect.",
-      "faq_intro": "Respuestas a las preguntas habituales sobre Job Connect.",
+      "about_intro": "Tetrixa ofrece partidas rápidas de puzles de bloques en Android. Coloca y gira piezas, completa filas y mejora tu puntuación.",
+      "features_intro": "Descubre la jugabilidad, los controles, la puntuación y el modo sin conexión de Tetrixa.",
+      "faq_intro": "Respuestas a preguntas frecuentes sobre Tetrixa, el modo sin conexión y la instalación.",
       "language": "Elige tu idioma",
       "english": "English",
       "arabic": "العربية",
-      "home_intro": "Explora oportunidades laborales, consulta información útil y guarda los puestos que te interesan."
+      "home_intro": "Mueve y gira las piezas, completa filas y busca una puntuación más alta. Juega sin conexión con controles táctiles sencillos."
     },
     "titles": {
-      "home": "Buscar empleo y descubrir oportunidades | Job Connect",
-      "about": "Acerca de Job Connect | Descubrimiento de empleo",
-      "features": "Funciones de Job Connect para descubrir y organizar empleos",
-      "download": "Descargar Job Connect para Android | Google Play",
-      "faq": "Preguntas frecuentes de Job Connect | Búsqueda de empleo"
+      "home": "Juego de bloques | Tetrixa",
+      "about": "Acerca de Tetrixa | Puzzle sin conexión",
+      "features": "Funciones de Tetrixa | Puzle de bloques",
+      "download": "Descargar Tetrixa para Android | Google Play",
+      "faq": "FAQ de Tetrixa | Juego e instalación"
     },
     "descriptions": {
-      "home": "Descubre oportunidades laborales con Job Connect, una aplicación Android para revisar puestos y organizar oportunidades que quieras seguir.",
-      "about": "Conoce cómo Job Connect te ayuda a descubrir oportunidades, consultar detalles de los puestos y organizar los que quieras revisar.",
-      "features": "Explora las funciones de Job Connect para descubrir oportunidades, revisar detalles e indicadores y organizar puestos en colecciones personales.",
-      "download": "Descarga Job Connect para Android desde Google Play. Descubre oportunidades laborales, consulta los detalles y organiza tus favoritos.",
-      "faq": "Respuestas sobre Job Connect, el descubrimiento de oportunidades laborales, los indicadores de los puestos y las colecciones personales."
+      "home": "Juega a Tetrixa, un puzle de bloques sin conexión para Android. Mueve piezas, completa filas y mejora tu puntuación.",
+      "about": "Conoce Tetrixa, un juego móvil de bloques con controles táctiles sencillos y modo sin conexión.",
+      "features": "Explora la jugabilidad, los controles, las filas, la puntuación y el modo sin conexión.",
+      "download": "Descarga Tetrixa para Android desde Google Play y juega sin conexión.",
+      "faq": "Respuestas sobre Tetrixa, el modo sin conexión, los controles y la instalación."
     },
-    "app_description": "Una aplicación para descubrir oportunidades laborales, consultar información sobre los puestos y organizar oportunidades en colecciones personales. Los indicadores de salario, ubicación y actualidad son orientativos, no garantías.",
-    "tagline": "Descubre oportunidades y organiza tu búsqueda.",
+    "app_description": "Mueve y gira las piezas, completa filas y busca una puntuación más alta. Juega sin conexión con controles táctiles sencillos.",
+    "tagline": "Un nuevo reto con bloques clásicos",
     "features": [
       [
-        "Descubre nuevas señales de empleo",
-        "Explora un feed con oportunidades detectadas recientemente e indicadores de actualidad."
+        "Puzle clásico de bloques",
+        "Mueve las piezas que caen, completa filas y evita que el tablero se llene."
       ],
       [
-        "Consulta oportunidades de un vistazo",
-        "Compara puestos, organizaciones, ubicaciones e indicadores salariales."
+        "Controles táctiles sencillos",
+        "Mueve y gira las piezas con controles táctiles rápidos."
       ],
       [
-        "Comprende por qué destaca una oportunidad",
-        "Consulta indicadores de salario, ubicación, flexibilidad remota y actualidad. No son garantías."
+        "Completa filas y suma puntos",
+        "Completa filas para liberar espacio y conseguir puntos."
       ],
       [
-        "Explora métricas de análisis",
-        "Revisa estimaciones de integridad de datos, actualidad, singularidad y competencia."
+        "Reto y puntuación progresivos",
+        "Sigue tu puntuación y nivel mientras aumenta el ritmo."
       ],
       [
-        "Organiza oportunidades en colecciones",
-        "Crea colecciones personales como Remote Hub, Elite Leap y Mi lista."
+        "Juega sin conexión",
+        "Disfruta de Tetrixa sin conexión a Internet cuando quieras."
       ]
     ],
     "faq": [
       [
-        "¿Qué es Job Connect?",
-        "Una aplicación para descubrir oportunidades laborales, consultar el contexto de los puestos y organizar colecciones personales."
+        "What is Tetrixa?",
+        "Tetrixa is a mobile block-puzzle arcade game. Arrange falling pieces, complete rows and aim for a higher score."
       ],
       [
-        "¿Qué significa un indicador de afinidad?",
-        "Es un indicador de la aplicación, no una promesa de ajuste perfecto o éxito."
+        "Can I play Tetrixa offline?",
+        "Yes. The Google Play listing describes Tetrixa as a complete offline game, so you can play without an internet connection."
       ],
       [
-        "¿Qué son las métricas de análisis?",
-        "Estimaciones de integridad de datos, actualidad, singularidad y competencia, además de aptitudes detectadas."
+        "How do I play?",
+        "Move and rotate the falling pieces to fit them into the board. Complete horizontal rows to clear them and earn points."
       ],
       [
-        "¿Puedo organizar oportunidades?",
-        "Sí. Puedes crear colecciones como Remote Hub, Elite Leap y Mi lista."
+        "Does the game get harder?",
+        "The store listing describes gradually increasing difficulty. As you progress, the pace becomes more challenging."
       ],
       [
-        "¿Dónde puedo instalar Job Connect?",
-        "Instala la aplicación Android desde su ficha oficial en Google Play."
+        "Does Tetrixa have touch controls?",
+        "Yes. Tetrixa includes simple touch controls designed for mobile play."
       ],
       [
-        "¿Job Connect contiene anuncios?",
-        "La ficha de Google Play indica que la aplicación contiene anuncios."
+        "Does Tetrixa contain ads?",
+        "Yes. Google Play identifies Tetrixa as an app that contains ads."
       ],
       [
-        "¿Job Connect solicita empleos por mí?",
-        "No. La aplicación ayuda a descubrir y revisar oportunidades. Sigue las instrucciones de la empresa."
+        "Is Tetrixa free to download?",
+        "The Google Play listing offers the game for installation. Check the current store page for any purchase or in-app item details."
       ],
       [
-        "¿Un indicador garantiza el éxito?",
-        "No. Son estimaciones y no predicen decisiones de contratación ni garantizan entrevistas."
-      ],
-      [
-        "¿Cómo compruebo si una oferta es auténtica?",
-        "Busca la web oficial de la empresa y desconfía de solicitudes de dinero, contraseñas o códigos."
-      ],
-      [
-        "¿Todos los empleos son remotos o están disponibles en cualquier país?",
-        "No. La ubicación y elegibilidad dependen de cada empresa y anuncio."
-      ],
-      [
-        "¿Por qué una oferta puede no indicar el salario?",
-        "Algunas empresas no publican la remuneración. Solicita la información directamente."
-      ],
-      [
-        "¿Puedo instalar Job Connect fuera de Google Play?",
-        "Utiliza la ficha oficial de Job Connect en Google Play enlazada desde este sitio."
+        "Where can I install Tetrixa?",
+        "Install the official Android version from the Tetrixa listing on Google Play."
       ]
     ],
     "screenshots": [
       [
-        "Pantalla Descubrir con señales recientes de oportunidades",
-        "Descubre oportunidades"
+        "A Tetrixa gameplay board with falling blocks and the next-piece preview",
+        "Play a round and plan your next move"
       ],
       [
-        "Lista de oportunidades con puesto, salario y ubicación",
-        "Compara puestos y detalles"
+        "Tetrixa gameplay showing blocks placed on the board",
+        "Place pieces and keep the board clear"
       ],
       [
-        "Detalles y motivos de una oportunidad",
-        "Comprende por qué aparece"
+        "Tetrixa game-over screen with the final board state",
+        "Try again and beat your score"
       ],
       [
-        "Métricas de análisis e indicadores de competencia",
-        "Consulta las métricas"
+        "Tetrixa in-game shop with optional gameplay items",
+        "Explore the in-game shop"
       ],
       [
-        "Colecciones personales de oportunidades",
-        "Organiza tus oportunidades"
+        "Tetrixa shop screen with gameplay item descriptions",
+        "See available in-game items"
+      ]
+    ]
+  },
+  "pt-PT": {
+    "language_name": "Português (Portugal)",
+    "text": {
+      "about": "Sobre o Tetrixa",
+      "skip_to_content": "Saltar para o conteúdo principal",
+      "features": "Explorar funcionalidades",
+      "faq": "Perguntas frequentes",
+      "download_nav": "Transferir",
+      "download_title": "Transferir o Tetrixa para Android",
+      "download_intro": "Transfira o Tetrixa no Google Play e desfrute de um puzzle de blocos rápido, com controlos táteis simples e modo offline.",
+      "download_steps_title": "Instale em três passos simples",
+      "download_step_1": "Abra a página oficial do Tetrixa no Google Play.",
+      "download_step_2": "Toque em Instalar no seu dispositivo Android.",
+      "download_step_3": "Abra o Tetrixa, posicione as peças e comece a jogar.",
+      "download_note": "Por segurança, instale o jogo apenas através da página oficial no Google Play.",
+      "download_facts": "Informações do jogo",
+      "platform": "Plataforma",
+      "developer": "Programador",
+      "package": "ID do pacote",
+      "home": "Um novo desafio com blocos clássicos",
+      "cta": "Jogar Tetrixa no Google Play",
+      "tag": "PUZZLE DE BLOCOS · ARCADE",
+      "gallery": "Veja o Tetrixa em ação",
+      "gallery_intro": "Capturas de ecrã da página oficial no Google Play.",
+      "download": "Pronto para a próxima partida?",
+      "privacy": "Política de privacidade",
+      "support": "Apoio",
+      "about_intro": "O Tetrixa traz partidas rápidas de puzzle de blocos para Android. Posicione e rode peças, complete linhas e melhore a sua pontuação.",
+      "features_intro": "Explore a jogabilidade, os controlos, a pontuação e o modo offline do Tetrixa.",
+      "faq_intro": "Respostas às perguntas mais frequentes sobre o Tetrixa, o modo offline e a instalação.",
+      "language": "Escolha o idioma",
+      "english": "English",
+      "arabic": "العربية",
+      "home_intro": "Mova e rode as peças, complete linhas e procure uma pontuação mais alta. Jogue offline com controlos táteis simples."
+    },
+    "titles": {
+      "home": "Puzzle de blocos | Tetrixa",
+      "about": "Sobre o Tetrixa | Jogo offline",
+      "features": "Funcionalidades do Tetrixa | Puzzle",
+      "download": "Transferir Tetrixa para Android | Google Play",
+      "faq": "FAQ Tetrixa | Jogo e instalação"
+    },
+    "descriptions": {
+      "home": "Jogue Tetrixa, um puzzle de blocos offline para Android. Mova peças, complete linhas e melhore a pontuação.",
+      "about": "Conheça o Tetrixa, um jogo de blocos com controlos táteis simples e modo offline.",
+      "features": "Explore a jogabilidade, os controlos, as linhas, a pontuação e o modo offline.",
+      "download": "Transfira o Tetrixa para Android no Google Play e jogue offline.",
+      "faq": "Respostas sobre o Tetrixa, o modo offline, os controlos e a instalação."
+    },
+    "app_description": "Mova e rode as peças, complete linhas e procure uma pontuação mais alta. Jogue offline com controlos táteis simples.",
+    "tagline": "Um novo desafio com blocos clássicos",
+    "features": [
+      [
+        "Puzzle clássico de blocos",
+        "Mova as peças que caem, complete linhas e evite encher o tabuleiro."
+      ],
+      [
+        "Controlos táteis simples",
+        "Mova e rode as peças com controlos táteis responsivos."
+      ],
+      [
+        "Complete linhas e ganhe pontos",
+        "Complete linhas para libertar espaço e ganhar pontos."
+      ],
+      [
+        "Desafio e pontuação progressivos",
+        "Acompanhe a pontuação e o nível à medida que o ritmo aumenta."
+      ],
+      [
+        "Jogue offline",
+        "Desfrute do Tetrixa sem ligação à Internet, quando quiser."
+      ]
+    ],
+    "faq": [
+      [
+        "What is Tetrixa?",
+        "Tetrixa is a mobile block-puzzle arcade game. Arrange falling pieces, complete rows and aim for a higher score."
+      ],
+      [
+        "Can I play Tetrixa offline?",
+        "Yes. The Google Play listing describes Tetrixa as a complete offline game, so you can play without an internet connection."
+      ],
+      [
+        "How do I play?",
+        "Move and rotate the falling pieces to fit them into the board. Complete horizontal rows to clear them and earn points."
+      ],
+      [
+        "Does the game get harder?",
+        "The store listing describes gradually increasing difficulty. As you progress, the pace becomes more challenging."
+      ],
+      [
+        "Does Tetrixa have touch controls?",
+        "Yes. Tetrixa includes simple touch controls designed for mobile play."
+      ],
+      [
+        "Does Tetrixa contain ads?",
+        "Yes. Google Play identifies Tetrixa as an app that contains ads."
+      ],
+      [
+        "Is Tetrixa free to download?",
+        "The Google Play listing offers the game for installation. Check the current store page for any purchase or in-app item details."
+      ],
+      [
+        "Where can I install Tetrixa?",
+        "Install the official Android version from the Tetrixa listing on Google Play."
+      ]
+    ],
+    "screenshots": [
+      [
+        "A Tetrixa gameplay board with falling blocks and the next-piece preview",
+        "Play a round and plan your next move"
+      ],
+      [
+        "Tetrixa gameplay showing blocks placed on the board",
+        "Place pieces and keep the board clear"
+      ],
+      [
+        "Tetrixa game-over screen with the final board state",
+        "Try again and beat your score"
+      ],
+      [
+        "Tetrixa in-game shop with optional gameplay items",
+        "Explore the in-game shop"
+      ],
+      [
+        "Tetrixa shop screen with gameplay item descriptions",
+        "See available in-game items"
       ]
     ]
   }

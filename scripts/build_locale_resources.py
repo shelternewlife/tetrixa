@@ -1,280 +1,79 @@
 #!/usr/bin/env python3
-"""Generate the four career-resource hub routes for every published market locale."""
-import html
-import json
-import pathlib
-import xml.etree.ElementTree as ET
+"""Generate localized Tetrixa gameplay resource hubs for every published locale."""
+import html, json, pathlib, xml.etree.ElementTree as ET
+ROOT=pathlib.Path(__file__).resolve().parents[1]; DIST=ROOT/"dist"
+APP=json.loads((ROOT/"content/app.json").read_text(encoding="utf-8"))
+STRATEGY=json.loads((ROOT/"content/market-strategy.json").read_text(encoding="utf-8"))
+BASE=APP["website_url"].rstrip("/")
+HUBS=("tips","blog","guide","comparison")
+NS="http://www.sitemaps.org/schemas/sitemap/0.9"; XHTML="http://www.w3.org/1999/xhtml"
 
-ROOT = pathlib.Path(__file__).resolve().parents[1]
-DIST = ROOT / "dist"
-APP = json.loads((ROOT / "content/app.json").read_text(encoding="utf-8"))
-STRATEGY = json.loads((ROOT / "content/market-strategy.json").read_text(encoding="utf-8"))
-BASE = APP["website_url"].rstrip("/")
-NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
-XHTML = "http://www.w3.org/1999/xhtml"
-HUBS = ("tips", "blog", "guide", "comparison")
-EXTRA_CONTENT = json.loads((ROOT / "content/resource-locales.json").read_text(encoding="utf-8"))
-
-CONTENT = {
-    "en-US": {
-        "language_name": "US English",
-        "nav": {"tips": "Tips", "blog": "Blog", "guide": "User guide", "comparison": "Compare"},
-        "pages": {
-            "tips": ("Job Search Tips | Job Connect", "Practical job-search tips for reviewing opportunities, checking listings and organizing your next steps.", "Job search tips", "Build a focused search, verify the original listing and use app indicators as context—not guarantees.", [
-                ("Set a focused search", "Choose relevant roles and priorities so you can assess opportunities consistently.", "guide"),
-                ("Verify every listing", "Check the employer, requirements, location and application instructions at the original source.", "blog"),
-                ("Use indicators carefully", "Treat freshness, match and competition signals as supporting information, not promises.", "comparison")]),
-            "blog": ("Job Search Blog & Career Resources | Job Connect", "Career resources from Job Connect: practical tips, a user guide and a clear workflow comparison.", "Job Connect career resources", "Explore practical resources to make your job search more organized, informed and careful.", [
-                ("Job search tips", "Practical habits for evaluating opportunities and protecting your time and information.", "tips"),
-                ("User guide", "A concise walkthrough of discovering, reviewing and organizing opportunities with Job Connect.", "guide"),
-                ("Compare workflows", "Understand how an opportunity-discovery app fits alongside traditional job-search methods.", "comparison")]),
-            "guide": ("Job Connect User Guide | Job Search App", "Learn how to explore opportunities, review role context and organize jobs with Job Connect.", "Job Connect user guide", "Follow a simple workflow for discovering opportunities, reviewing details and keeping track of roles.", [
-                ("Discover opportunities", "Explore the discovery experience and decide which roles deserve a closer look.", "tips"),
-                ("Review role details", "Read responsibilities and requirements, and verify important details with the employer.", "blog"),
-                ("Organize your search", "Use personal collections to group opportunities you want to revisit.", "comparison")]),
-            "comparison": ("Job Search Workflow Comparison | Job Connect", "A qualitative comparison of app-based opportunity discovery and traditional job-search routines.", "Compare job-search workflows", "See where an opportunity-discovery app can help—and what still requires independent verification.", [
-                ("Finding opportunities", "A dedicated discovery view can reduce the need to revisit scattered sources manually.", "guide"),
-                ("Reviewing context", "App indicators add context, while the original employer listing remains the source to verify.", "tips"),
-                ("Organizing roles", "Personal collections can keep opportunities together for later review and follow-up.", "blog")])
-        }
-    },
-    "en-CA": {
-        "language_name": "English (Canada)",
-        "nav": {"tips": "Tips", "blog": "Blog", "guide": "User guide", "comparison": "Compare"},
-        "pages": {
-            "tips": ("Job Search Tips | Job Connect", "Practical job-search tips for reviewing opportunities, checking job postings and organizing next steps.", "Job search tips", "Build a focused search, verify the original job posting and use app indicators as context—not guarantees.", [
-                ("Set a focused search", "Choose relevant roles and priorities so you can assess opportunities consistently.", "guide"),
-                ("Verify every posting", "Check the employer, requirements, location and application instructions at the original source.", "blog"),
-                ("Use indicators carefully", "Treat freshness, match and competition signals as supporting information, not promises.", "comparison")]),
-            "blog": ("Job Search Blog & Career Resources | Job Connect", "Career resources from Job Connect: practical tips, a user guide and a clear workflow comparison.", "Job Connect career resources", "Explore practical resources to make your job search more organized, informed and careful.", [
-                ("Job search tips", "Practical habits for evaluating opportunities and protecting your time and information.", "tips"),
-                ("User guide", "A concise walkthrough of discovering, reviewing and organizing opportunities with Job Connect.", "guide"),
-                ("Compare workflows", "Understand how an opportunity-discovery app fits alongside traditional job-search methods.", "comparison")]),
-            "guide": ("Job Connect User Guide | Job Search App", "Learn how to explore opportunities, review role context and organize jobs with Job Connect.", "Job Connect user guide", "Follow a simple workflow for discovering opportunities, reviewing details and keeping track of roles.", [
-                ("Discover opportunities", "Explore the discovery experience and decide which roles deserve a closer look.", "tips"),
-                ("Review job details", "Read responsibilities and requirements, and verify important details with the employer.", "blog"),
-                ("Organize your search", "Use personal collections to group opportunities you want to revisit.", "comparison")]),
-            "comparison": ("Job Search Workflow Comparison | Job Connect", "A qualitative comparison of app-based opportunity discovery and traditional job-search routines.", "Compare job-search workflows", "See where an opportunity-discovery app can help—and what still requires independent verification.", [
-                ("Finding opportunities", "A dedicated discovery view can reduce the need to revisit scattered sources manually.", "guide"),
-                ("Reviewing context", "App indicators add context, while the original employer posting remains the source to verify.", "tips"),
-                ("Organizing roles", "Personal collections can keep opportunities together for later review and follow-up.", "blog")])
-        }
-    },
-    "fr-CA": {
-        "language_name": "Français (Canada)",
-        "nav": {"tips": "Conseils", "blog": "Blogue", "guide": "Guide", "comparison": "Comparer"},
-        "pages": {
-            "tips": ("Conseils pour la recherche d’emploi | Job Connect", "Des conseils pratiques pour examiner les possibilités, vérifier les offres et organiser vos prochaines étapes.", "Conseils pour la recherche d’emploi", "Définissez une recherche ciblée, vérifiez l’offre originale et utilisez les indicateurs comme contexte, jamais comme garantie.", [
-                ("Ciblez votre recherche", "Choisissez les postes et les priorités qui correspondent à vos objectifs pour évaluer les possibilités avec méthode.", "guide"),
-                ("Vérifiez chaque offre", "Consultez la source originale pour confirmer l’employeur, les exigences, le lieu et les modalités de candidature.", "blog"),
-                ("Interprétez les indicateurs avec prudence", "La fraîcheur, la correspondance et la concurrence sont des indices utiles, pas des promesses.", "comparison")]),
-            "blog": ("Blogue et ressources carrière | Job Connect", "Des ressources Job Connect : conseils pratiques, guide d’utilisation et comparaison des méthodes de recherche.", "Ressources carrière Job Connect", "Consultez des ressources pratiques pour organiser votre recherche d’emploi et examiner les possibilités avec discernement.", [
-                ("Conseils de recherche d’emploi", "Des habitudes utiles pour évaluer les possibilités et protéger votre temps et vos renseignements.", "tips"),
-                ("Guide d’utilisation", "Un parcours simple pour découvrir, examiner et organiser les possibilités avec Job Connect.", "guide"),
-                ("Comparer les méthodes", "Comprenez comment une application de découverte complète les méthodes traditionnelles de recherche.", "comparison")]),
-            "guide": ("Guide d’utilisation de Job Connect | Android", "Apprenez à découvrir des possibilités, à examiner leur contexte et à organiser les postes avec Job Connect.", "Guide d’utilisation de Job Connect", "Suivez un parcours simple pour découvrir des possibilités, examiner les détails et retrouver les postes à suivre.", [
-                ("Découvrir des possibilités", "Explorez l’écran de découverte et repérez les postes qui méritent un examen plus approfondi.", "tips"),
-                ("Examiner les détails", "Lisez les responsabilités et les exigences, puis vérifiez les renseignements importants auprès de l’employeur.", "blog"),
-                ("Organiser votre recherche", "Utilisez les collections personnelles pour regrouper les possibilités à consulter de nouveau.", "comparison")]),
-            "comparison": ("Comparer les méthodes de recherche d’emploi | Job Connect", "Une comparaison qualitative entre la découverte dans une application et les méthodes traditionnelles de recherche d’emploi.", "Comparer les méthodes de recherche d’emploi", "Découvrez comment une application de découverte peut vous aider et quelles informations doivent toujours être vérifiées.", [
-                ("Repérer des possibilités", "Un fil de découverte dédié peut réduire les recherches manuelles sur plusieurs sources.", "guide"),
-                ("Examiner le contexte", "Les indicateurs ajoutent du contexte, mais l’offre originale de l’employeur reste la source à vérifier.", "tips"),
-                ("Organiser les postes", "Les collections personnelles regroupent les possibilités à consulter et à suivre plus tard.", "blog")])
-        }
-    }
+# Localized resource labels and short, useful gameplay guides.
+LANG={
+"en-US":{"name":"US English","nav":["Tips","Blog","User guide","Strategies"],"group":["Explore","Play guides"],"labels":["GAMEPLAY RESOURCES","Explore all guides","Back to Tetrixa","Privacy policy","Support","Primary navigation","Skip to main content"],"titles":["Block puzzle tips | Tetrixa","Tetrixa gameplay blog and guides","Tetrixa user guide | Android block puzzle","Block puzzle strategies | Tetrixa"],"descs":["Practical tips for placing blocks, clearing rows and keeping the board manageable.","Gameplay articles and guides for Tetrixa, the mobile block puzzle game.","Learn the board, piece controls, next-piece preview and row clearing in Tetrixa.","Compare practical approaches to piece placement, planning and clearing rows."],"heads":["Play with a plan","Tetrixa gameplay notes","How to play Tetrixa","Choose your next move"],"intro":["Build better habits for placing pieces, keeping space open and adapting as the pace increases.","Short reads about block placement, row clearing, scoring and offline play.","Follow a simple walkthrough of the board, touch controls and the next-piece preview.","Explore different approaches to a crowded board and decide which move keeps more options open."],"cards":[["Plan around the next piece","Use the preview to think one move ahead and preserve useful space.","guide"],["Complete rows carefully","Fill horizontal rows to clear space and keep the board manageable.","tips"],["Play offline","Tetrixa is listed on Google Play as a complete offline game.","blog"]]},
+"en-CA":{"name":"English (Canada)","nav":["Tips","Blog","User guide","Strategies"],"group":["Explore","Play guides"],"labels":["GAMEPLAY RESOURCES","Explore all guides","Back to Tetrixa","Privacy policy","Support","Primary navigation","Skip to main content"],"titles":["Block puzzle tips | Tetrixa","Tetrixa gameplay blog and guides","Tetrixa user guide | Android block puzzle","Block puzzle strategies | Tetrixa"],"descs":["Practical tips for placing blocks, clearing rows and keeping the board manageable.","Gameplay articles and guides for Tetrixa, the mobile block puzzle game.","Learn the board, piece controls, next-piece preview and row clearing in Tetrixa.","Compare practical approaches to piece placement, planning and clearing rows."],"heads":["Play with a plan","Tetrixa gameplay notes","How to play Tetrixa","Choose your next move"],"intro":["Build better habits for placing pieces, keeping space open and adapting as the pace increases.","Short reads about block placement, row clearing, scoring and offline play.","Follow a simple walkthrough of the board, touch controls and the next-piece preview.","Explore different approaches to a crowded board and decide which move keeps more options open."],"cards":[["Plan around the next piece","Use the preview to think one move ahead and preserve useful space.","guide"],["Complete rows carefully","Fill horizontal rows to clear space and keep the board manageable.","tips"],["Play offline","Tetrixa is listed on Google Play as a complete offline game.","blog"]]},
+"fr-CA":{"name":"Français (Canada)","nav":["Conseils","Blogue","Guide","Stratégies"],"group":["Explorer","Guides de jeu"],"labels":["RESSOURCES DE JEU","Voir tous les guides","Retour à Tetrixa","Politique de confidentialité","Soutien","Navigation principale","Passer au contenu principal"],"titles":["Conseils de puzzle de blocs | Tetrixa","Blogue et guides de jeu Tetrixa","Guide d’utilisation de Tetrixa | Android","Stratégies de puzzle de blocs | Tetrixa"],"descs":["Conseils pour placer les blocs, compléter les lignes et garder le plateau dégagé.","Articles et guides sur Tetrixa, le jeu mobile de puzzle de blocs.","Apprenez à utiliser le plateau, les commandes tactiles et l’aperçu de la prochaine pièce.","Comparez des façons de placer les pièces, planifier et compléter des lignes."],"heads":["Jouer avec méthode","Conseils de jeu Tetrixa","Comment jouer à Tetrixa","Choisir le prochain mouvement"],"intro":["Adoptez de bonnes habitudes pour placer les pièces, garder de l’espace et vous adapter au rythme.","Des articles courts sur le placement, les lignes, le score et le jeu hors ligne.","Suivez un guide simple du plateau, des commandes tactiles et de l’aperçu des pièces.","Découvrez différentes façons de gérer un plateau chargé et de conserver vos options."],"cards":[["Prévoir la prochaine pièce","Utilisez l’aperçu pour anticiper un mouvement et préserver de l’espace.","guide"],["Compléter les lignes","Remplissez les rangées horizontales pour libérer de l’espace.","tips"],["Jouer hors ligne","Google Play présente Tetrixa comme un jeu entièrement hors ligne.","blog"]]},
+"fr-FR":{"name":"Français (France)","nav":["Conseils","Blog","Guide","Stratégies"],"group":["Explorer","Guides de jeu"],"labels":["RESSOURCES DE JEU","Voir tous les guides","Retour à Tetrixa","Politique de confidentialité","Assistance","Navigation principale","Passer au contenu principal"],"titles":["Conseils de puzzle de blocs | Tetrixa","Blog et guides de jeu Tetrixa","Guide d’utilisation de Tetrixa | Android","Stratégies de puzzle de blocs | Tetrixa"],"descs":["Conseils pour placer les blocs, compléter les lignes et garder le plateau dégagé.","Articles et guides sur Tetrixa, le jeu mobile de puzzle de blocs.","Apprenez à utiliser le plateau, les commandes tactiles et l’aperçu de la prochaine pièce.","Comparez des façons de placer les pièces, planifier et compléter des lignes."],"heads":["Jouer avec méthode","Conseils de jeu Tetrixa","Comment jouer à Tetrixa","Choisir le prochain mouvement"],"intro":["Adoptez de bonnes habitudes pour placer les pièces, garder de l’espace et vous adapter au rythme.","Des articles courts sur le placement, les lignes, le score et le jeu hors ligne.","Suivez un guide simple du plateau, des commandes tactiles et de l’aperçu des pièces.","Découvrez différentes façons de gérer un plateau chargé et de conserver vos options."],"cards":[["Prévoir la prochaine pièce","Utilisez l’aperçu pour anticiper un mouvement et préserver de l’espace.","guide"],["Compléter les lignes","Remplissez les rangées horizontales pour libérer de l’espace.","tips"],["Jouer hors ligne","Google Play présente Tetrixa comme un jeu entièrement hors ligne.","blog"]]},
+"de-DE":{"name":"Deutsch (Deutschland)","nav":["Tipps","Blog","Anleitung","Strategien"],"group":["Entdecken","Spielanleitungen"],"labels":["SPIELTIPPS","Alle Anleitungen ansehen","Zurück zu Tetrixa","Datenschutzerklärung","Support","Hauptnavigation","Zum Hauptinhalt springen"],"titles":["Block-Puzzle-Tipps | Tetrixa","Tetrixa Spieltipps und Blog","Tetrixa Anleitung | Android Block-Puzzle","Block-Puzzle-Strategien | Tetrixa"],"descs":["Tipps zum Platzieren von Blöcken, Löschen von Reihen und Freihalten des Spielfelds.","Artikel und Anleitungen zum mobilen Block-Puzzle Tetrixa.","Lerne Spielfeld, Touch-Steuerung, Vorschau und Reihenlöschen kennen.","Vergleiche Ansätze zum Platzieren, Planen und Löschen von Reihen."],"heads":["Mit Plan spielen","Tetrixa Spieltipps","So spielst du Tetrixa","Den nächsten Zug wählen"],"intro":["Verbessere deine Platzierung, halte Platz frei und passe dich an das steigende Tempo an.","Kurze Beiträge zu Blockplatzierung, Reihen, Punkten und Offline-Spiel.","Eine einfache Einführung in Spielfeld, Touch-Steuerung und Vorschau.","Entdecke verschiedene Wege, ein volles Spielfeld zu bewältigen und Optionen zu behalten."],"cards":[["Nächstes Teil einplanen","Nutze die Vorschau, um einen Zug vorauszudenken.","guide"],["Reihen vervollständigen","Fülle horizontale Reihen, um Platz zu schaffen.","tips"],["Offline spielen","Google Play beschreibt Tetrixa als vollständiges Offline-Spiel.","blog"]]},
+"it-IT":{"name":"Italiano (Italia)","nav":["Consigli","Blog","Guida","Strategie"],"group":["Esplora","Guide di gioco"],"labels":["RISORSE DI GIOCO","Esplora tutte le guide","Torna a Tetrixa","Informativa sulla privacy","Assistenza","Navigazione principale","Vai al contenuto principale"],"titles":["Consigli per puzzle a blocchi | Tetrixa","Blog e guide di gioco Tetrixa","Guida a Tetrixa | Puzzle Android","Strategie per puzzle a blocchi | Tetrixa"],"descs":["Consigli per posizionare i blocchi, completare righe e mantenere libera la griglia.","Articoli e guide per Tetrixa, il puzzle mobile a blocchi.","Scopri griglia, comandi touch, anteprima del pezzo e completamento delle righe.","Confronta diversi approcci per posizionare i pezzi e pianificare le mosse."],"heads":["Gioca con un piano","Note di gioco Tetrixa","Come giocare a Tetrixa","Scegli la prossima mossa"],"intro":["Migliora il posizionamento, conserva spazio e adattati all’aumento della velocità.","Brevi articoli su blocchi, righe, punteggi e gioco offline.","Una guida semplice alla griglia, ai comandi touch e all’anteprima.","Scopri come gestire una griglia affollata mantenendo più opzioni."],"cards":[["Pianifica il pezzo successivo","Usa l’anteprima per pensare alla prossima mossa.","guide"],["Completa le righe","Riempi le righe orizzontali per liberare spazio.","tips"],["Gioca offline","Google Play descrive Tetrixa come un gioco completamente offline.","blog"]]},
+"es-ES":{"name":"Español (España)","nav":["Consejos","Blog","Guía","Estrategias"],"group":["Explorar","Guías de juego"],"labels":["RECURSOS DE JUEGO","Ver todas las guías","Volver a Tetrixa","Política de privacidad","Ayuda","Navegación principal","Saltar al contenido principal"],"titles":["Consejos para puzles de bloques | Tetrixa","Blog y guías de Tetrixa","Guía de Tetrixa | Puzle Android","Estrategias de puzles de bloques | Tetrixa"],"descs":["Consejos para colocar bloques, completar filas y mantener espacio en el tablero.","Artículos y guías sobre Tetrixa, el juego móvil de bloques.","Aprende el tablero, los controles táctiles, la vista previa y las filas.","Compara formas de colocar piezas, planificar y completar filas."],"heads":["Juega con estrategia","Consejos de juego de Tetrixa","Cómo jugar a Tetrixa","Elige el siguiente movimiento"],"intro":["Mejora la colocación, conserva espacio y adáptate al aumento del ritmo.","Lecturas breves sobre bloques, filas, puntuación y juego sin conexión.","Una guía sencilla del tablero, los controles y la vista previa.","Descubre formas de gestionar un tablero lleno y mantener opciones."],"cards":[["Planifica la siguiente pieza","Usa la vista previa para pensar una jugada por adelantado.","guide"],["Completa filas","Llena filas horizontales para liberar espacio.","tips"],["Juega sin conexión","Google Play describe Tetrixa como un juego completamente sin conexión.","blog"]]},
+"pt-PT":{"name":"Português (Portugal)","nav":["Dicas","Blogue","Guia","Estratégias"],"group":["Explorar","Guias de jogo"],"labels":["RECURSOS DE JOGO","Ver todos os guias","Voltar ao Tetrixa","Política de privacidade","Apoio","Navegação principal","Saltar para o conteúdo principal"],"titles":["Dicas para puzzle de blocos | Tetrixa","Blogue e guias de jogo Tetrixa","Guia do Tetrixa | Puzzle Android","Estratégias para puzzle de blocos | Tetrixa"],"descs":["Dicas para posicionar blocos, completar linhas e manter espaço no tabuleiro.","Artigos e guias sobre o Tetrixa, o jogo móvel de blocos.","Aprenda o tabuleiro, os controlos táteis, a pré-visualização e as linhas.","Compare formas de posicionar peças, planear e completar linhas."],"heads":["Jogue com um plano","Dicas de jogo Tetrixa","Como jogar Tetrixa","Escolha a próxima jogada"],"intro":["Melhore o posicionamento, mantenha espaço livre e adapte-se ao aumento do ritmo.","Leituras breves sobre blocos, linhas, pontuação e jogo offline.","Um guia simples do tabuleiro, dos controlos e da pré-visualização.","Descubra formas de gerir um tabuleiro cheio e manter opções disponíveis."],"cards":[["Planeie a peça seguinte","Use a pré-visualização para antecipar a próxima jogada.","guide"],["Complete linhas","Preencha linhas horizontais para libertar espaço.","tips"],["Jogue offline","O Google Play descreve o Tetrixa como um jogo totalmente offline.","blog"]]}
 }
-CONTENT.update(EXTRA_CONTENT)
 
-FLAG_DATA = {
-    "en-US": ("us", "United States", "United States · English"),
-    "en-CA": ("ca", "Canada", "Canada · English"),
-    "fr-CA": ("ca", "Canada", "Canada · Français"),
-    "es-ES": ("es", "Spain", "España · Español"),
-    "pt-PT": ("pt", "Portugal", "Portugal · Português"),
-    "fr-FR": ("fr", "France", "France · Français"),
-    "de-DE": ("de", "Germany", "Deutschland · Deutsch"),
-    "it-IT": ("it", "Italy", "Italia · Italiano"),
-}
-NAV_GROUPS = {
-    "en-US": ("Explore", "Resources"), "en-CA": ("Explore", "Resources"),
-    "fr-CA": ("Explorer", "Ressources"), "es-ES": ("Explorar", "Recursos"),
-    "pt-PT": ("Explorar", "Recursos"), "fr-FR": ("Explorer", "Ressources"),
-    "de-DE": ("Entdecken", "Ressourcen"), "it-IT": ("Esplora", "Risorse"),
-}
-LOCALE_TEXT = json.loads((ROOT / "content/locales.json").read_text(encoding="utf-8"))
+def esc(v): return html.escape(str(v),quote=True)
+def route(locale,tail): return f"{BASE}/{locale.lower()}/{tail}/"
+CONTENT={}
+for locale,d in LANG.items():
+    pages={}
+    for i,tail in enumerate(HUBS):
+        cards=[(d["cards"][j][0],d["cards"][j][1],d["cards"][j][2]) for j in range(3)]
+        pages[tail]=(d["titles"][i],d["descs"][i],d["heads"][i],d["intro"][i],cards)
+    CONTENT[locale]={"language_name":d["name"],"nav":dict(zip(HUBS,d["nav"])),"group":d["group"],"labels":d["labels"],"pages":pages}
 
-def render_locale_flags(locale, tail):
-    links = []
-    for code in STRATEGY["published_locales"]:
-        country, country_name, label = FLAG_DATA[code]
-        current = ' aria-current="page"' if code == locale else ""
-        flag_url = f"https://flagcdn.com/w80/{country}.png"
-        links.append(
-            f'<a class="locale-flag" lang="{code}" href="{route(code, tail)}" '
-            f'title="{esc(label)}" aria-label="{esc(label)}"{current}>'
-            f'<img src="{flag_url}" alt="{esc(country_name)} flag" width="40" height="30" loading="eager" decoding="async"></a>'
-        )
+FLAG_DATA={"en-US":("us","United States","United States · English"),"en-CA":("ca","Canada","Canada · English"),"fr-CA":("ca","Canada","Canada · Français"),"es-ES":("es","Spain","España · Español"),"pt-PT":("pt","Portugal","Portugal · Português"),"fr-FR":("fr","France","France · Français"),"de-DE":("de","Germany","Deutschland · Deutsch"),"it-IT":("it","Italy","Italia · Italiano")}
+def render_locale_flags(locale,tail):
+    import build_locales
+    links=build_locales.render_locale_flags(STRATEGY["published_locales"],tail,locale)
     import build
-    return '<div class="locale-switch" aria-label="Country and region">' + "".join(links) + build.render_social_links() + '</div>'
-
-def esc(value):
-    return html.escape(str(value), quote=True)
-
-def route(locale, tail):
-    return f"{BASE}/{locale.lower()}/{tail}/"
-
-def render_page(locale, tail, data):
-    language = locale.split("-", 1)[0]
-    labels = CONTENT[locale].get("labels", {
-        "features": "Fonctionnalités" if language == "fr" else "Features",
-        "more": "En savoir plus" if language == "fr" else "Explore this resource",
-        "skip": "Passer au contenu principal" if language == "fr" else "Skip to main content",
-        "resource": "RESSOURCES CARRIÈRE" if language == "fr" else "CAREER RESOURCES",
-        "home": "Retour à l’accueil" if language == "fr" else "Back to the home page",
-        "privacy": "Politique de confidentialité" if language == "fr" else "Privacy policy",
-        "support": "Soutien" if language == "fr" else "Support",
-        "nav_aria": "Navigation principale" if language == "fr" else "Primary navigation"
-    })
-    title, description, heading, intro, cards = data
-    slug = locale.lower()
-    alternates = "".join(
-        f'<link rel="alternate" hreflang="{code}" href="{route(code, tail)}">\n'
-        for code in STRATEGY["published_locales"]
-    )
-    alternates += f'<link rel="alternate" hreflang="x-default" href="{route("en-US", tail)}">'
-    nav_groups = NAV_GROUPS[locale]
-    primary_text = LOCALE_TEXT.get(locale, {}).get("text", {})
-    primary_items = (
-        ("about", primary_text.get("about", "About")),
-        ("features", primary_text.get("features", labels["features"])),
-        ("download", primary_text.get("download_nav", "Download")),
-        ("faq", primary_text.get("faq", "FAQ")),
-    )
-    primary_links = "".join(
-        f'<a data-nav-item="{key}" href="{BASE}/{slug}/{key}/">{esc(label)}</a>'
-        for key, label in primary_items
-    )
-    resource_links = "".join(
-        f'<a data-nav-item="{item}" href="{route(locale, item)}">{esc(CONTENT[locale]["nav"][item])}</a>'
-        for item in ("tips", "blog", "guide", "comparison")
-    )
-    nav = (
-        f'<details class="nav-menu" data-nav-group="primary"><summary>{esc(nav_groups[0])}</summary>'
-        f'<div class="nav-dropdown">{primary_links}</div></details>'
-        f'<details class="nav-menu" data-nav-group="resources"><summary>{esc(nav_groups[1])}</summary>'
-        f'<div class="nav-dropdown">{resource_links}</div></details>'
-    )
-    cards_html = "".join(
-        f'<article class="item"><h2><a href="{route(locale, target)}">{esc(card_title)}</a></h2>'
-        f'<p>{esc(card_text)}</p><a href="{route(locale, target)}">'
-        f'{esc(labels["more"])}</a></article>'
-        for card_title, card_text, target in cards
-    )
-    locale_links = " · ".join(
-        f'<a lang="{code}" href="{route(code, tail)}">{esc(CONTENT[code]["language_name"])}</a>'
-        for code in STRATEGY["published_locales"] if code != locale
-    )
-    schema = {
-        "@context": "https://schema.org",
-        "@type": "CollectionPage",
-        "name": title,
-        "description": description,
-        "inLanguage": locale,
-        "url": route(locale, tail),
-        "publisher": {"@type": "Organization", "name": APP["developer"], "url": BASE + "/"}
-    }
-    return f'''<!doctype html>
-<html lang="{esc(locale)}" dir="ltr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{esc(title)}</title>
-<meta name="description" content="{esc(description)}">
-<meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="canonical" href="{route(locale, tail)}">
-{alternates}
-<meta property="og:type" content="website">
-<meta property="og:locale" content="{"fr_CA" if locale == "fr-CA" else locale.replace("-", "_")}">
-<meta property="og:title" content="{esc(title)}">
-<meta property="og:description" content="{esc(description)}">
-<meta property="og:url" content="{route(locale, tail)}">
-<link rel="stylesheet" href="{BASE}/assets/style.css">
-<script type="application/ld+json">{json.dumps(schema, ensure_ascii=False)}</script>
-</head>
-<body data-page-section="{tail}">
-<a class="skip-link" href="#main-content">{esc(labels["skip"])}</a>
-<header class="standard-header"><div class="header-main">{render_locale_flags(locale, tail)}<a class="brand" href="{BASE}/{slug}/">JOB <b>CONNECT</b></a>
-<nav aria-label="{esc(labels["nav_aria"])}">{nav}</nav></div></header>
-<main id="main-content"><section class="section resource-hub">
-<div class="tag">JOB CONNECT · {esc(labels["resource"])}</div>
-<h1>{esc(heading)}</h1><p class="lead">{esc(intro)}</p>
-<div class="grid">{cards_html}</div>
-<p class="locale-links">{locale_links}</p>
-<p><a href="{BASE}/{slug}/">{esc(labels["home"])}</a></p>
-</section></main>
-<footer><span>© DevImpact · JOB CONNECT</span><span><a href="{esc(APP["privacy_policy_url"])}">{esc(labels["privacy"])}</a> · <a href="mailto:{esc(APP["support_email"])}">{esc(labels["support"])}</a></span></footer>
-</body>
-</html>'''
+    return '<div class="locale-switch" aria-label="Country and region">'+links+build.render_social_links()+'</div>'
+def render_page(locale,tail,data):
+    import build_locales
+    d=CONTENT[locale]; labels=d["labels"]; title,description,heading,intro,cards=data
+    slug=locale.lower(); alternates="".join(f'<link rel="alternate" hreflang="{code}" href="{route(code,tail)}">\n' for code in STRATEGY["published_locales"])
+    alternates+=f'<link rel="alternate" hreflang="x-default" href="{route("en-US",tail)}">'
+    import build
+    primary_text=build_locales.LOCALES.get(locale,{ }).get("text",{})
+    primary=[("about",primary_text.get("about","About")),("features",primary_text.get("features","Features")),("download",primary_text.get("download_nav","Download")),("faq",primary_text.get("faq","FAQ"))]
+    primary_html="".join(f'<a data-nav-item="{k}" href="{BASE}/{slug}/{k}/">{esc(v)}</a>' for k,v in primary)
+    resource_html="".join(f'<a data-nav-item="{k}" href="{route(locale,k)}">{esc(d["nav"][k])}</a>' for k in HUBS)
+    nav=f'<details class="nav-menu" data-nav-group="primary"><summary>{esc(d["group"][0])}</summary><div class="nav-dropdown">{primary_html}</div></details><details class="nav-menu" data-nav-group="resources"><summary>{esc(d["group"][1])}</summary><div class="nav-dropdown">{resource_html}</div></details>'
+    cards_html="".join(f'<article class="item"><h2><a href="{route(locale,target)}">{esc(ct)}</a></h2><p>{esc(cd)}</p><a href="{route(locale,target)}">{esc("En savoir plus" if locale.startswith("fr") else "Explore this guide")}</a></article>' for ct,cd,target in cards)
+    schema={"@context":"https://schema.org","@type":"CollectionPage","name":title,"description":description,"inLanguage":locale,"url":route(locale,tail),"publisher":{"@type":"Organization","name":APP["developer"],"url":BASE+"/"}}
+    return f'''<!doctype html><html lang="{esc(locale)}" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)}</title><meta name="description" content="{esc(description)}"><meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="{route(locale,tail)}">{alternates}<meta property="og:type" content="website"><meta property="og:locale" content="{locale.replace("-","_")}"><meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(description)}"><meta property="og:url" content="{route(locale,tail)}"><link rel="stylesheet" href="{BASE}/assets/style.css"><script type="application/ld+json">{json.dumps(schema,ensure_ascii=False)}</script></head><body data-page-section="{tail}"><a class="skip-link" href="#main-content">{esc(labels[6])}</a><header class="standard-header"><div class="header-main">{render_locale_flags(locale,tail)}<a class="brand" href="{BASE}/{slug}/">TETRIXA</a><nav aria-label="{esc(labels[5])}">{nav}</nav></div></header><main id="main-content"><section class="section resource-hub"><div class="tag">TETRIXA · {esc(labels[0])}</div><h1>{esc(heading)}</h1><p class="lead">{esc(intro)}</p><div class="grid">{cards_html}</div><p><a href="{BASE}/{slug}/">{esc(labels[2])}</a> · <a href="{APP["google_play_url"]}">{esc("Play on Google Play" if locale.startswith("en") else "Voir sur Google Play")}</a></p></section></main><footer><span>© DevImpact · TETRIXA</span><span><a href="{esc(APP["privacy_policy_url"])}">{esc(labels[3])}</a> · <a href="mailto:{esc(APP["support_email"])}">{esc(labels[4])}</a></span></footer></body></html>'''
 
 def build_localized_resource_pages():
-    published = STRATEGY.get("published_locales", [])
-    if set(published) != set(CONTENT):
-        raise ValueError("Localized resource content must exist for every published locale")
-    css = DIST / "assets/style.css"
-    css.write_text(
-        css.read_text(encoding="utf-8")
-        + "\n.resource-hub{max-width:1000px}.resource-hub h1{font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.15}.resource-hub .grid{margin-top:28px}.resource-hub .item h2{font-size:1.3rem}.locale-links{margin-top:30px;color:#aab6c8}\n",
-        encoding="utf-8"
-    )
+    published=STRATEGY.get("published_locales",[])
+    if set(published)!=set(CONTENT): raise ValueError("Localized Tetrixa resource content must exist for every published locale")
+    css=DIST/"assets/style.css"
+    css.write_text(css.read_text(encoding="utf-8")+"\n.resource-hub{max-width:1000px}.resource-hub h1{font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.15}.resource-hub .grid{margin-top:28px}.resource-hub .item h2{font-size:1.3rem}\n",encoding="utf-8")
     for locale in published:
         for tail in HUBS:
-            target = DIST / locale.lower() / tail / "index.html"
-            target.parent.mkdir(parents=True, exist_ok=True)
-            target.write_text(render_page(locale, tail, CONTENT[locale]["pages"][tail]), encoding="utf-8")
-
-    sitemap_path = DIST / "sitemap.xml"
-    tree = ET.parse(sitemap_path)
-    root = tree.getroot()
-    ET.register_namespace("", NS)
-    ET.register_namespace("xhtml", XHTML)
-    existing = {
-        node.findtext(f"{{{NS}}}loc")
-        for node in root.findall(f"{{{NS}}}url")
-    }
-    for locale in published:
-        for tail in HUBS:
-            loc = route(locale, tail)
-            if loc in existing:
-                continue
-            node = ET.SubElement(root, f"{{{NS}}}url")
-            ET.SubElement(node, f"{{{NS}}}loc").text = loc
-            for alternate_locale in published:
-                ET.SubElement(node, f"{{{XHTML}}}link", {
-                    "rel": "alternate", "hreflang": alternate_locale,
-                    "href": route(alternate_locale, tail)
-                })
-            ET.SubElement(node, f"{{{XHTML}}}link", {
-                "rel": "alternate", "hreflang": "x-default",
-                "href": route("en-US", tail)
-            })
-    tree.write(sitemap_path, encoding="utf-8", xml_declaration=True)
-
-    text_path = DIST / "sitemap.txt"
-    urls = [line.strip() for line in text_path.read_text(encoding="utf-8").splitlines() if line.strip()]
-    for locale in published:
-        for tail in HUBS:
-            loc = route(locale, tail)
-            if loc not in urls:
-                urls.append(loc)
-    text_path.write_text("\n".join(urls) + "\n", encoding="utf-8")
-
-    llms_path = DIST / "llms.txt"
-    llms = llms_path.read_text(encoding="utf-8")
-    llms += "\n## Localized career resources\n"
-    for locale in published:
-        for tail in HUBS:
-            llms += f"- {locale} {tail}: {route(locale, tail)}\n"
-    llms_path.write_text(llms, encoding="utf-8")
-
-if __name__ == "__main__":
-    build_localized_resource_pages()
+            path=DIST/locale.lower()/tail/"index.html"; path.parent.mkdir(parents=True,exist_ok=True)
+            path.write_text(render_page(locale,tail,CONTENT[locale]["pages"][tail]),encoding="utf-8")
+    sitemap=DIST/"sitemap.xml"
+    root=ET.parse(sitemap).getroot()
+    existing={node.findtext(f"{NS}loc") for node in root.findall(f"{NS}url")}
+    for tail in HUBS:
+        for locale in published:
+            url=route(locale,tail)
+            if url in existing: continue
+            node=ET.SubElement(root,f"{NS}url"); ET.SubElement(node,f"{NS}loc").text=url
+            for code in published: ET.SubElement(node,f"{XHTML}link",{"rel":"alternate","hreflang":code,"href":route(code,tail)})
+            ET.SubElement(node,f"{XHTML}link",{"rel":"alternate","hreflang":"x-default","href":route("en-US",tail)})
+    ET.ElementTree(root).write(sitemap,encoding="utf-8",xml_declaration=True)
+    textfile=DIST/"sitemap.txt"; lines=textfile.read_text(encoding="utf-8").splitlines()
+    for tail in HUBS:
+        for locale in published:
+            url=route(locale,tail)
+            if url not in lines: lines.append(url)
+    textfile.write_text("\n".join(lines)+"\n",encoding="utf-8")

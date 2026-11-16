@@ -71,7 +71,6 @@ def fail(message):
 required_files = [
     DIST / "index.html", DIST / "robots.txt", DIST / "sitemap.xml",
     DIST / "sitemap.txt", DIST / "llms.txt", DIST / "assets/style.css",
-    DIST / "assets/screens/screen-1.webp",
 ]
 if not (ROOT / "content/screenshots.json").is_file():
     fail("Missing source screenshot manifest: content/screenshots.json")

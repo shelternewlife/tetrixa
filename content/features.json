@@ -1,7 +1,57 @@
 [
-{"id":"discovery","title":{"en":"Discover fresh opportunity signals","ar":"اكتشف إشارات الفرص الحديثة"},"description":{"en":"Explore a discovery feed with newly surfaced opportunities, freshness labels and alignment indicators.","ar":"استكشف موجز اكتشاف يبرز الفرص الحديثة ومؤشرات حداثة الإعلان والتوافق."}},
-{"id":"opportunity-cards","title":{"en":"Review opportunities at a glance","ar":"راجع الفرص بنظرة سريعة"},"description":{"en":"Compare roles, organizations, locations and compensation signals in focused opportunity cards.","ar":"قارن المسميات والجهات والمواقع ومؤشرات التعويضات ضمن بطاقات واضحة."}},
-{"id":"opportunity-intelligence","title":{"en":"Understand why an opportunity stands out","ar":"افهم لماذا تبرز فرصة معينة"},"description":{"en":"Inspect compensation, location, remote flexibility, freshness and the reasons surfaced by the app. Displayed values are indicators, not guarantees.","ar":"افحص مؤشرات الراتب والموقع والعمل عن بُعد والحداثة وأسباب إبراز التطبيق للفرصة. القيم مؤشرات وليست ضمانات."}},
-{"id":"derived-metrics","title":{"en":"Explore derived intelligence metrics","ar":"استكشف مؤشرات الذكاء المستنتجة"},"description":{"en":"Review data completeness, post freshness, uniqueness and competition indicators, alongside detected capabilities and requisites. These are estimates.","ar":"راجع مؤشرات اكتمال البيانات وحداثة الإعلان والتفرد والمنافسة والمهارات والمتطلبات المستنتجة. وهي تقديرات تحليلية."}},
-{"id":"collections","title":{"en":"Organize opportunities into collections","ar":"نظّم الفرص داخل مجموعات"},"description":{"en":"Create personal buckets such as Remote Hub, Elite Leap and My Watchlist to categorize and revisit opportunities.","ar":"أنشئ مجموعات مثل Remote Hub وElite Leap وMy Watchlist لتصنيف الفرص والعودة إليها."}}
+  {
+    "id": "classic-gameplay",
+    "title": {
+      "en": "Classic block-puzzle gameplay",
+      "ar": "لعب ألغاز المربعات الكلاسيكي"
+    },
+    "description": {
+      "en": "Move falling pieces into position, complete horizontal rows and keep the board from filling up.",
+      "ar": "حرّك القطع الساقطة إلى أماكنها وأكمل الصفوف الأفقية قبل أن تمتلئ لوحة اللعب."
+    }
+  },
+  {
+    "id": "piece-controls",
+    "title": {
+      "en": "Simple move and rotate controls",
+      "ar": "تحكم بسيط في تحريك القطع وتدويرها"
+    },
+    "description": {
+      "en": "Use responsive touch controls to position and rotate pieces as you plan each move.",
+      "ar": "استخدم أدوات اللمس للاستجابة السريعة وتحريك القطع وتدويرها أثناء التخطيط لكل حركة."
+    }
+  },
+  {
+    "id": "line-clearing",
+    "title": {
+      "en": "Clear rows and build your score",
+      "ar": "أكمل الصفوف وارفع نتيجتك"
+    },
+    "description": {
+      "en": "Complete full rows to clear space, earn points and keep your game going.",
+      "ar": "أكمل الصفوف الممتلئة لإخلاء المساحة وكسب النقاط ومواصلة اللعب."
+    }
+  },
+  {
+    "id": "levels-scoring",
+    "title": {
+      "en": "Increasing challenge and scoring",
+      "ar": "تحدٍ متصاعد ونظام نقاط"
+    },
+    "description": {
+      "en": "Follow your score and level as the pace increases and every placement matters.",
+      "ar": "تابع نتيجتك ومستواك مع ازدياد سرعة اللعب وأهمية كل موضع للقطعة."
+    }
+  },
+  {
+    "id": "offline-play",
+    "title": {
+      "en": "Play offline, whenever you like",
+      "ar": "العب دون اتصال متى شئت"
+    },
+    "description": {
+      "en": "Enjoy Tetrixa without an internet connection, whether you have a few minutes or more time to play.",
+      "ar": "استمتع بلعبة Tetrixa دون الحاجة إلى اتصال بالإنترنت، سواء كان لديك بضع دقائق أو وقت أطول."
+    }
+  }
 ]

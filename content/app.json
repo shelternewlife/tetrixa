@@ -1,9 +1,33 @@
 {
-"name":"Job Connect","developer":"DevImpact","package_id":"com.jobsearch.jobconnect.work.jobs.devimpact",
-"google_play_url":"https://play.google.com/store/apps/details?id=com.jobsearch.jobconnect.work.jobs.devimpact",
-"website_url":"https://shelternewlife.github.io/tobemotif-app-discovery/","ga4_measurement_id":"G-2JMZS90324","category":"Business","contains_ads":true,
-"distribution_status":"published_on_google_play","languages":["en","ar"],
-"privacy_policy_url":"https://sites.google.com/view/regles-2-confidentialite","support_email":"carta.net.play@gmail.com",
-"tagline":{"en":"Discover opportunities before they get crowded.","ar":"اكتشف الفرص المهنية مبكراً، قبل أن تزدحم المنافسة."},
-"description":{"en":"A focused job-opportunity discovery experience built around fresh signals, opportunity intelligence and personal collections. Explore roles, review compensation and location signals, understand why an opportunity surfaced, and organize opportunities worth following.","ar":"تجربة متخصصة لاكتشاف فرص العمل، ترتكز على الإشارات الحديثة وذكاء تحليل الفرص والمجموعات الشخصية. استكشف الأدوار الوظيفية، وراجع مؤشرات الرواتب والمواقع، وافهم أسباب ظهور الفرصة، ونظّم الفرص التي تستحق المتابعة."}
+  "name": "Tetrixa",
+  "developer": "DevImpact",
+  "package_id": "com.game.tetrixa.devimpact",
+  "google_play_url": "https://play.google.com/store/apps/details?id=com.game.tetrixa.devimpact",
+  "website_url": "https://shelternewlife.github.io/tetrixa/",
+  "ga4_measurement_id": "",
+  "category": "GameApplication",
+  "contains_ads": true,
+  "distribution_status": "published_on_google_play",
+  "languages": [
+    "en",
+    "ar",
+    "en-US",
+    "en-CA",
+    "fr-CA",
+    "es-ES",
+    "pt-PT",
+    "fr-FR",
+    "de-DE",
+    "it-IT"
+  ],
+  "privacy_policy_url": "https://sites.google.com/view/regles-2-confidentialite",
+  "support_email": "carta.net.play@gmail.com",
+  "tagline": {
+    "en": "Drop the pieces. Clear the rows. Beat your best score.",
+    "ar": "أسقط القطع، وأكمل الصفوف، وحطّم أفضل نتيجة حققتها."
+  },
+  "description": {
+    "en": "Tetrixa is a fast-paced mobile block puzzle game. Move and rotate falling pieces, complete rows, earn points and take on a gradually increasing challenge. Play offline with simple touch controls and enjoy quick rounds whenever you like.",
+    "ar": "Tetrixa لعبة ألغاز مربعات سريعة للهواتف. حرّك القطع الساقطة ودوّرها وأكمل الصفوف واجمع النقاط وواجه تحدياً تزداد صعوبته تدريجياً. العب دون اتصال بالإنترنت باستخدام أدوات تحكم بسيطة باللمس واستمتع بجولات سريعة متى شئت."
+  }
 }

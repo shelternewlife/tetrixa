@@ -1,175 +1,139 @@
-import html,json,pathlib
+#!/usr/bin/env python3
+"""Generate Tetrixa gameplay articles and feature detail pages."""
+import html, json, pathlib
 ROOT=pathlib.Path(__file__).resolve().parents[1]; DIST=ROOT/"dist"
-APP=json.loads((ROOT/"content/app.json").read_text(encoding="utf-8")); SHOTS=json.loads((ROOT/"content/screenshots.json").read_text(encoding="utf-8")); FEATURES=json.loads((ROOT/"content/features.json").read_text(encoding="utf-8"))
+APP=json.loads((ROOT/"content/app.json").read_text(encoding="utf-8"))
+SHOTS=json.loads((ROOT/"content/screenshots.json").read_text(encoding="utf-8"))
+FEATURES=json.loads((ROOT/"content/features.json").read_text(encoding="utf-8"))
 BASE=APP["website_url"].rstrip("/"); PLAY=APP["google_play_url"]
-# Each article has five substantive sections, authored in both languages.
+
 DATA=[
-("discover-jobs-early","How to discover job opportunities before everyone else","كيف تكتشف فرص العمل قبل الآخرين","A repeatable routine for finding relevant openings early, checking sources and preparing stronger applications.","روتين عملي لاكتشاف الوظائف المناسبة مبكراً والتحقق من المصادر والاستعداد لتقديم طلبات أفضل.",[
-("Start with a focused target","ابدأ بهدف محدد","Choose role titles, seniority, locations and work arrangements you genuinely want. Focus makes relevant opportunities easier to recognize.","حدد المسميات الوظيفية ومستوى الخبرة والمواقع ونمط العمل الذي تريده فعلاً. يساعدك التركيز على تمييز الفرص المناسبة."),
-("Check trusted sources consistently","راجع المصادر الموثوقة بانتظام","Set short daily check-ins on trusted employer sites and job platforms. Record when you found each role so fresh listings are easier to prioritize.","خصص أوقاتاً قصيرة يومياً لمراجعة مواقع أصحاب العمل والمنصات الموثوقة. سجّل تاريخ العثور على كل وظيفة لتحديد الإعلانات الحديثة."),
-("Use alerts as prompts, not proof","اعتبر التنبيهات تذكيراً لا دليلاً","Job alerts reduce repeated searching, but always open the listing and verify that it is still active, legitimate and relevant.","تقلل التنبيهات البحث المتكرر، لكن افتح الإعلان دائماً وتحقق من أنه ما زال نشطاً وموثوقاً ومناسباً."),
-("Prepare an application kit","جهّز ملف التقديم","Keep your CV current, prepare a concise introduction and collect examples of relevant work. Tailor each application to the role.","حدّث سيرتك الذاتية وجهّز رسالة تعريف موجزة وأمثلة من أعمالك. خصص كل طلب وفق الوظيفة."),
-("Track the source and next step","سجّل المصدر والخطوة التالية","Record the source, date, role, status and next action. Review weekly to learn which sources and role types deserve attention.","سجّل المصدر والتاريخ والوظيفة والحالة والخطوة التالية. راجع القائمة أسبوعياً لمعرفة المصادر وأنواع الوظائف الأجدى.")]),
-("job-worth-applying","Signs that a job is worth applying for","علامات تدل على أن الوظيفة تستحق التقديم","A checklist for assessing fit, clarity and credibility before spending time on an application.","قائمة لتقييم الملاءمة والوضوح والمصداقية قبل استثمار وقتك في طلب التوظيف.",[
-("Responsibilities are specific","المهام محددة","A useful listing explains the work, expected outcomes and team context. Vague descriptions make fit difficult to assess.","يوضح الإعلان الجيد طبيعة العمل والنتائج المتوقعة وسياق الفريق. تجعل الأوصاف الغامضة تقييم الملاءمة صعباً."),
-("Requirements fit your level","المتطلبات تناسب مستواك","Separate essential requirements from preferences. You may still be a fit when you meet core needs and can learn some secondary skills.","ميّز بين الشروط الأساسية والمهارات المفضلة. قد تكون مناسباً إذا استوفيت الأساسيات وتستطيع تعلم بعض المهارات الإضافية."),
-("Employer identity is verifiable","هوية صاحب العمل قابلة للتحقق","Check the official company website, business identity and application route independently rather than trusting a listing alone.","تحقق بشكل مستقل من موقع الشركة وهويتها وطريقة التقديم، ولا تعتمد على الإعلان وحده."),
-("Practical details are clear","التفاصيل العملية واضحة","Look for location, remote-work eligibility, schedule, compensation information and deadlines. Ask about important gaps before sharing sensitive data.","ابحث عن الموقع وأهلية العمل عن بُعد والدوام ومعلومات الأجر والمواعيد. اسأل عن النواقص المهمة قبل مشاركة بيانات حساسة."),
-("You can demonstrate your fit","يمكنك إثبات ملاءمتك","Identify examples from work, study or projects that connect your skills to the responsibilities. Evidence is stronger than generic claims.","حدد أمثلة من العمل أو الدراسة أو المشاريع تربط مهاراتك بالمسؤوليات. الأدلة أقوى من الادعاءات العامة.")]),
-("organize-job-search","How to organize job opportunities without losing track","أفضل طرق تنظيم فرص العمل دون فقدان متابعتها","Turn scattered listings into a manageable pipeline with clear priorities and next actions.","حوّل الإعلانات المتفرقة إلى قائمة منظمة ذات أولويات وخطوات تالية واضحة.",[
-("Keep one source of truth","اعتمد مكاناً واحداً للمتابعة","Use one tracker or dedicated collection instead of scattering important details across tabs, messages and notebooks.","استخدم متعقباً واحداً أو مجموعة مخصصة بدلاً من توزيع التفاصيل بين علامات المتصفح والرسائل والدفاتر."),
-("Use simple statuses","استخدم حالات بسيطة","Try To review, Ready to apply, Applied, Interview and Closed. A short list is easier to maintain than a complicated workflow.","جرّب حالات: للمراجعة، جاهز للتقديم، تم التقديم، مقابلة، مغلق. القائمة القصيرة أسهل من نظام معقد."),
-("Capture useful details","سجّل التفاصيل المفيدة","Save the role, employer, original link, date found, location, work arrangement, deadline and why the opportunity interests you.","احفظ الوظيفة وصاحب العمل والرابط الأصلي وتاريخ العثور والموقع ونمط العمل والموعد وسبب اهتمامك."),
-("Assign a next action","حدد خطوة تالية","For every active role, write the next step: tailor a CV, research the employer, ask a question or follow up. Add a realistic date.","لكل وظيفة نشطة، اكتب الخطوة التالية: تخصيص السيرة أو البحث عن الشركة أو طرح سؤال أو المتابعة، مع تاريخ واقعي."),
-("Review and archive weekly","راجع وأرشف أسبوعياً","Remove duplicates, verify open listings and archive roles that no longer fit. Keep your attention on actionable opportunities.","احذف التكرارات وتحقق من استمرار استقبال الطلبات وأرشف الوظائف غير المناسبة، وركز على الفرص القابلة للتنفيذ.")]),
-("real-vs-weak-job-post","How to spot a credible job listing and avoid suspicious posts","كيف تميّز إعلان الوظيفة الموثوق من الإعلان الضعيف أو المشبوه","Warning signs and verification habits that protect your time and personal information.","علامات تحذير وعادات تحقق تحمي وقتك وبياناتك الشخصية.",[
-("Verify the employer independently","تحقق من صاحب العمل بشكل مستقل","Find the organization through its official website and independently located contact details. Do not rely only on links inside the listing.","اعثر على المؤسسة عبر موقعها الرسمي وبيانات اتصال مستقلة. لا تعتمد فقط على الروابط الموجودة في الإعلان."),
-("Treat payment demands as a warning","اعتبر طلبات الدفع علامة تحذير","Requests to pay for an interview, guaranteed job, equipment release or mandatory hiring step are serious red flags. Pause and verify.","طلبات الدفع مقابل مقابلة أو ضمان وظيفة أو معدات أو خطوة توظيف إلزامية علامات خطيرة. توقف وتحقق."),
-("Protect sensitive information","احمِ معلوماتك الحساسة","Never share passwords, one-time codes or full card details with a recruiter. Share necessary documents only through a verified hiring process.","لا تشارك كلمات المرور أو رموز التحقق أو بيانات البطاقة الكاملة. أرسل الوثائق الضرورية فقط عبر مسار توظيف موثوق."),
-("Check consistency and detail","تحقق من الاتساق والتفاصيل","Compare the job title, employer domain, responsibilities, location and application route. Unrealistic promises and copied branding deserve scrutiny.","قارن المسمى ونطاق موقع الشركة والمسؤوليات والموقع وطريقة التقديم. تستحق الوعود غير الواقعية وتقليد العلامة التدقيق."),
-("Walk away when unsure","انسحب عند الشك","If the employer cannot be verified or the process feels coercive, stop communication and report the post to its hosting platform.","إذا تعذر التحقق من صاحب العمل أو بدا المسار ضاغطاً، أوقف التواصل وأبلغ المنصة المستضيفة للإعلان.")]),
-("remote-work-arab-world","A practical guide to finding remote work across Arab countries","دليل عملي للبحث عن فرص العمل عن بُعد في الدول العربية","Search across borders more effectively by checking eligibility, time zones, contracts and payment details.","ابحث عبر الحدود بفاعلية أكبر عبر التحقق من الأهلية والمناطق الزمنية والعقود وطرق الدفع.",[
-("Search by skill and eligible country","ابحث حسب المهارة والدولة المؤهلة","Combine role terms such as support, design, software, translation or marketing with remote-work keywords. Read country restrictions carefully.","اجمع مسميات مثل الدعم والتصميم والبرمجيات والترجمة والتسويق مع كلمات العمل عن بُعد. اقرأ قيود الدول بعناية."),
-("Remote does not always mean worldwide","عن بُعد لا يعني دائماً من أي دولة","Some employers permit remote work only inside one country for payroll, tax, data or legal reasons. Confirm that your country is eligible.","يسمح بعض أصحاب العمل بالعمل عن بُعد داخل دولة واحدة لأسباب الرواتب والضرائب والبيانات والقانون. تأكد من أهلية بلدك."),
-("Confirm time-zone overlap","تحقق من توافق التوقيت","Ask about required team overlap, fixed shifts, weekend coverage and daylight-saving changes. Remote roles may still require set hours.","اسأل عن ساعات التداخل مع الفريق والورديات والعمل في العطلات وتغييرات التوقيت الصيفي. قد تتطلب الوظائف البعيدة ساعات محددة."),
-("Clarify contract and payment","وضّح العقد والدفع","Understand employee versus contractor status, payment currency, fees and documents required where you live before accepting.","افهم صفة الموظف أو المتعاقد وعملة الدفع والرسوم والوثائق المطلوبة في بلد إقامتك قبل القبول."),
-("Verify each opportunity","تحقق من كل فرصة","Save searches by role and eligible country, then verify each listing on the employer site. Never assume regional eligibility unless stated.","احفظ عمليات البحث حسب الوظيفة والدولة المؤهلة، ثم تحقق من الإعلان في موقع صاحب العمل. لا تفترض شمول المنطقة كلها دون تصريح.")]),
-("entry-level-tech-jobs","Finding entry-level technology jobs when you are starting out","كيف تبحث عن وظائف تقنية للمبتدئين عند بداية مسيرتك","Explore role families, show evidence of skills and assess junior vacancies realistically.","استكشف المسارات التقنية وأثبت مهاراتك وقيّم وظائف المبتدئين بواقعية.",[
-("Explore several entry routes","استكشف عدة مسارات للدخول","Consider technical support, QA testing, junior web development, data operations, IT administration and product support. Requirements vary.","فكر في الدعم التقني واختبار الجودة وتطوير الويب للمبتدئين وعمليات البيانات وإدارة تقنية المعلومات ودعم المنتجات. تختلف المتطلبات."),
-("Turn learning into evidence","حوّل التعلم إلى دليل عملي","Build a small portfolio: a website, documented test cases, a data project, a troubleshooting guide or a useful automation.","أنشئ ملف أعمال صغيراً: موقعاً أو حالات اختبار موثقة أو مشروع بيانات أو دليل أعطال أو أتمتة مفيدة."),
-("Read junior requirements carefully","اقرأ متطلبات المبتدئين بعناية","Focus on core skills and learning expectations rather than treating every tool in a listing as mandatory. Match responsibilities to evidence you have.","ركز على المهارات الأساسية وتوقعات التعلم بدلاً من اعتبار كل أداة شرطاً. اربط المسؤوليات بما تستطيع إثباته."),
-("Practice practical screening","تدرب على التقييم العملي","Practice explaining projects, solving role-relevant exercises and describing how you learn from mistakes. Keep examples honest and specific.","تدرب على شرح المشاريع وحل تمارين مرتبطة بالوظيفة وبيان كيف تتعلم من الأخطاء. اجعل أمثلتك صادقة ومحددة."),
-("Avoid pay-to-work traps","تجنب فخاخ الدفع مقابل العمل","Do not pay a recruiter to secure a job or interview. Verify training costs independently and distinguish optional learning from hiring requirements.","لا تدفع لمسؤول توظيف لضمان وظيفة أو مقابلة. تحقق من تكاليف التدريب وميّز التعلم الاختياري عن شروط التوظيف.")])
+("block-placement-basics","Block placement tips for a cleaner board","نصائح لوضع القطع والحفاظ على لوحة مرتبة","Learn to place falling pieces thoughtfully, preserve open space and avoid filling the board too quickly.","تعلّم وضع القطع الساقطة بعناية والحفاظ على المساحات المفتوحة وتجنب ملء اللوحة بسرعة.",[
+("Look at the next piece","راقب القطعة التالية","Use the next-piece preview to think one move ahead and choose a placement that keeps options open.","استخدم معاينة القطعة التالية للتخطيط للحركة المقبلة واختيار موضع يبقي أمامك خيارات."),
+("Keep the board flexible","حافظ على مرونة اللوحة","Avoid creating awkward gaps when a simpler placement can keep the board easier to manage.","تجنب إنشاء فراغات صعبة عندما يكون بإمكانك اختيار موضع أبسط يجعل إدارة اللوحة أسهل."),
+("Plan before the board gets crowded","خطط قبل ازدحام اللوحة","As the pace increases, take a moment to consider where the piece will land before moving it.","مع ازدياد السرعة، خذ لحظة لتحديد مكان سقوط القطعة قبل تحريكها."),
+("Use every move deliberately","اجعل لكل حركة هدفاً","A small adjustment can make the difference between keeping space available and blocking future pieces.","قد يصنع تعديل بسيط الفرق بين إبقاء مساحة متاحة وإعاقة القطع القادمة.")]),
+("how-to-clear-rows","How to clear rows in a block puzzle","كيف تكمل الصفوف في لعبة المربعات","Understand the basic goal: arrange pieces to complete horizontal rows and clear space for new pieces.","افهم الهدف الأساسي: رتّب القطع لإكمال الصفوف الأفقية وإخلاء مساحة للقطع الجديدة.",[
+("Build complete horizontal rows","كوّن صفوفاً أفقية مكتملة","Place pieces so that a row has no gaps. A completed row clears and opens room on the board.","ضع القطع بحيث يخلو الصف من الفراغات. عند اكتماله يُزال الصف وتُفتح مساحة على اللوحة."),
+("Watch for gaps","انتبه إلى الفراغات","Before placing a piece, check whether it leaves a hard-to-fill hole beneath or beside the stack.","قبل وضع القطعة، تحقق مما إذا كانت ستترك فجوة يصعب ملؤها أسفل التكدس أو بجانبه."),
+("Balance immediate and future clears","وازن بين الإكمال الفوري واللاحق","Sometimes a safe placement now creates a better opportunity to complete a row on the next move.","قد يتيح وضع آمن الآن فرصة أفضل لإكمال صف في الحركة التالية."),
+("Keep space for incoming pieces","اترك مساحة للقطع القادمة","Clearing rows regularly helps prevent the board from becoming crowded as the game speeds up.","يساعد إكمال الصفوف بانتظام على منع ازدحام اللوحة مع تسارع اللعبة.")]),
+("improve-your-puzzle-score","Ways to improve your Tetrixa score","طرق لتحسين نتيجتك في Tetrixa","Build a repeatable approach to piece placement, row clearing and adapting as the pace increases.","اتبع أسلوباً ثابتاً في وضع القطع وإكمال الصفوف والتكيف مع ازدياد سرعة اللعب.",[
+("Prioritize clean placements","أعطِ الأولوية للمواضع المناسبة","Choose placements that fit the current shape of the board and preserve room for upcoming pieces.","اختر مواضع تناسب شكل اللوحة الحالي وتحافظ على مساحة للقطع القادمة."),
+("Use the preview to plan ahead","استخدم المعاينة للتخطيط","Look at the next piece before committing to a move. Thinking ahead can reduce rushed decisions.","انظر إلى القطعة التالية قبل تثبيت الحركة. يساعد التخطيط المسبق على تقليل القرارات المتسرعة."),
+("Adapt to the increasing pace","تكيف مع ازدياد السرعة","As the challenge grows, favor clear, reliable moves over last-second corrections.","مع تصاعد التحدي، فضّل الحركات الواضحة والموثوقة على التصحيحات في اللحظة الأخيرة."),
+("Learn from each round","تعلّم من كل جولة","Notice which placements created difficult gaps and try a different arrangement in your next attempt.","لاحظ المواضع التي أنشأت فجوات صعبة وجرّب ترتيباً مختلفاً في محاولتك التالية.")]),
+("play-puzzle-games-offline","Enjoy a block puzzle game offline","استمتع بلعبة ألغاز المربعات دون اتصال","Tetrixa is described on Google Play as a complete offline game, making it available when you do not have an internet connection.","تصف صفحة Google Play لعبة Tetrixa بأنها لعبة تعمل دون اتصال، لتتمكن من اللعب عندما لا يتوفر الإنترنت.",[
+("Start a round when it suits you","ابدأ جولة في الوقت المناسب","Open the game and enjoy a quick puzzle session during a break or whenever you have time.","افتح اللعبة واستمتع بجولة ألغاز قصيرة أثناء الاستراحة أو عندما يتوفر لديك الوقت."),
+("Focus on the board","ركز على لوحة اللعب","Move and rotate pieces, complete rows and follow your score without needing an online connection.","حرّك القطع ودوّرها وأكمل الصفوف وتابع نتيجتك دون الحاجة إلى اتصال بالإنترنت."),
+("Use touch controls","استخدم أدوات التحكم باللمس","The mobile controls are designed for direct interaction with the game board.","صُممت أدوات التحكم على الهاتف للتفاعل المباشر مع لوحة اللعب."),
+("Install from the official listing","ثبّت اللعبة من الصفحة الرسمية","Use the official Google Play page for the current Android installation and app information.","استخدم صفحة Google Play الرسمية للحصول على التثبيت الحالي ومعلومات التطبيق على Android.")])
 ]
+
 GUIDES={
-"guide":("Job Connect user guide: explore, review and save opportunities","دليل استخدام Job Connect: اكتشف الفرص وراجعها واحفظها","A visual walkthrough using real screenshots from the official Google Play listing.","شرح مرئي باستخدام لقطات شاشة فعلية من صفحة Google Play الرسمية.",[
-("Discover opportunities","اكتشف الفرص","Start with the discovery view and scan the roles presented. Use the visible summary to decide what deserves a closer look.","ابدأ من شاشة الاكتشاف وتصفح الوظائف المعروضة. استخدم الملخص الظاهر لتحديد ما يستحق مراجعة أعمق."),
-("Review the opportunity list","راجع قائمة الفرص","Compare role details, including salary and location information when shown. Treat missing details as something to verify.","قارن تفاصيل الوظائف، بما فيها الراتب والموقع عند ظهورهما. اعتبر التفاصيل الناقصة أموراً تحتاج إلى تحقق."),
-("Open a role and read its context","افتح الوظيفة واقرأ سياقها","Read the opportunity details and the explanation shown for why it surfaced. Verify the original listing before applying.","اقرأ تفاصيل الفرصة والتوضيح المعروض لسبب ظهورها. تحقق من الإعلان الأصلي قبل التقديم."),
-("Review opportunity indicators","راجع مؤشرات الفرصة","Use intelligence and competition indicators as supporting context, not a guarantee of selection or employer quality.","استخدم مؤشرات الذكاء والمنافسة كسياق مساعد، لا كضمان للقبول أو جودة صاحب العمل."),
-("Organize roles in collections","نظّم الوظائف ضمن مجموعات","Use the personal collections shown in the app to group roles you want to revisit. Keep notes about deadlines and next steps.","استخدم المجموعات الشخصية الظاهرة في التطبيق لتجميع الوظائف. احتفظ بملاحظات عن المواعيد والخطوات التالية.")]),
-"tips":("Job search tips and how Job Connect opportunity intelligence works","نصائح البحث عن عمل وكيف تعمل مؤشرات ذكاء الفرص في Job Connect","Practical search habits and a careful explanation of the signals visible in the app.","عادات عملية للبحث عن عمل وشرح دقيق للإشارات الظاهرة في التطبيق.",[
-("Define a realistic search","حدد بحثاً واقعياً","Choose target roles, experience level, locations and work arrangements. Focus helps you assess relevance instead of chasing every listing.","اختر الوظائف ومستوى الخبرة والمواقع ونمط العمل. يساعدك التركيز على تقييم الملاءمة بدلاً من ملاحقة كل إعلان."),
-("Read the listing, not just a score","اقرأ الإعلان ولا تعتمد على المؤشر وحده","Review responsibilities, requirements, employer identity and application steps. Indicators should support your judgment, never replace it.","راجع المسؤوليات والمتطلبات وهوية صاحب العمل وخطوات التقديم. يجب أن تدعمك المؤشرات لا أن تحل محل حكمك."),
-("Understand surfaced-opportunity context","افهم سياق ظهور الفرصة","Job Connect describes opportunity context and indicators that help explain why a role surfaced. This guide does not claim access to a proprietary ranking formula.","يصف Job Connect سياق الفرص ومؤشرات تساعد على فهم سبب ظهور الوظيفة. لا يدّعي هذا الدليل معرفة معادلة ترتيب داخلية."),
-("Treat competition indicators carefully","تعامل مع مؤشرات المنافسة بحذر","Competition information can provide context, but may not equal the final applicant count or the employer's shortlist. Check the original source.","قد توفر معلومات المنافسة سياقاً، لكنها قد لا تساوي عدد المتقدمين النهائي أو قائمة صاحب العمل. تحقق من المصدر الأصلي."),
-("Make the final decision yourself","اتخذ قرارك بنفسك","Discover and organize roles in the app, then verify legitimacy, fit, salary, location and deadlines before sharing data or applying.","اكتشف الوظائف ونظمها في التطبيق، ثم تحقق من المصداقية والملاءمة والراتب والموقع والمواعيد قبل مشاركة بياناتك أو التقديم.")]),
-"comparison":("Job Connect vs. traditional job-search routines","Job Connect مقارنةً بطرق البحث التقليدية عن العمل","A qualitative workflow comparison, not a benchmark claiming one service wins every category.","مقارنة وصفية لأساليب العمل وليست اختباراً رقمياً يزعم تفوق خدمة في كل الجوانب.",[
-("Finding opportunities","العثور على الفرص","Traditional: revisit multiple sites manually. Job Connect: a dedicated discovery experience for exploring opportunities in one app.","تقليدياً: زيارة مواقع متعددة يدوياً. Job Connect: تجربة مخصصة لاستكشاف فرص العمل داخل تطبيق واحد."),
-("Understanding context","فهم سياق الفرصة","Traditional: compare details across tabs and notes. Job Connect: review opportunity context and visible indicators alongside listings.","تقليدياً: مقارنة التفاصيل بين علامات المتصفح والملاحظات. Job Connect: مراجعة سياق الفرصة والمؤشرات الظاهرة مع الإعلانات."),
-("Organizing roles","تنظيم الوظائف","Traditional: bookmarks, spreadsheets or saved messages. Job Connect: personal collections for grouping roles worth revisiting.","تقليدياً: إشارات مرجعية أو جداول أو رسائل محفوظة. Job Connect: مجموعات شخصية لتجميع الوظائف التي تستحق العودة إليها."),
-("Alerts and follow-up","التنبيهات والمتابعة","The Google Play listing describes job alerts. Open each alert and confirm applications are still accepted before acting.","تذكر صفحة Google Play وجود تنبيهات للوظائف. افتح كل تنبيه وتأكد من استمرار استقبال الطلبات قبل التصرف."),
-("What neither can guarantee","ما لا تضمنه أي طريقة","No app or manual workflow guarantees an interview, offer, listing accuracy or freedom from scams. Verify employers carefully.","لا يضمن أي تطبيق أو أسلوب يدوي مقابلة أو عرض عمل أو دقة الإعلانات أو الخلو من الاحتيال. تحقق من أصحاب العمل بعناية.")])}
+"guide":("Tetrixa user guide: learn the basics","دليل Tetrixa: تعرّف على أساسيات اللعب","A quick walkthrough of the board, falling pieces, next-piece preview and row clearing.","شرح سريع للوحة اللعب والقطع الساقطة ومعاينة القطعة التالية وإكمال الصفوف.",[
+("Start a round","ابدأ جولة","Open Tetrixa and look at the game board before the first pieces begin to fall.","افتح Tetrixa وانظر إلى لوحة اللعب قبل بدء سقوط القطع."),
+("Move and rotate pieces","حرّك القطع ودوّرها","Use the on-screen controls to position and rotate pieces so they fit the available space.","استخدم أدوات التحكم على الشاشة لوضع القطع وتدويرها لتناسب المساحة المتاحة."),
+("Check the next piece","تحقق من القطعة التالية","Use the preview to anticipate what is coming and plan a better placement.","استخدم المعاينة لمعرفة القطعة القادمة والتخطيط لوضعها بشكل أفضل."),
+("Complete rows","أكمل الصفوف","Fill a horizontal row without gaps to clear it and make room on the board.","املأ صفاً أفقياً دون فجوات لإزالته وإخلاء مساحة على اللوحة."),
+("Keep improving","واصل التحسن","Follow your score and adapt as the game becomes more challenging.","تابع نتيجتك وتكيف مع ازدياد تحدي اللعبة.")]),
+"tips":("Tetrixa tips for smarter block placement","نصائح Tetrixa لوضع القطع بذكاء","Simple ideas for planning moves, keeping the board open and responding to a faster pace.","أفكار بسيطة للتخطيط للحركات والحفاظ على مساحة اللوحة والاستجابة لسرعة اللعب.",[
+("Think one move ahead","فكر في الحركة التالية","Check the next-piece preview and consider how it will fit after your current move.","تحقق من معاينة القطعة التالية وفكر في كيفية وضعها بعد حركتك الحالية."),
+("Avoid difficult gaps","تجنب الفجوات الصعبة","Try not to leave isolated spaces that are hard to fill with later pieces.","حاول ألا تترك مساحات منعزلة يصعب ملؤها بالقطع اللاحقة."),
+("Clear rows regularly","أكمل الصفوف بانتظام","Completed rows free up space and help you manage the board for longer.","تؤدي الصفوف المكتملة إلى إخلاء مساحة وتساعدك على إدارة اللوحة مدة أطول."),
+("Stay calm as speed rises","حافظ على هدوئك مع زيادة السرعة","Prefer a deliberate placement over a rushed move when the pace increases.","فضّل وضع القطعة بعناية بدلاً من حركة متسرعة عندما تزداد السرعة.")]),
+"comparison":("Block puzzle strategies: plan, place and clear","استراتيجيات ألغاز المربعات: خطط وضع وأكمل","A practical comparison of different ways to approach a crowded board and an upcoming piece.","مقارنة عملية بين طرق التعامل مع لوحة مزدحمة وقطعة قادمة.",[
+("Quick placement","الوضع السريع","A fast move can help when the board is open, but check the landing space first.","قد تساعد الحركة السريعة عندما تكون اللوحة مفتوحة، لكن تحقق من مساحة الهبوط أولاً."),
+("Plan for the next piece","خطط للقطعة التالية","Looking ahead can preserve more options than focusing only on the current piece.","قد يحافظ النظر إلى الحركة التالية على خيارات أكثر من التركيز على القطعة الحالية فقط."),
+("Clear space when possible","أخلِ المساحة عندما تستطيع","Completing rows reduces clutter and gives new pieces room to fit.","يقلل إكمال الصفوف الازدحام ويمنح القطع الجديدة مساحة مناسبة."),
+("Choose the safer move","اختر الحركة الأكثر أماناً","A stable board can be more useful than a risky placement that leaves hard-to-fill gaps.","قد تكون اللوحة المستقرة أفضل من وضع محفوف بالمخاطر يترك فجوات يصعب ملؤها.")])
+}
+
 def e(v): return html.escape(str(v),quote=True)
 def route_url(lang,tail=""): return f'{BASE}/{lang}/'+(f'{tail}/' if tail else "")
 def routes():
- tails=["","about","features","download","faq","blog"]+["features/"+f["id"] for f in FEATURES]+["blog/"+a[0] for a in DATA]+list(GUIDES)
- return [(l,t) for l in ("en","ar") for t in tails]
-def nav(l, tail=""):
- primary={
-  "en":[("about","About"),("features","Features"),("download","Download"),("faq","FAQ")],
-  "ar":[("about","عن التطبيق"),("features","المزايا"),("download","التنزيل"),("faq","الأسئلة")]
- }
- resource={
-  "en":[("tips","Tips"),("blog","Blog"),("guide","User guide"),("comparison","Compare")],
-  "ar":[("tips","نصائح العمل"),("blog","المدونة"),("guide","دليل الاستخدام"),("comparison","مقارنة")]
- }
- primary_links="".join(f'<a data-nav-item="{key}" href="{route_url(l,key)}">{label}</a>' for key,label in primary[l])
- resource_links="".join(f'<a data-nav-item="{key}" href="{route_url(l,key)}">{label}</a>' for key,label in resource[l])
- other="ar" if l=="en" else "en"
- switch_label="العربية" if l=="en" else "English"
- switch_flag="🇺🇸" if l=="en" else "🌐"
- switch=(f'<a class="locale-flag" lang="{other}" href="{route_url(other)}" title="{switch_label}" aria-label="{switch_label}"><span aria-hidden="true">{switch_flag}</span></a>')
- primary_group="Explore" if l=="en" else "استكشف"
- resource_group="Resources" if l=="en" else "الموارد"
- return (
-  f'<header class="standard-header"><div class="header-main"><div class="locale-switch" aria-label="Country and region">{switch}</div><a class="brand" href="{BASE}/">JOB <b>CONNECT</b></a>'
-  f'<nav aria-label="Primary navigation">'
-  f'<details class="nav-menu" data-nav-group="primary"><summary>{primary_group}</summary><div class="nav-dropdown">{primary_links}</div></details>'
-  f'<details class="nav-menu" data-nav-group="resources"><summary>{resource_group}</summary><div class="nav-dropdown">{resource_links}</div></details>'
-  f'</nav></div></header>'
- )
-def footer(l):
- return f'<footer><span>© DevImpact · JOB CONNECT</span><span><a href="{e(APP["privacy_policy_url"])}">{"Privacy policy" if l=="en" else "سياسة الخصوصية"}</a> · <a href="mailto:{e(APP["support_email"])}">{"Support" if l=="en" else "الدعم"}</a></span></footer>'
+    tails=["","about","features","download","faq","blog"]+["features/"+f["id"] for f in FEATURES]+["blog/"+a[0] for a in DATA]+list(GUIDES)
+    return [(l,t) for l in ("en","ar") for t in tails]
+def nav(l,tail=""):
+    import build
+    primary=[("about","About" if l=="en" else "حول اللعبة"),("features","Features" if l=="en" else "المزايا"),("download","Download" if l=="en" else "التنزيل"),("faq","FAQ" if l=="en" else "الأسئلة")]
+    resource=[("tips","Tips" if l=="en" else "نصائح اللعب"),("blog","Blog" if l=="en" else "المدونة"),("guide","User guide" if l=="en" else "دليل اللعب"),("comparison","Strategies" if l=="en" else "استراتيجيات")]
+    p="".join(f'<a data-nav-item="{k}" href="{route_url(l,k)}">{v}</a>' for k,v in primary)
+    r="".join(f'<a data-nav-item="{k}" href="{route_url(l,k)}">{v}</a>' for k,v in resource)
+    return (f'<header class="standard-header"><div class="locale-switch" aria-label="Country and region">{build.render_market_flags(tail)}{build.render_social_links()}</div>'
+      f'<div class="header-main"><a class="brand" href="{BASE}/">TETRIXA</a><nav aria-label="Primary navigation">'
+      f'<details class="nav-menu" data-nav-group="primary"><summary>{"Explore" if l=="en" else "استكشف"}</summary><div class="nav-dropdown">{p}</div></details>'
+      f'<details class="nav-menu" data-nav-group="resources"><summary>{"Play guides" if l=="en" else "أدلة اللعب"}</summary><div class="nav-dropdown">{r}</div></details></nav></div></header>')
 def page(l,tail,title,desc,content,typ="WebPage"):
- u=route_url(l,tail); organization={"@type":"Organization","@id":f"{BASE}/#organization","name":APP["developer"],"url":BASE+"/","email":APP["support_email"]}; schema={"@context":"https://schema.org","@type":typ,"name":title,"description":desc,"inLanguage":l,"url":u,"publisher":{"@id":f"{BASE}/#organization"}}
- if typ=="Article": schema.update({"headline":title,"mainEntityOfPage":u,"author":{"@id":f"{BASE}/#organization"}})
- schema={"@context":"https://schema.org","@graph":[organization,schema]}
- return f'''<!doctype html><html lang="{l}" dir="{"rtl" if l=="ar" else "ltr"}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{e(title)}</title><meta name="description" content="{e(desc)}"><meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="{u}"><link rel="alternate" hreflang="en" href="{route_url("en",tail)}"><link rel="alternate" hreflang="ar" href="{route_url("ar",tail)}"><link rel="alternate" hreflang="x-default" href="{route_url("en",tail)}"><meta property="og:type" content="article"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{u}"><meta property="og:image" content="{e(SHOTS[0]["src"])}"><meta name="twitter:card" content="summary_large_image"><link rel="preconnect" href="https://play-lh.googleusercontent.com" crossorigin><link rel="stylesheet" href="{BASE}/assets/style.css"><script type="application/ld+json">{json.dumps(schema,ensure_ascii=False)}</script></head><body data-page-section="{e(tail.split("/")[0] if tail else "home")}"><a class="skip-link" href="#main-content">{"تجاوز إلى المحتوى الرئيسي" if l=="ar" else "Skip to main content"}</a>{nav(l,tail)}<main id="main-content">{content}</main>{footer(l)}</body></html>'''
+    u=route_url(l,tail); org={"@type":"Organization","@id":f"{BASE}/#organization","name":APP["developer"],"url":BASE+"/","email":APP["support_email"]}
+    node={"@type":typ,"name":title,"description":desc,"inLanguage":l,"url":u,"publisher":{"@id":f"{BASE}/#organization"}}
+    if typ=="Article": node.update({"headline":title,"mainEntityOfPage":u,"author":{"@id":f"{BASE}/#organization"}})
+    schema={"@context":"https://schema.org","@graph":[org,node]}
+    return f'''<!doctype html><html lang="{l}" dir="{"rtl" if l=="ar" else "ltr"}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{e(title)}</title><meta name="description" content="{e(desc)}"><meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="{u}"><link rel="alternate" hreflang="en" href="{route_url("en",tail)}"><link rel="alternate" hreflang="ar" href="{route_url("ar",tail)}"><link rel="alternate" hreflang="x-default" href="{route_url("en",tail)}"><meta property="og:type" content="article"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{u}"><meta property="og:image" content="{e(SHOTS[0]["src"])}"><meta name="twitter:card" content="summary_large_image"><link rel="preconnect" href="https://play-lh.googleusercontent.com" crossorigin><link rel="stylesheet" href="{BASE}/assets/style.css"><script type="application/ld+json">{json.dumps(schema,ensure_ascii=False)}</script></head><body data-page-section="{e(tail.split("/")[0] if tail else "home")}"><a class="skip-link" href="#main-content">{"تجاوز إلى المحتوى الرئيسي" if l=="ar" else "Skip to main content"}</a>{nav(l,tail)}<main id="main-content">{content}</main><footer><span>© DevImpact · TETRIXA</span><span><a href="{e(APP["privacy_policy_url"])}">{"سياسة الخصوصية" if l=="ar" else "Privacy policy"}</a> · <a href="mailto:{e(APP["support_email"])}">{"الدعم" if l=="ar" else "Support"}</a></span></footer></body></html>'''
 def blog(l):
- title="Job search blog and career guides" if l=="en" else "مدونة البحث عن عمل والأدلة المهنية"
- desc="Practical bilingual articles on finding, evaluating and organizing job opportunities." if l=="en" else "مقالات عملية لاكتشاف فرص العمل وتقييمها وتنظيمها."
- cards=[]
- for slug,et,at,ee,ae,sections in DATA:
-  t=et if l=="en" else at; x=ee if l=="en" else ae
-  cards.append(f'<article class="item"><h2><a href="{route_url(l,"blog/"+slug)}">{e(t)}</a></h2><p>{e(x)}</p><a href="{route_url(l,"blog/"+slug)}">{"Read article →" if l=="en" else "اقرأ المقال ←"}</a></article>')
- content=f'<section class="section"><div class="tag">JOB CONNECT · {"CAREER RESOURCES" if l=="en" else "موارد مهنية"}</div><h1>{"The Job Connect blog" if l=="en" else "مدونة Job Connect"}</h1><p class="lead">{"Actionable advice for a focused and safer job search." if l=="en" else "نصائح قابلة للتطبيق لبحث أكثر تركيزاً وأماناً."}</p><div class="grid">{"".join(cards)}</div></section>'
- return page(l,"blog",title,desc,content)
+    title="Tetrixa gameplay blog and puzzle guides" if l=="en" else "مدونة Tetrixa وأدلة اللعب"
+    desc="Practical guides to block placement, clearing rows, improving your score and playing offline." if l=="en" else "أدلة عملية لوضع القطع وإكمال الصفوف وتحسين النتيجة واللعب دون اتصال."
+    cards=[]
+    for slug,et,at,ee,ae,sections in DATA:
+        t=et if l=="en" else at; d=ee if l=="en" else ae
+        cards.append(f'<article class="item"><h2><a href="{route_url(l,"blog/"+slug)}">{e(t)}</a></h2><p>{e(d)}</p><a href="{route_url(l,"blog/"+slug)}">{"Read guide →" if l=="en" else "اقرأ الدليل ←"}</a></article>')
+    content=f'<section class="section"><div class="tag">TETRIXA · {"GAMEPLAY RESOURCES" if l=="en" else "موارد اللعب"}</div><h1>{"Tetrixa gameplay guides" if l=="en" else "أدلة اللعب في Tetrixa"}</h1><p class="lead">{"Tips and explainers to help you plan each move and enjoy every round." if l=="en" else "نصائح وشروحات تساعدك على التخطيط لكل حركة والاستمتاع بكل جولة."}</p><div class="grid">{"".join(cards)}</div></section>'
+    return page(l,"blog",title,desc,content)
 def article(l,a):
- slug,et,at,ee,ae,sections=a; title=et if l=="en" else at; desc=ee if l=="en" else ae
- blocks="".join(f'<section class="article-section"><h2>{e(h_en if l=="en" else h_ar)}</h2><p>{e(p_en if l=="en" else p_ar)}</p></section>' for h_en,h_ar,p_en,p_ar in sections)
- content=f'<article class="section article"><h1>{e(title)}</h1><p class="lead">{e(desc)}</p>{blocks}<p><a href="{route_url(l,"blog")}">{"← All articles" if l=="en" else "← جميع المقالات"}</a></p><div class="end"><h2>{"Explore opportunities with Job Connect" if l=="en" else "استكشف الفرص مع Job Connect"}</h2><p>{"Discover and organize roles, then verify each listing independently." if l=="en" else "اكتشف الوظائف ونظمها، ثم تحقق من كل إعلان بشكل مستقل."}</p><a class="btn" href="{PLAY}" target="_blank" rel="noopener noreferrer">{"Open on Google Play" if l=="en" else "افتح على Google Play"}</a></div></article>'
- return page(l,"blog/"+slug,title,desc,content,"Article")
+    slug,et,at,ee,ae,sections=a; title=et if l=="en" else at; desc=ee if l=="en" else ae
+    blocks="".join(f'<section class="article-section"><h2>{e(h_en if l=="en" else h_ar)}</h2><p>{e(p_en if l=="en" else p_ar)}</p></section>' for h_en,h_ar,p_en,p_ar in sections)
+    content=f'<article class="section article"><h1>{e(title)}</h1><p class="lead">{e(desc)}</p>{blocks}<p><a href="{route_url(l,"blog")}">{"← All guides" if l=="en" else "← جميع الأدلة"}</a></p><div class="end"><h2>{"Play Tetrixa on Android" if l=="en" else "العب Tetrixa على Android"}</h2><p>{"Put these ideas into practice in your next round." if l=="en" else "جرّب هذه الأفكار في جولتك القادمة."}</p><a class="btn" href="{PLAY}" target="_blank" rel="noopener noreferrer">{"Open on Google Play" if l=="en" else "افتح على Google Play"}</a></div></article>'
+    return page(l,"blog/"+slug,title,desc,content,"Article")
 def guide(l,slug,data):
- et,at,ee,ae,steps=data; title=et if l=="en" else at; desc=ee if l=="en" else ae
- blocks=[]
- for i,(h_en,h_ar,p_en,p_ar) in enumerate(steps):
-  image=""
-  if slug=="guide":
-   s=SHOTS[i]; image=f'<figure class="guide-shot"><img src="{e(s["src"])}" width="526" height="296" alt="{e(s["alt"][l])}" loading="lazy" decoding="async"><figcaption>{e(s["caption"][l])}</figcaption></figure>'
-  blocks.append(f'<section class="guide-step"><div class="num">{i+1:02d}</div><div><h2>{e(h_en if l=="en" else h_ar)}</h2><p>{e(p_en if l=="en" else p_ar)}</p>{image}</div></section>')
- note=""
- if slug=="comparison": note=f'<p class="muted">{"This is a qualitative workflow comparison based on the app's published description, not an independent performance study." if l=="en" else "هذه مقارنة وصفية لأساليب العمل اعتماداً على وصف التطبيق المنشور، وليست دراسة أداء مستقلة."}</p>'
- content=f'<section class="section"><div class="tag">JOB CONNECT · {"HELP CENTER" if l=="en" else "مركز المساعدة"}</div><h1>{e(title)}</h1><p class="lead">{e(desc)}</p><div class="guide-list">{"".join(blocks)}</div>{note}</section>'
- return page(l,slug,title,desc,content)
-
-FEATURE_DETAILS={
-"discovery":{"en":[("Build a focused discovery routine","Choose the job titles, seniority levels, locations and work arrangements that match your goals. Review new opportunities regularly and open the original listing to confirm it is still active."),("Check freshness and relevance","Use freshness labels and alignment indicators as prompts for further review. They are supporting signals, not proof that a vacancy is new, suitable or still accepting applications."),("Verify before applying","Read the employer's original job description, requirements, location and application deadline. Confirm the employer through its official website before sharing personal information.")],"ar":[("أنشئ روتيناً واضحاً للاكتشاف","حدد المسميات الوظيفية ومستويات الخبرة والمواقع وأنماط العمل التي تناسب أهدافك. راجع الفرص بانتظام وافتح الإعلان الأصلي للتأكد من أنه ما زال نشطاً."),("تحقق من الحداثة والملاءمة","استخدم علامات الحداثة ومؤشرات التوافق كنقاط بداية للمراجعة. هي إشارات مساعدة وليست دليلاً قاطعاً على أن الوظيفة جديدة أو مناسبة أو ما زالت تستقبل الطلبات."),("تحقق قبل التقديم","اقرأ وصف الوظيفة الأصلي ومتطلباتها وموقعها وموعد التقديم. تحقق من صاحب العمل عبر موقعه الرسمي قبل مشاركة بياناتك الشخصية.")]},
-"opportunity-cards":{"en":[("Compare the essentials","Review the job title, organization and location shown on each opportunity card. Salary or compensation details may be present for some listings and absent from others."),("Notice missing information","A missing salary, location or requirement is not evidence of a bad employer. Treat gaps as questions to resolve from the original job listing."),("Open the full listing","Use the card as a quick overview, then read the full description and application instructions before deciding whether to apply.")],"ar":[("قارن المعلومات الأساسية","راجع المسمى الوظيفي والجهة والموقع الظاهر في بطاقة كل فرصة. قد تظهر معلومات الراتب أو التعويض لبعض الإعلانات وقد لا تتوفر في إعلانات أخرى."),("لاحظ المعلومات الناقصة","غياب الراتب أو الموقع أو أحد المتطلبات لا يثبت سوء صاحب العمل. اعتبر المعلومات الناقصة أسئلة تحتاج إلى تحقق من الإعلان الأصلي."),("افتح تفاصيل الإعلان","استخدم البطاقة للحصول على نظرة سريعة، ثم اقرأ الوصف الكامل وتعليمات التقديم قبل اتخاذ قرارك.")]},
-"opportunity-intelligence":{"en":[("Understand why a role surfaced","Review the context and explanation displayed with an opportunity. Use it to decide which parts of the job description deserve closer attention."),("Review practical signals","Check compensation, location, remote-work flexibility and freshness information when available. Confirm important details with the employer's original listing."),("Keep human judgment in the loop","An indicator cannot verify an employer, predict hiring outcomes or guarantee that a role is right for you. Assess responsibilities and requirements yourself.")],"ar":[("افهم سبب ظهور الوظيفة","راجع السياق والتوضيح المعروضين مع الفرصة. استخدمهما لتحديد الأجزاء التي تستحق قراءة أعمق في وصف الوظيفة."),("راجع المؤشرات العملية","افحص معلومات التعويض والموقع وإمكانية العمل عن بُعد والحداثة عندما تكون متاحة. أكد التفاصيل المهمة من إعلان صاحب العمل الأصلي."),("لا تستغنِ عن التقييم الشخصي","لا يستطيع أي مؤشر التحقق من صاحب العمل أو توقع نتيجة التوظيف أو ضمان ملاءمة الوظيفة لك. قيّم المسؤوليات والمتطلبات بنفسك.")]},
-"derived-metrics":{"en":[("Read the metrics as estimates","The app displays derived indicators such as data completeness, post freshness, uniqueness and competition, plus detected capabilities and requisites."),("Use each signal in context","Completeness describes the information available; freshness relates to the post; uniqueness and competition are indicators rather than verified market-wide measurements."),("Confirm important claims","Metrics can be incomplete or change as listings change. Recheck the original vacancy, employer and requirements before making a decision.")],"ar":[("اقرأ المؤشرات باعتبارها تقديرات","يعرض التطبيق مؤشرات مستنتجة مثل اكتمال البيانات وحداثة الإعلان والتفرد والمنافسة، إضافة إلى المهارات والمتطلبات المكتشفة."),("افهم كل مؤشر ضمن سياقه","يشير اكتمال البيانات إلى المعلومات المتاحة، وترتبط الحداثة بتاريخ الإعلان، أما التفرد والمنافسة فهي مؤشرات وليست قياسات مؤكدة لكل سوق العمل."),("تحقق من المعلومات المهمة","قد تكون المؤشرات غير مكتملة أو تتغير مع تحديث الإعلانات. راجع الوظيفة الأصلية وصاحب العمل والمتطلبات قبل اتخاذ القرار.")]},
-"collections":{"en":[("Create a structure that fits your search","Use personal collections to group opportunities by goal, such as remote roles, a target career path or jobs to review later."),("Keep useful opportunities together","Collections help you revisit roles instead of losing them among unrelated listings. The app examples include Remote Hub, Elite Leap and My Watchlist."),("Review and act on saved roles","Reopen each listing to confirm its status, note deadlines and decide on the next step. A saved opportunity is not necessarily still open.")],"ar":[("أنشئ تنظيماً يناسب بحثك","استخدم المجموعات الشخصية لتجميع الفرص حسب هدفك، مثل الوظائف عن بُعد أو مسار مهني محدد أو الوظائف التي تريد مراجعتها لاحقاً."),("اجمع الفرص المهمة في مكان واحد","تساعدك المجموعات على العودة إلى الوظائف بدلاً من ضياعها بين الإعلانات الأخرى. من أمثلة التطبيق Remote Hub وElite Leap وMy Watchlist."),("راجع الوظائف المحفوظة واتخذ خطوة","أعد فتح كل إعلان للتحقق من حالته وتسجيل المواعيد وتحديد الخطوة التالية. حفظ الفرصة لا يعني بالضرورة أنها ما زالت متاحة.")]}}
+    et,at,ee,ae,steps=data; title=et if l=="en" else at; desc=ee if l=="en" else ae
+    blocks=[]
+    for i,(h_en,h_ar,p_en,p_ar) in enumerate(steps):
+        image=""
+        if slug=="guide" and i<len(SHOTS):
+            s=SHOTS[i]; image=f'<figure class="guide-shot"><img src="{e(s["src"])}" width="526" height="936" alt="{e(s["alt"]["en" if l=="en" else "ar"])}" loading="lazy" decoding="async"><figcaption>{e(s["caption"]["en" if l=="en" else "ar"])}</figcaption></figure>'
+        blocks.append(f'<section class="guide-step"><div class="num">{i+1:02d}</div><div><h2>{e(h_en if l=="en" else h_ar)}</h2><p>{e(p_en if l=="en" else p_ar)}</p>{image}</div></section>')
+    content=f'<section class="section"><div class="tag">TETRIXA · {"GAMEPLAY GUIDE" if l=="en" else "دليل اللعب"}</div><h1>{e(title)}</h1><p class="lead">{e(desc)}</p><div class="guide-list">{"".join(blocks)}</div><p><a class="btn" href="{PLAY}" target="_blank" rel="noopener noreferrer">{"Play Tetrixa" if l=="en" else "العب Tetrixa"}</a></p></section>'
+    return page(l,slug,title,desc,content)
 def feature_page(l,feature):
- slug=feature["id"]; index=next(i for i,x in enumerate(FEATURES) if x["id"]==slug)
- title=feature["title"][l]+" | Job Connect"; desc=feature["description"][l]
- sections="".join(f'<section class="article-section"><h2>{e(h)}</h2><p>{e(p)}</p></section>' for h,p in FEATURE_DETAILS[slug][l])
- shot=SHOTS[index]
- content=f'<article class="article"><div class="tag">JOB CONNECT · {"JOB SEARCH FEATURE" if l=="en" else "ميزة للبحث عن عمل"}</div><h1>{e(feature["title"][l])}</h1><p class="lead">{e(desc)}</p><figure class="guide-shot"><img src="{e(shot["src"])}" width="526" height="296" alt="{e(shot["alt"][l])}" loading="lazy" decoding="async"><figcaption>{e(shot["caption"][l])}</figcaption></figure>{sections}<p><a href="{route_url(l,"features")}">{"Explore all features" if l=="en" else "استكشف جميع المزايا"}</a></p><p><a href="{route_url(l,"download")}">{"Download Job Connect" if l=="en" else "تنزيل Job Connect"}</a></p></article>'
- return page(l,"features/"+slug,title,desc,content)
-
+    index=next(i for i,x in enumerate(FEATURES) if x["id"]==feature["id"]); shot=SHOTS[index]
+    title=feature["title"][l]+" | Tetrixa"; desc=feature["description"][l]
+    headings=(["Learn the core loop","Make each placement count","Keep the board manageable"] if l=="en" else ["تعرّف على طريقة اللعب","اجعل لكل وضع هدفاً","حافظ على سهولة إدارة اللوحة"])
+    paragraphs=([desc,"Use the preview and touch controls to think ahead and position pieces carefully.","Complete rows to create space and adapt as the challenge increases."] if l=="en" else [desc,"استخدم المعاينة وأدوات التحكم باللمس للتخطيط ووضع القطع بعناية.","أكمل الصفوف لإخلاء المساحة وتكيف مع ازدياد التحدي."])
+    sections="".join(f'<section class="article-section"><h2>{e(h)}</h2><p>{e(p)}</p></section>' for h,p in zip(headings,paragraphs))
+    content=f'<article class="article"><div class="tag">TETRIXA · {"GAME FEATURE" if l=="en" else "ميزة في اللعبة"}</div><h1>{e(feature["title"][l])}</h1><p class="lead">{e(desc)}</p><figure class="guide-shot"><img src="{e(shot["src"])}" width="526" height="936" alt="{e(shot["alt"]["en" if l=="en" else "ar"])}" loading="lazy" decoding="async"><figcaption>{e(shot["caption"]["en" if l=="en" else "ar"])}</figcaption></figure>{sections}<p><a href="{route_url(l,"features")}">{"Explore all features" if l=="en" else "استكشف جميع المزايا"}</a></p><p><a href="{route_url(l,"download")}">{"Download Tetrixa" if l=="en" else "تنزيل Tetrixa"}</a></p></article>'
+    return page(l,"features/"+feature["id"],title,desc,content)
 def build_extra_pages():
- css=DIST/"assets/style.css"
- css.write_text(css.read_text(encoding="utf-8")+"""
-.article{max-width:850px;margin:auto}.article h1{font-size:clamp(2.1rem,5vw,3.5rem);line-height:1.2}.article-section{padding:18px 0;border-bottom:1px solid #ffffff18}.article-section h2{font-size:1.45rem}.article-section p,.guide-step p{color:#c1ccda}.guide-list{display:grid;gap:18px;margin-top:28px}.guide-step{display:grid;grid-template-columns:54px 1fr;gap:16px;padding:22px;background:#111925;border:1px solid #283449;border-radius:16px}.guide-step>.num{font-size:1.4rem}.guide-step h2{margin:0 0 8px}.guide-shot{margin:18px 0 0;padding:12px;background:#080b12;border-radius:12px}.guide-shot img{display:block;width:100%;height:auto;object-fit:contain}.guide-shot figcaption{color:#aab6c8;padding-top:8px}.article .end{margin-top:38px}.item a{color:#00c4df}.item h2{font-size:1.3rem;line-height:1.4}nav{align-items:center;gap:10px}.nav-menu{position:relative}.nav-menu>summary{list-style:none;cursor:pointer;display:flex;align-items:center;min-height:44px;padding:8px 13px;border:1px solid #34445c;border-radius:9px;background:#111925;color:#e5edf7;font-weight:700;white-space:nowrap}.nav-menu>summary::-webkit-details-marker{display:none}.nav-menu>summary::after{content:"▾";margin-inline-start:9px;color:#00c4df;font-size:.85em}.nav-menu>summary:focus-visible{outline:3px solid #00c4df;outline-offset:3px}.nav-menu[open]>summary{border-color:#00c4df}.nav-dropdown{position:absolute;top:calc(100% + 8px);inset-inline-start:0;z-index:60;display:grid;gap:3px;width:min(260px,calc(100vw - 36px));padding:8px;background:#111925;border:1px solid #34445c;border-radius:12px;box-shadow:0 16px 36px #0009}.nav-dropdown a{display:flex;align-items:center;min-height:42px;padding:8px 12px;border-radius:8px;color:#dce5f2;text-decoration:none}.nav-dropdown a:hover,.nav-dropdown a:focus-visible{background:#1c2b3e;color:#fff}.nav-dropdown a:focus-visible{outline:2px solid #00c4df;outline-offset:1px}@media(max-width:760px){nav{width:100%;gap:8px}.nav-menu>summary{padding:8px 10px}.nav-dropdown{max-width:calc(100vw - 36px)}.guide-step{grid-template-columns:36px 1fr;padding:16px}}
+    css=DIST/"assets/style.css"
+    css.write_text(css.read_text(encoding="utf-8")+"""
+.article{max-width:850px;margin:auto}.article h1{font-size:clamp(2.1rem,5vw,3.5rem);line-height:1.2}.article-section{padding:18px 0;border-bottom:1px solid #ffffff18}.article-section h2{font-size:1.45rem}.article-section p,.guide-step p{color:#c1ccda}.guide-list{display:grid;gap:18px;margin-top:28px}.guide-step{display:grid;grid-template-columns:54px 1fr;gap:16px;padding:22px;background:#111925;border:1px solid #283449;border-radius:16px}.guide-step>.num{font-size:1.4rem}.guide-step h2{margin:0 0 8px}.guide-shot{margin:18px 0 0;padding:12px;background:#080b12;border-radius:12px}.guide-shot img{display:block;width:100%;height:auto;object-fit:contain}.guide-shot figcaption{color:#aab6c8;padding-top:8px}.article .end{margin-top:38px}.item a{color:#00c4df}.item h2{font-size:1.3rem;line-height:1.4}
 """,encoding="utf-8")
- for l in ("en","ar"):
-  resource_items=[("tips","Tips" if l=="en" else "نصائح العمل"),("blog","Blog" if l=="en" else "المدونة"),("guide","User guide" if l=="en" else "دليل الاستخدام"),("comparison","Compare" if l=="en" else "مقارنة")]
-  extra='<details class="nav-menu" data-nav-group="resources"><summary>'+("Resources" if l=="en" else "الموارد")+'</summary><div class="nav-dropdown">'
-  extra+="".join(f'<a data-nav-item="{key}" href="{route_url(l,key)}">{label}</a>' for key,label in resource_items)
-  extra+='</div></details>'
-  for f in (DIST/l).rglob("index.html"):
-   src=f.read_text(encoding="utf-8")
-   if "<nav " in src and 'data-nav-group="resources"' not in src:
-    f.write_text(src.replace("</nav>",extra+"</nav>"),encoding="utf-8")
-  p=DIST/l/"blog"/"index.html"; p.parent.mkdir(parents=True,exist_ok=True); p.write_text(blog(l),encoding="utf-8")
-  for a in DATA:
-   p=DIST/l/"blog"/a[0]/"index.html"; p.parent.mkdir(parents=True,exist_ok=True); p.write_text(article(l,a),encoding="utf-8")
-  for slug,data in GUIDES.items():
-   p=DIST/l/slug/"index.html"; p.parent.mkdir(parents=True,exist_ok=True); p.write_text(guide(l,slug,data),encoding="utf-8")
-  for feature in FEATURES:
-   p=DIST/l/"features"/feature["id"]/"index.html"; p.parent.mkdir(parents=True,exist_ok=True); p.write_text(feature_page(l,feature),encoding="utf-8")
- entries=[(f"{BASE}/",None)]+[(route_url(l,t),t) for l,t in routes()]
- sm='<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">'
- for loc,tail in entries:
-  en,ar=(route_url("en"),route_url("ar")) if tail is None else (route_url("en",tail),route_url("ar",tail))
-  default=f"{BASE}/" if tail is None else en
-  sm+=f'<url><loc>{e(loc)}</loc><xhtml:link rel="alternate" hreflang="en" href="{e(en)}"/><xhtml:link rel="alternate" hreflang="ar" href="{e(ar)}"/><xhtml:link rel="alternate" hreflang="x-default" href="{e(default)}"/></url>'
- (DIST/"sitemap.xml").write_text(sm+"</urlset>",encoding="utf-8")
- (DIST/"sitemap.txt").write_text("\n".join(x[0] for x in entries)+"\n",encoding="utf-8")
- ll=(DIST/"llms.txt").read_text(encoding="utf-8")+"\n## Career resources\n"
- for l in ("en","ar"):
-  ll+=f"- {l} blog: {route_url(l,'blog')}\n"
-  for slug in GUIDES: ll+=f"- {l} {slug}: {route_url(l,slug)}\n"
-  for feature in FEATURES: ll+=f"- {l} feature {feature["id"]}: {route_url(l,"features/"+feature["id"])}\n"
- (DIST/"llms.txt").write_text(ll,encoding="utf-8")
+    for l in ("en","ar"):
+        for f in (DIST/l).rglob("index.html"):
+            src=f.read_text(encoding="utf-8")
+            if "<nav " in src and 'data-nav-group="resources"' not in src:
+                resource=[("tips","Tips" if l=="en" else "نصائح اللعب"),("blog","Blog" if l=="en" else "المدونة"),("guide","User guide" if l=="en" else "دليل اللعب"),("comparison","Strategies" if l=="en" else "استراتيجيات")]
+                links="".join(f'<a data-nav-item="{k}" href="{route_url(l,k)}">{v}</a>' for k,v in resource)
+                extra=f'<details class="nav-menu" data-nav-group="resources"><summary>{"Play guides" if l=="en" else "أدلة اللعب"}</summary><div class="nav-dropdown">{links}</div></details>'
+                f.write_text(src.replace("</nav>",extra+"</nav>"),encoding="utf-8")
+        p=DIST/l/"blog"/"index.html"; p.parent.mkdir(parents=True,exist_ok=True); p.write_text(blog(l),encoding="utf-8")
+        for a in DATA:
+            p=DIST/l/"blog"/a[0]/"index.html"; p.parent.mkdir(parents=True,exist_ok=True); p.write_text(article(l,a),encoding="utf-8")
+        for slug,data in GUIDES.items():
+            p=DIST/l/slug/"index.html"; p.parent.mkdir(parents=True,exist_ok=True); p.write_text(guide(l,slug,data),encoding="utf-8")
+        for feature in FEATURES:
+            p=DIST/l/"features"/feature["id"]/"index.html"; p.parent.mkdir(parents=True,exist_ok=True); p.write_text(feature_page(l,feature),encoding="utf-8")
+    entries=[(f"{BASE}/",None)]+[(route_url(l,t),t) for l,t in routes()]
+    sm='<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">'
+    for loc,tail in entries:
+        en,ar=(route_url("en"),route_url("ar")) if tail is None else (route_url("en",tail),route_url("ar",tail))
+        default=f"{BASE}/" if tail is None else en
+        sm+=f'<url><loc>{e(loc)}</loc><xhtml:link rel="alternate" hreflang="en" href="{e(en)}"/><xhtml:link rel="alternate" hreflang="ar" href="{e(ar)}"/><xhtml:link rel="alternate" hreflang="x-default" href="{e(default)}"/></url>'
+    sm+="</urlset>"; (DIST/"sitemap.xml").write_text(sm,encoding="utf-8")
+    (DIST/"sitemap.txt").write_text("\n".join(x[0] for x in entries)+"\n",encoding="utf-8")
+    ll=(DIST/"llms.txt").read_text(encoding="utf-8")+"\n## Tetrixa gameplay resources\n"
+    for l in ("en","ar"):
+        ll+=f"- {l} gameplay blog: {route_url(l,'blog')}\n"
+        for slug in GUIDES: ll+=f"- {l} {slug}: {route_url(l,slug)}\n"
+        for feature in FEATURES: ll+=f"- {l} feature {feature['id']}: {route_url(l,'features/'+feature['id'])}\n"
+    (DIST/"llms.txt").write_text(ll,encoding="utf-8")
 if __name__=="__main__": build_extra_pages()

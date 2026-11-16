@@ -104,8 +104,6 @@ def localize(source, locale, section, route_tail=None):
         source = source.replace('og:locale" content="en_US"', 'og:locale" content="fr_CA"')
     elif locale == "en-CA":
         source = source.replace('og:locale" content="en_US"', 'og:locale" content="en_CA"')
-        source = source.replace("Job listings", "Job postings").replace("job listings", "job postings")
-        source = source.replace("Job listing", "Job posting").replace("job listing", "job posting")
     # Localize the two navigation group labels and the resource links.
     nav_groups = {
         "en-US": ("Explore", "Resources"), "en-CA": ("Explore", "Resources"),

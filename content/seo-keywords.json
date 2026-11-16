@@ -1,30 +1,30 @@
 {
   "en": {
     "primary": [
-      "job search app",
-      "job opportunities",
-      "job opportunity discovery"
+      "block puzzle game",
+      "offline puzzle game",
+      "Tetris-style block puzzle"
     ],
     "secondary": [
-      "Android job search app",
-      "job listings",
-      "organize job opportunities",
-      "job search app features"
+      "mobile block puzzle",
+      "classic block puzzle game",
+      "arcade puzzle game",
+      "falling block game",
+      "free offline puzzle game"
     ]
   },
   "ar": {
     "primary": [
-      "البحث عن عمل",
-      "وظائف شاغرة",
-      "فرص عمل"
+      "لعبة ألغاز المربعات",
+      "لعبة مربعات دون إنترنت",
+      "لعبة أركيد للألغاز"
     ],
     "secondary": [
-      "البحث عن وظائف",
-      "وظائف عن بعد",
-      "وظائف للمبتدئين",
-      "تنظيم فرص العمل",
-      "نصائح البحث عن عمل"
+      "ترتيب القطع",
+      "إكمال الصفوف",
+      "ألعاب ألغاز للأندرويد",
+      "لعبة نقاط ومراحل"
     ]
   },
-  "note": "Legacy English seeds are aligned to verified discovery and organization features. Market-specific clusters in market-strategy.json are authoritative for en-US, en-CA and fr-CA. Search volume is not verified; confirm by country and language in Google Keyword Planner and refine with Search Console."
+  "note": "Keyword themes describe the verified Tetrixa gameplay and store listing. Search volume and ranking difficulty are not supplied or verified; validate by country and language in Google Keyword Planner and Search Console."
 }
