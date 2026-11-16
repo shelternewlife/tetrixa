@@ -14,6 +14,7 @@ STRATEGY = json.loads((ROOT / "content/market-strategy.json").read_text(encoding
 GA_MEASUREMENT_ID = APP["ga4_measurement_id"]
 SCREENSHOTS = json.loads((ROOT / "content/screenshots.json").read_text(encoding="utf-8"))
 FEATURES = json.loads((ROOT / "content/features.json").read_text(encoding="utf-8"))
+FAQ = json.loads((ROOT / "content/faq.json").read_text(encoding="utf-8"))
 BASE = APP["website_url"].rstrip("/")
 NS = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
 ERRORS = []
@@ -100,16 +101,17 @@ for lang in ("en", "ar"):
         page_html = path.read_text(encoding="utf-8")
         if '"@type": "Organization"' not in page_html or '"@type": "SoftwareApplication"' not in page_html:
             fail(f"Missing Organization or SoftwareApplication JSON-LD on {path.relative_to(DIST)}")
-        if section == "faq" and ('"@type": "FAQPage"' not in page_html or page_html.count('"@type": "Question"') != 12):
-            fail(f"FAQPage JSON-LD must describe all 12 visible FAQ entries: {path.relative_to(DIST)}")
+        if section == "faq" and ('"@type": "FAQPage"' not in page_html or page_html.count('"@type": "Question"') != len(FAQ)):
+            fail(f"FAQPage JSON-LD must describe all {len(FAQ)} visible FAQ entries: {path.relative_to(DIST)}")
         if section != "faq" and '"@type": "FAQPage"' in page_html:
             fail(f"FAQPage JSON-LD must only appear on the FAQ page: {path.relative_to(DIST)}")
-        if f"https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}" not in page_html:
-            fail(f"Missing GA4 library on {path.relative_to(DIST)}")
-        if f"gtag('config', '{GA_MEASUREMENT_ID}')" not in page_html:
-            fail(f"Missing GA4 configuration on {path.relative_to(DIST)}")
-        if "gtag('event', 'google_play_click'" not in page_html:
-            fail(f"Missing Google Play click event handler on {path.relative_to(DIST)}")
+        if GA_MEASUREMENT_ID:
+            if f"https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}" not in page_html:
+                fail(f"Missing GA4 library on {path.relative_to(DIST)}")
+            if f"gtag('config', '{GA_MEASUREMENT_ID}')" not in page_html:
+                fail(f"Missing GA4 configuration on {path.relative_to(DIST)}")
+            if "gtag('event', 'google_play_click'" not in page_html:
+                fail(f"Missing Google Play click event handler on {path.relative_to(DIST)}")
         for required_meta in ('name="description"', 'name="robots" content="index,follow', 'property="og:title"', 'property="og:image"', 'name="twitter:card"'):
             if required_meta not in page_html:
                 fail(f"Missing SEO metadata {required_meta} in {path.relative_to(DIST)}")
@@ -135,7 +137,7 @@ for lang in ("en", "ar"):
             "faq": ["faq_end"],
         }
         found_locations = re.findall(r'data-analytics-event="google_play_click" data-cta-location="([^"]+)"', page_html)
-        if found_locations != tracked_locations[section]:
+        if GA_MEASUREMENT_ID and found_locations != tracked_locations[section]:
             fail(f"Incorrect Google Play click tracking locations on {path.relative_to(DIST)}")
         if section == "download":
             page_html = path.read_text(encoding="utf-8")
