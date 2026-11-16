@@ -517,47 +517,46 @@
     "en-US": {
       "language": "English (United States)",
       "market": "United States",
-      "intent": "Discover and evaluate job opportunities with an Android app; do not imply a guaranteed live inventory, application service or job-board comparison.",
+      "intent": "Discover an Android block puzzle game with offline play and classic falling-piece mechanics.",
       "primary": [
-        "job search app",
-        "job opportunities",
-        "job opportunity discovery app"
+        "block puzzle game",
+        "offline puzzle game",
+        "Android block puzzle"
       ],
       "secondary": [
-        "Android job search app",
-        "discover job opportunities",
-        "job listings",
-        "organize job opportunities"
+        "mobile block puzzle",
+        "classic block puzzle game",
+        "arcade puzzle game",
+        "falling block game"
       ],
       "excluded_terms": [
-        "best job search apps",
-        "jobs hiring now",
-        "remote jobs",
-        "entry level jobs",
-        "jobs near me",
-        "guaranteed jobs"
+        "best puzzle game",
+        "number one puzzle game",
+        "unlimited rewards",
+        "no ads",
+        "multiplayer puzzle"
       ],
-      "exclusion_reason": "These imply comparison rankings, live hiring inventory, geographic availability, or specialist filters that are not verified as core app capabilities.",
+      "exclusion_reason": "Avoid unsupported rankings, guarantees, multiplayer claims or claims that the game is ad-free.",
       "clusters": [
         {
-          "intent": "app discovery",
+          "intent": "game discovery",
           "primary": [
-            "job search app",
-            "job opportunities"
+            "block puzzle game",
+            "offline puzzle game"
           ],
           "secondary": [
-            "Android job search app",
-            "discover job opportunities"
+            "Android block puzzle",
+            "classic block puzzle game"
           ]
         },
         {
-          "intent": "opportunity discovery and organization",
+          "intent": "gameplay intent",
           "primary": [
-            "job opportunity discovery app"
+            "falling block game"
           ],
           "secondary": [
-            "job listings",
-            "organize job opportunities"
+            "arcade puzzle game",
+            "mobile block puzzle"
           ]
         }
       ]
@@ -565,48 +564,33 @@
     "en-CA": {
       "language": "English (Canada)",
       "market": "Canada",
-      "intent": "Localize terminology for Canadian English while describing discovery and review features without promising Canadian vacancy coverage.",
+      "intent": "Describe the Tetrixa Android block puzzle game and its verified offline gameplay.",
       "primary": [
-        "job search app Canada",
-        "job search app",
-        "job postings",
-        "job opportunities"
+        "block puzzle game Canada",
+        "offline puzzle game",
+        "Android block puzzle"
       ],
       "secondary": [
-        "Android job search app",
-        "employment opportunities",
-        "discover job opportunities",
-        "organize job postings"
+        "mobile block puzzle",
+        "classic block puzzle",
+        "arcade puzzle game"
       ],
       "excluded_terms": [
-        "find jobs in Canada",
-        "jobs in Canada",
-        "jobs hiring now",
-        "remote jobs Canada",
-        "entry level jobs Canada"
+        "best puzzle game",
+        "multiplayer puzzle",
+        "no ads"
       ],
-      "exclusion_reason": "Avoid claims that the app guarantees Canadian inventory, current hiring, remote-only listings or entry-level coverage until verified against live app data.",
+      "exclusion_reason": "Do not promise rankings, multiplayer or an ad-free experience.",
       "clusters": [
         {
-          "intent": "app discovery",
+          "intent": "game discovery",
           "primary": [
-            "job search app Canada",
-            "job search app"
+            "block puzzle game Canada",
+            "offline puzzle game"
           ],
           "secondary": [
-            "Android job search app",
-            "employment opportunities"
-          ]
-        },
-        {
-          "intent": "opportunity discovery and organization",
-          "primary": [
-            "job postings",
-            "job opportunities"
-          ],
-          "secondary": [
-            "discover job opportunities",
-            "organize job postings"
+            "Android block puzzle",
+            "mobile block puzzle"
           ]
         }
       ]
@@ -614,78 +598,65 @@
     "fr-CA": {
       "language": "Français canadien",
       "market": "Canada",
-      "intent": "Use natural Canadian French terms for job-search discovery and opportunity organization; do not imply guaranteed local vacancy coverage.",
+      "intent": "Présenter Tetrixa comme un jeu Android de puzzle de blocs jouable hors ligne.",
       "primary": [
-        "application de recherche d’emploi",
-        "application pour trouver un emploi",
-        "offres d’emploi"
+        "jeu de puzzle de blocs",
+        "jeu de blocs hors ligne",
+        "jeu de puzzle Android"
       ],
       "secondary": [
-        "possibilités d’emploi",
-        "recherche d’emploi",
-        "application Android pour l’emploi",
-        "organiser les offres d’emploi"
+        "jeu mobile de blocs",
+        "jeu d’arcade puzzle",
+        "jeu de pièces à placer"
       ],
       "excluded_terms": [
-        "emplois au Canada",
-        "emplois à distance",
-        "emplois débutant",
-        "emplois près de moi",
-        "meilleure application de recherche d’emploi"
+        "meilleur jeu de puzzle",
+        "jeu multijoueur",
+        "sans publicité"
       ],
-      "exclusion_reason": "These can imply a verified Canadian job inventory, remote or entry-level filters, nearby listings or an unsupported comparative ranking.",
+      "exclusion_reason": "Éviter les classements non vérifiés, les fonctions multijoueurs et les promesses sans publicité.",
       "clusters": [
         {
-          "intent": "app discovery",
+          "intent": "découverte du jeu",
           "primary": [
-            "application de recherche d’emploi",
-            "application pour trouver un emploi"
+            "jeu de puzzle de blocs",
+            "jeu de blocs hors ligne"
           ],
           "secondary": [
-            "possibilités d’emploi",
-            "recherche d’emploi"
-          ]
-        },
-        {
-          "intent": "opportunity discovery and organization",
-          "primary": [
-            "offres d’emploi"
-          ],
-          "secondary": [
-            "application Android pour l’emploi",
-            "organiser les offres d’emploi"
+            "jeu de puzzle Android",
+            "jeu mobile de blocs"
           ]
         }
       ]
     },
     "es-ES": {
-      "language": "Français (France)",
+      "language": "Español (España)",
       "market": "Spain",
-      "intent": "Describe verified opportunity discovery and organization without claiming guaranteed local vacancy inventory or application services.",
+      "intent": "Presentar Tetrixa como un juego Android de bloques que se puede jugar sin conexión.",
       "primary": [
-        "aplicación para buscar empleo",
-        "ofertas de empleo"
+        "juego de bloques",
+        "puzle de bloques sin conexión"
       ],
       "secondary": [
-        "buscar trabajo",
-        "organizar oportunidades"
+        "juego de puzle Android",
+        "juego arcade de bloques"
       ],
       "excluded_terms": [
-        "remote jobs",
-        "jobs hiring now",
-        "guaranteed jobs"
+        "mejor juego de puzles",
+        "multijugador",
+        "sin anuncios"
       ],
-      "exclusion_reason": "Remote-work availability and country-specific vacancy coverage are not guaranteed by the app.",
+      "exclusion_reason": "No afirmar rankings, multijugador ni ausencia de anuncios.",
       "clusters": [
         {
-          "intent": "app discovery",
+          "intent": "descubrimiento del juego",
           "primary": [
-            "aplicación para buscar empleo",
-            "ofertas de empleo"
+            "juego de bloques",
+            "puzle de bloques sin conexión"
           ],
           "secondary": [
-            "buscar trabajo",
-            "organizar oportunidades"
+            "juego de puzle Android",
+            "juego arcade de bloques"
           ]
         }
       ]
@@ -693,31 +664,31 @@
     "pt-PT": {
       "language": "Português (Portugal)",
       "market": "Portugal",
-      "intent": "Describe verified opportunity discovery and organization without claiming guaranteed local vacancy inventory or application services.",
+      "intent": "Descrever Tetrixa como um jogo Android de puzzle de blocos que funciona offline.",
       "primary": [
-        "aplicação para procurar emprego",
-        "ofertas de emprego"
+        "puzzle de blocos",
+        "jogo de blocos offline"
       ],
       "secondary": [
-        "procurar trabalho",
-        "organizar oportunidades"
+        "puzzle Android",
+        "jogo arcade de blocos"
       ],
       "excluded_terms": [
-        "remote jobs",
-        "jobs hiring now",
-        "guaranteed jobs"
+        "melhor jogo de puzzle",
+        "multijogador",
+        "sem anúncios"
       ],
-      "exclusion_reason": "Remote-work availability and country-specific vacancy coverage are not guaranteed by the app.",
+      "exclusion_reason": "Não prometer classificações, multijogador ou ausência de anúncios.",
       "clusters": [
         {
-          "intent": "app discovery",
+          "intent": "descoberta do jogo",
           "primary": [
-            "aplicação para procurar emprego",
-            "ofertas de emprego"
+            "puzzle de blocos",
+            "jogo de blocos offline"
           ],
           "secondary": [
-            "procurar trabalho",
-            "organizar oportunidades"
+            "puzzle Android",
+            "jogo arcade de blocos"
           ]
         }
       ]
@@ -725,31 +696,31 @@
     "fr-FR": {
       "language": "Français (France)",
       "market": "France",
-      "intent": "Describe verified opportunity discovery and organization without claiming guaranteed local vacancy inventory or application services.",
+      "intent": "Décrire Tetrixa comme un jeu Android de puzzle de blocs jouable hors ligne.",
       "primary": [
-        "application de recherche d’emploi",
-        "offres d’emploi"
+        "jeu de puzzle de blocs",
+        "jeu de blocs hors ligne"
       ],
       "secondary": [
-        "recherche d’emploi",
-        "organiser les offres"
+        "puzzle Android",
+        "jeu d’arcade de blocs"
       ],
       "excluded_terms": [
-        "remote jobs",
-        "jobs hiring now",
-        "guaranteed jobs"
+        "meilleur jeu de puzzle",
+        "multijoueur",
+        "sans publicité"
       ],
-      "exclusion_reason": "Remote-work availability and country-specific vacancy coverage are not guaranteed by the app.",
+      "exclusion_reason": "Ne pas promettre de classement, de multijoueur ou une expérience sans publicité.",
       "clusters": [
         {
-          "intent": "app discovery",
+          "intent": "découverte du jeu",
           "primary": [
-            "application de recherche d’emploi",
-            "offres d’emploi"
+            "jeu de puzzle de blocs",
+            "jeu de blocs hors ligne"
           ],
           "secondary": [
-            "recherche d’emploi",
-            "organiser les offres"
+            "puzzle Android",
+            "jeu d’arcade de blocs"
           ]
         }
       ]
@@ -757,31 +728,33 @@
     "de-DE": {
       "language": "Deutsch (Deutschland)",
       "market": "Germany",
-      "intent": "Describe verified opportunity discovery and organization without claiming guaranteed local vacancy inventory or application services.",
+      "intent": "Tetrixa als Android-Block-Puzzle mit Offline-Spiel beschreiben.",
       "primary": [
-        "Jobsuche App",
-        "Stellenangebote"
+        "Block-Puzzle-Spiel",
+        "Offline-Puzzle",
+        "Android Block Puzzle"
       ],
       "secondary": [
-        "Jobs entdecken",
-        "Stellenangebote organisieren"
+        "mobile Block-Puzzle",
+        "klassisches Blockspiel",
+        "Arcade-Puzzle"
       ],
       "excluded_terms": [
-        "remote jobs",
-        "jobs hiring now",
-        "guaranteed jobs"
+        "bestes Puzzle-Spiel",
+        "Mehrspieler",
+        "werbefrei"
       ],
-      "exclusion_reason": "Remote-work availability and country-specific vacancy coverage are not guaranteed by the app.",
+      "exclusion_reason": "Keine unbestätigten Rankings, Mehrspielerfunktionen oder Werbefreiheit versprechen.",
       "clusters": [
         {
-          "intent": "app discovery",
+          "intent": "Spiel entdecken",
           "primary": [
-            "Jobsuche App",
-            "Stellenangebote"
+            "Block-Puzzle-Spiel",
+            "Offline-Puzzle"
           ],
           "secondary": [
-            "Jobs entdecken",
-            "Stellenangebote organisieren"
+            "Android Block Puzzle",
+            "mobile Block-Puzzle"
           ]
         }
       ]
@@ -789,31 +762,31 @@
     "it-IT": {
       "language": "Italiano (Italia)",
       "market": "Italy",
-      "intent": "Describe verified opportunity discovery and organization without claiming guaranteed local vacancy inventory or application services.",
+      "intent": "Descrivere Tetrixa come puzzle di blocchi Android giocabile offline.",
       "primary": [
-        "app per cercare lavoro",
-        "offerte di lavoro"
+        "puzzle di blocchi",
+        "gioco di blocchi offline"
       ],
       "secondary": [
-        "opportunità di lavoro",
-        "organizzare offerte"
+        "puzzle Android",
+        "gioco arcade di blocchi"
       ],
       "excluded_terms": [
-        "remote jobs",
-        "jobs hiring now",
-        "guaranteed jobs"
+        "miglior puzzle",
+        "multigiocatore",
+        "senza pubblicità"
       ],
-      "exclusion_reason": "Remote-work availability and country-specific vacancy coverage are not guaranteed by the app.",
+      "exclusion_reason": "Non promettere classifiche, multiplayer o assenza di pubblicità.",
       "clusters": [
         {
-          "intent": "app discovery",
+          "intent": "scoperta del gioco",
           "primary": [
-            "app per cercare lavoro",
-            "offerte di lavoro"
+            "puzzle di blocchi",
+            "gioco di blocchi offline"
           ],
           "secondary": [
-            "opportunità di lavoro",
-            "organizzare offerte"
+            "puzzle Android",
+            "gioco arcade di blocchi"
           ]
         }
       ]

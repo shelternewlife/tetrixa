@@ -62,14 +62,16 @@ def build_localized_resource_pages():
             path.write_text(render_page(locale,tail,CONTENT[locale]["pages"][tail]),encoding="utf-8")
     sitemap=DIST/"sitemap.xml"
     root=ET.parse(sitemap).getroot()
-    existing={node.findtext(f"{NS}loc") for node in root.findall(f"{NS}url")}
+    ET.register_namespace("",NS); ET.register_namespace("xhtml",XHTML)
+    ns_tag="{"+NS+"}"; xhtml_tag="{"+XHTML+"}"
+    existing={node.findtext(f"{ns_tag}loc") for node in root.findall(f"{ns_tag}url")}
     for tail in HUBS:
         for locale in published:
             url=route(locale,tail)
             if url in existing: continue
-            node=ET.SubElement(root,f"{NS}url"); ET.SubElement(node,f"{NS}loc").text=url
-            for code in published: ET.SubElement(node,f"{XHTML}link",{"rel":"alternate","hreflang":code,"href":route(code,tail)})
-            ET.SubElement(node,f"{XHTML}link",{"rel":"alternate","hreflang":"x-default","href":route("en-US",tail)})
+            node=ET.SubElement(root,f"{ns_tag}url"); ET.SubElement(node,f"{ns_tag}loc").text=url
+            for code in published: ET.SubElement(node,f"{xhtml_tag}link",{"rel":"alternate","hreflang":code,"href":route(code,tail)})
+            ET.SubElement(node,f"{xhtml_tag}link",{"rel":"alternate","hreflang":"x-default","href":route("en-US",tail)})
     ET.ElementTree(root).write(sitemap,encoding="utf-8",xml_declaration=True)
     textfile=DIST/"sitemap.txt"; lines=textfile.read_text(encoding="utf-8").splitlines()
     for tail in HUBS:
