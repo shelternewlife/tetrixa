@@ -319,6 +319,7 @@ def render_page(lang, section):
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{esc(PAGE_TITLES[lang][section])}</title>
 <meta name="description" content="{esc(description)}">
+<meta name="google-site-verification" content="8mOiNMu4Tn477yFaR-IWrNQGhdqH1TpF6NKKoN94Oms">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#080b12">
 <link rel="canonical" href="{canonical}">
